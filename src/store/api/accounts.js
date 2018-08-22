@@ -9,7 +9,7 @@ export default {
         return res;
       });
   },
-  register(creds) {
+  signup(creds) {
     return api.post('/accounts', creds);
   },
 };
