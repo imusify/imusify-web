@@ -43,36 +43,36 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex';
-  import * as types from '../store/types';
+import { mapActions } from 'vuex';
+import * as types from '../store/types';
 
-  export default {
-    name: 'signup',
-    data() {
-      return {
-        credentials: {
-          username: '',
-          password: '',
-          passwordRepeat: '',
-          email: '',
-          phone: '',
-        },
-        status: '',
-      };
-    },
-
-    methods: {
-      ...mapActions({
-        signup: types.ACCOUNTS_SIGNUP,
-      }),
-      onSubmit() {
-        this.signup(this.credentials)
-          .then(() => {
-            this.$router.push('dashboard');
-          });
+export default {
+  name: 'signup',
+  data() {
+    return {
+      credentials: {
+        username: '',
+        password: '',
+        passwordRepeat: '',
+        email: '',
+        phone: '',
       },
+      status: '',
+    };
+  },
+
+  methods: {
+    ...mapActions({
+      signup: types.ACCOUNTS_SIGNUP,
+    }),
+    onSubmit() {
+      this.signup(this.credentials)
+        .then(() => {
+          this.$router.push('dashboard');
+        });
     },
-  };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

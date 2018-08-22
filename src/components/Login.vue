@@ -24,33 +24,33 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
-  import * as types from '../store/types';
+import { mapActions } from 'vuex';
+import * as types from '../store/types';
 
-  export default {
-    name: 'login',
-    data() {
-      return {
-        credentials: {
-          username: '',
-          password: '',
-        },
-        status: '',
-      };
-    },
-
-    methods: {
-      ...mapActions({
-        login: types.ACCOUNTS_USER,
-      }),
-      onSubmit() {
-        this.login(this.credentials)
-          .then(() => {
-            this.$router.replace(this.$route.query.redirect || '/dashboard');
-          });
+export default {
+  name: 'login',
+  data() {
+    return {
+      credentials: {
+        username: '',
+        password: '',
       },
+      status: '',
+    };
+  },
+
+  methods: {
+    ...mapActions({
+      login: types.ACCOUNTS_USER,
+    }),
+    onSubmit() {
+      this.login(this.credentials)
+        .then(() => {
+          this.$router.replace(this.$route.query.redirect || '/dashboard');
+        });
     },
-  };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
