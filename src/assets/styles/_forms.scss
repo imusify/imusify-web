@@ -1,0 +1,42 @@
+input[type=text], input[type=password], input[type=email], textarea {
+  padding: 1rem;
+  border: 1px solid #000;
+  outline: none;
+  margin-bottom: 1rem;
+  width: 20rem;
+  font-size: 1.6rem;
+}
+
+textarea {
+  height: 8rem;
+}
+
+fieldset {
+  width: 10rem;
+  margin: 1rem auto;
+
+  legend {
+    text-align: left;
+  }
+}
+
+button {
+  border: 1px solid #000;
+  padding: 1rem 2rem;
+  outline: none;
+  background-color: #ccc;
+  color: #000;
+  font-size: 1.6rem;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.form-field {
+  &:last-child {
+    input[type=text], input[type=password], input[type=email], textarea {
+      margin-bottom: 0;
+    }
+  }
+}
