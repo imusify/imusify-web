@@ -16,9 +16,45 @@
       </div>
       <div>
         <input type="text"
-               id="phone"
-               placeholder="Enter phone"
-               v-model="credentials.phone">
+               id="firstName"
+               placeholder="First name"
+               v-model="credentials.first_name">
+      </div>
+      <div>
+        <input type="text"
+               id="lastName"
+               placeholder="Last name"
+               v-model="credentials.last_name">
+      </div>
+      <div>
+        <input type="text"
+               id="birthday"
+               placeholder="Date of birth (mm/dd/yyyy)"
+               v-model="credentials.date_of_birth">
+      </div>
+      <div>
+        <input type="text"
+               id="wallet"
+               placeholder="Wallet address"
+               v-model="credentials.wallet_address">
+      </div>
+      <div>
+        <input type="text"
+               id="gender"
+               placeholder="Gender"
+               v-model="credentials.gender">
+      </div>
+      <div>
+        <input type="text"
+               id="bio"
+               placeholder="Bio"
+               v-model="credentials.bio">
+      </div>
+      <div>
+        <input type="text"
+               id="image"
+               placeholder="Image"
+               v-model="credentials.image">
       </div>
       <div>
         <input type="password"
@@ -43,6 +79,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 import { mapActions } from 'vuex';
 import * as types from '../store/types';
 
@@ -51,11 +88,18 @@ export default {
   data() {
     return {
       credentials: {
+        date_of_birth: '',
         username: '',
+        first_name: '',
+        last_name: '',
+        email: '',
+        wallet_address: '',
         password: '',
         passwordRepeat: '',
-        email: '',
-        phone: '',
+        gender: '',
+        bio: '',
+        image: '',
+        date_created: '',
       },
       status: '',
     };
@@ -66,9 +110,11 @@ export default {
       signup: types.ACCOUNTS_SIGNUP,
     }),
     onSubmit() {
+      this.credentials.date_created = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
       this.signup(this.credentials)
-        .then(() => {
-          this.$router.push('dashboard');
+        .then(data => {
+          this.state.user = data;
+          this.$router.push('/');
         });
     },
   },

@@ -1,11 +1,17 @@
 import Axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'production' ? '/api/1' : 'http://localhost:3000/api/1';
+// todo change dev url
+const baseURL = process.env.NODE_ENV === 'production' ? 'https://imusify-prod.herokuapp.com/v1' : 'https://imusify-prod.herokuapp.com/v1';
+const headers = {};
+const token = localStorage.getItem('token');
+
+if (token) {
+  headers.Authorization = `JWT ${token}`;
+}
+
 const api = Axios.create({
   baseURL,
-  headers: {
-    Authorization: `JWT ${localStorage.getItem('token')}`,
-  },
+  headers,
 });
 
 export default api;

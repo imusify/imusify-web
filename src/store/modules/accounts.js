@@ -4,9 +4,9 @@ import * as types from '../types';
 const actions = {
   [types.ACCOUNTS_SIGNUP]: ({ commit }, opts) => accounts.signup(opts)
     .then((res) => {
-      commit(types.ACCOUNTS_USER, res.data.user);
-      commit(types.ACCOUNTS_LOGIN_STATUS, res.data.message);
-      commit(types.ACCOUNTS_TOKEN, res.data.token);
+      commit(types.ACCOUNTS_USER, res.data);
+      commit(types.ACCOUNTS_LOGIN_STATUS, 'Ok');
+      // commit(types.ACCOUNTS_TOKEN, res.data);
     }),
 
   [types.ACCOUNTS_USER]: ({ commit }, creds) => accounts.login(creds)
