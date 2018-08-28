@@ -1,31 +1,31 @@
-import api from './create-api'
-import mocks from './mocks/artists'
-import _ from 'lodash'
+import _ from 'lodash';
+import api from './create-api';
+import mocks from './mocks/artists';
 
-let mockApi = {}
+let mockApi = {};
 
 if (process.env.NODE_ENV === 'development') {
-  mockApi = _.extend({}, mocks)
+  mockApi = _.extend({}, mocks);
 }
 
 export default _.extend({
   post(opts) {
-    return api.post('/artists', opts)
+    return api.post('/artists', opts);
   },
 
   put(opts) {
-    return api.put(`/artists/${opts._id}`, opts)
+    return api.put(`/artists/${opts._id}`, opts);
   },
 
   delete(id) {
-    return api.delete(`/artists/${id}`)
+    return api.delete(`/artists/${id}`);
   },
 
   get(id) {
-    return api.get(`/artists/${id}`)
+    return api.get(`/artists/${id}`);
   },
 
   getAll() {
-    return api.get('/artists')
-  }
-}, mockApi)
+    return api.get('/artists');
+  },
+}, mockApi);
