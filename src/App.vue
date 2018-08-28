@@ -14,21 +14,21 @@ import SideBar from '@/components/SideBar.vue';
 export default {
   components: {
     NavBar,
-    SideBar
+    SideBar,
   },
 
   data() {
     return {
-      isSideBarOpen: false
-    }
+      isSideBarOpen: false,
+    };
   },
 
   methods: {
-    toggleSideBar(isSideBarOpen){
+    toggleSideBar(isSideBarOpen) {
       this.isSideBarOpen = isSideBarOpen;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss">
 @import './src/assets/styles/base.scss';

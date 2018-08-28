@@ -48,20 +48,20 @@
   </nav>
 </template>
 <script>
-  export default {
-    name: 'SideBar',
-    props: ['isSideBarOpen'],
-    data() {
-      return {
-      }
+export default {
+  name: 'SideBar',
+  props: ['isSideBarOpen'],
+  data() {
+    return {
+    };
+  },
+  methods: {
+    toggleSideBar() {
+      this.isSideBarOpen = !this.isSideBarOpen;
+      this.$emit('toggleSideBar', this.isSideBarOpen);
     },
-    methods: {
-      toggleSideBar(){
-        this.isSideBarOpen = !this.isSideBarOpen;
-        this.$emit('toggleSideBar', this.isSideBarOpen);
-      }
-    }
-  };
+  },
+};
 </script>
 <style lang="scss" scoped>
 .sidebar {
