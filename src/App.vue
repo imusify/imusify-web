@@ -1,30 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/signup">Signup</router-link>
-    </div>
+    <nav>
+      <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
+      <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
+    </nav>
     <router-view/>
   </div>
 </template>
+<script>
+import NavBar from '@/components/NavBar.vue';
+import SideBar from '@/components/SideBar.vue';
 
+export default {
+  components: {
+    NavBar,
+    SideBar,
+  },
+
+  data() {
+    return {
+      isSideBarOpen: false,
+    };
+  },
+
+  methods: {
+    toggleSideBar(isSideBarOpen) {
+      this.isSideBarOpen = isSideBarOpen;
+    },
+  },
+};
+</script>
 <style lang="scss">
 @import './src/assets/styles/base.scss';
 
-#app {
-  text-align: center;
-}
 
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: $link-color;
-    &.router-link-exact-active {
-      /*color: #42b983;*/
+@media (min-width: 480px) {
+  #app {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > nav {
+      width: 19rem;
     }
   }
+
 }
 </style>

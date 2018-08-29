@@ -112,8 +112,7 @@ export default {
     onSubmit() {
       this.credentials.date_created = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
       this.signup(this.credentials)
-        .then(data => {
-          this.state.user = data;
+        .then(() => {
           this.$router.push('/');
         });
     },
