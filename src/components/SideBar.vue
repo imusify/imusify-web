@@ -91,7 +91,8 @@ export default {
   }
 
   .menu {
-    background-color: #22201e;
+    background: #22201e url("/sidebar-bg.png") no-repeat center center fixed;
+    background-size: cover;
     height: 100vh;
     width: 100%;
 
