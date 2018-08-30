@@ -46,7 +46,7 @@ export default {
     onSubmit() {
       this.login(this.credentials)
         .then(() => {
-          this.$router.replace(this.$route.query.redirect || '/dashboard');
+          this.$router.replace(this.$route.query.redirect || '/');
         });
     },
   },
