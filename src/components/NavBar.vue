@@ -67,7 +67,8 @@ export default {
     flex-direction: column;
     width: 19rem;
     justify-content: flex-start;
-    background-color: #22201e;
+    background: #22201e url("/sidebar-bg.png") no-repeat center center fixed;
+    background-size: cover;
 
     .subnav {
       display: flex;
