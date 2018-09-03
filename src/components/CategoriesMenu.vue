@@ -2,9 +2,7 @@
   <nav class="topnav">
     <section class="categories">
       <a href="#" class="prev">
-        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 3.25L3.17928 0L15.6 13L3.17928 26L0 22.75L9.36 13L0 3.25Z" fill="white"/>
-        </svg>
+        <icon name="prev" />
       </a>
       <ul>
         <li v-for="(category, index) in categories" :key="index"
@@ -13,31 +11,30 @@
         </li>
       </ul>
       <a href="#" class="next">
-        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 3.25L3.17928 0L15.6 13L3.17928 26L0 22.75L9.36 13L0 3.25Z" fill="white"/>
-        </svg>
+        <icon name="next" />
       </a>
     </section>
     <section class="tags">
       <a href="#" class="prev">
-        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 3.25L3.17928 0L15.6 13L3.17928 26L0 22.75L9.36 13L0 3.25Z" fill="white"/>
-        </svg>
+        <icon name="prev" />
       </a>
       <ul>
         <li v-for="(tag, index) in tags.Electronic" :key="index"><a href="#">{{tag}}</a></li>
       </ul>
       <a href="#" class="next">
-        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 3.25L3.17928 0L15.6 13L3.17928 26L0 22.75L9.36 13L0 3.25Z" fill="white"/>
-        </svg>
+        <icon name="next" />
       </a>
     </section>
   </nav>
 </template>
 <script>
+import Icon from '@/components/Icon.vue';
+
 export default {
   name: 'categories-menu',
+  components: {
+    Icon,
+  },
   data() {
     return {
       categories: [
@@ -129,18 +126,8 @@ export default {
       }
     }
 
-    .prev {
+    a.prev {
       transform: rotate(180deg);
-    }
-
-    .prev, .next {
-      display: block;
-      margin: 0 1rem;
-      &:hover {
-        svg path {
-          fill: #E41C69;
-        }
-      }
     }
   }
 
@@ -151,7 +138,7 @@ export default {
   }
 
   @media (min-width: 1200px) {
-    .prev, .next {
+    a.prev, a.next {
       display: none !important;
     }
   }
