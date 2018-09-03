@@ -8,23 +8,202 @@ function fetch(res) {
 
 export default {
   getAll() {
-    const artists = {
+    const tracks = {
       data: {
-        artists: [
-          { id: 1, title: 'Artist Listing 1', logoUrl: 'https://via.placeholder.com/150/92c952' },
+        tracks: [
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
+          {
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+          },
+          {
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+          },
+          {
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+          },
+          {
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+          },
+          {
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+          },
+          {
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+          },
         ],
       },
     };
 
-    return fetch(artists);
+    return fetch(tracks);
   },
   get(id) {
-    const artist = {
+    const track = {
       data: {
         id,
-        title: 'Artist Listing 1',
-        logoUrl: 'https://via.placeholder.com/150/92c952',
-        backgroundUrl: '/static/hv-cover-img/cover-img-crop@2x.png',
+        title: 'Track Listing 1',
+        artist: 'Artist 1',
+        coverUrl: '/artists/cover1.png',
         createdAt: Date.now(),
         description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur tincidunt turpis, in fringilla metus pulvinar sed. Duis venenatis nulla sed metus tempus efficitur. Vivamus elementum mi ac augue aliquam rhoncus. Nulla facilisi. Phasellus vulputate metus a quam interdum sollicitudin. Donec non purus varius, luctus sem aliquet, ultricies nunc. In ut consectetur lorem, aliquam euismod elit. Integer efficitur, dolor vitae luctus volutpat, tortor libero elementum augue, a porttitor est diam vel turpis. Fusce finibus metus vitae sagittis placerat. Vestibulum sagittis ligula in pharetra pharetra. Donec vitae velit eget urna venenatis finibus eget sed risus. Nunc accumsan eros at dapibus bibendum. Integer vestibulum faucibus dui blandit pellentesque.</p>
 
@@ -34,6 +213,6 @@ export default {
       },
     };
 
-    return fetch(artist);
+    return fetch(track);
   },
 };
