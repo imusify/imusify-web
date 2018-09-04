@@ -18,6 +18,7 @@ const actions = {
     }),
 
   [types.ARTIST_TRACK_GET]: ({ commit }, id) => {
+    // eslint-disable-next-line
     console.log('get track', id);
 
     artists.get(id)
