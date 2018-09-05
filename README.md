@@ -1,4 +1,4 @@
-# design-mockup-frontend-vuejs
+# imusify-web
 
 ## Project setup
 ```
