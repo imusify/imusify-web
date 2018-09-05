@@ -60,8 +60,8 @@ export default {
   flex-direction: column;
   position: absolute;
   top: 6.9rem;
+  bottom: 0;
   left: -17rem;
-  height: 100vh;
   width: 17rem;
   display: flex;
   justify-content: flex-start;
@@ -81,8 +81,9 @@ export default {
   .menu {
     background: #22201e url("/sidebar-bg.png") no-repeat center center fixed;
     background-size: cover;
-    height: 100vh;
     width: 100%;
+    height: 100%;
+    overflow-y: auto;
 
     .active {
       a {
