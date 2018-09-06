@@ -1,24 +1,25 @@
 <template>
-  <section class="home">
+  <section class="artists">
     <categories-menu></categories-menu>
-    <track-list :tracks="tracks"></track-list>
+    <artist-list :tracks="tracks"></artist-list>
     <audio-player :track="track" />
   </section>
 </template>
 
 <script>
 import { mapActions, mapGetters, mapMutations } from 'vuex';
-import CategoriesMenu from '@/components/CategoriesMenu.vue';
-import TrackList from '@/components/artist/TrackList.vue';
 import * as types from '@/store/types';
+
+import CategoriesMenu from '@/components/CategoriesMenu.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
 import AudioPlayer from '@/components/AudioPlayer.vue';
 
 export default {
-  name: 'Home',
+  name: 'artist-list-page',
   components: {
     AudioPlayer,
     CategoriesMenu,
-    TrackList,
+    ArtistList,
   },
 
   computed: {
