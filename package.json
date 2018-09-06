@@ -10,7 +10,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
 		"precommit-msg": "echo 'Pre-commit checks...' && exit 0",
-		"precommit": ["precommit-msg", "lint"]
+		"pre-commit": ["precommit-msg", "lint"]
   },
   "dependencies": {
     "axios": "^0.18.0",
