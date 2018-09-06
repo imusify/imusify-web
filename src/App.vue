@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <nav>
+    <aside>
       <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
       <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
-    </nav>
+    </aside>
     <router-view/>
   </div>
 </template>
@@ -33,15 +33,20 @@ export default {
 <style lang="scss">
 @import './src/assets/styles/base.scss';
 
-
 @media (min-width: 480px) {
   #app {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
 
-    > nav {
+    > aside {
       width: 19rem;
+      position: sticky;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      height: 100vh;
     }
   }
 

@@ -12,7 +12,8 @@
          @mouseenter="toggleThumbImage()"
          @mouseleave="toggleThumbImage()"
          @click.prevent="upvote(track)">
-        <icon :name="thumbImage" />
+        <icon name="thumb" :classes="(thumbImage === 'thumbHover' ? 'hide' : '')" />
+        <icon name="thumbHover" :classes="(thumbImage === 'thumb' ? 'hide' : '')" />
       </a>
     </header>
     <a href="#"
@@ -53,6 +54,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import './src/assets/styles/base.scss';
+
 .track {
   width: 18.25rem;
   height: 18.25rem;
