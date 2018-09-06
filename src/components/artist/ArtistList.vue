@@ -1,7 +1,7 @@
 <template>
   <ul class="tracks">
-    <li v-for="(track, index) in tracks" :key="index">
-      <artist-node :track="track" />
+    <li v-for="(artist, index) in artists" :key="index">
+      <artist-node :artist="artist" />
     </li>
   </ul>
 </template>
@@ -13,7 +13,7 @@ export default {
   components: {
     ArtistNode,
   },
-  props: ['tracks'],
+  props: ['artists'],
 };
 </script>
 <style lang="scss" scoped>

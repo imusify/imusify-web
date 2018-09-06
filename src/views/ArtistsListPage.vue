@@ -1,7 +1,7 @@
 <template>
   <section class="artists">
     <categories-menu></categories-menu>
-    <artist-list :tracks="tracks"></artist-list>
+    <artist-list :artists="tracks"></artist-list>
     <audio-player :track="track" />
   </section>
 </template>
