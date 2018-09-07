@@ -5,16 +5,21 @@
       <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
     </aside>
     <router-view/>
+    <spinner v-if="loading"></spinner>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 import NavBar from '@/components/NavBar.vue';
 import SideBar from '@/components/SideBar.vue';
+import Spinner from '@/components/Spinner.vue';
+import * as types from '@/store/types';
 
 export default {
   components: {
     NavBar,
     SideBar,
+    Spinner,
   },
 
   data() {
@@ -22,7 +27,11 @@ export default {
       isSideBarOpen: false,
     };
   },
-
+  computed: {
+    ...mapGetters({
+      loading: types.LOADING,
+    }),
+  },
   methods: {
     toggleSideBar(isSideBarOpen) {
       this.isSideBarOpen = isSideBarOpen;
