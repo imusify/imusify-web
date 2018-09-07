@@ -75,6 +75,9 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     flex-grow: 1;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     > section {
       display: flex;
