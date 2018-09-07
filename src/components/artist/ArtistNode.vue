@@ -72,7 +72,6 @@ export default {
 
       h4 {
         font-size: 1.2rem;
-        opacity: .6;
         text-transform: uppercase;
 
         a {
