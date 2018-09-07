@@ -1,14 +1,18 @@
 <template>
   <div class="toggler">
-    <router-link to="/artists" class="button" :class="{ active: selected === 'artists' }">Artists</router-link>
-    <router-link to="/" class="button" :class="{ active: selected === 'tracks' }">Tracks</router-link>
+    <router-link to="/artists"
+                 class="button"
+                 :class="{ active: selected === 'artists' }">Artists</router-link>
+    <router-link to="/"
+                 class="button"
+                :class="{ active: selected === 'tracks' }">Tracks</router-link>
   </div>
 </template>
 <script>
 export default {
   name: 'artist-track-toggler',
-  props: ['selected']
-}
+  props: ['selected'],
+};
 </script>
 <style lang="scss" scoped>
   .toggler {
