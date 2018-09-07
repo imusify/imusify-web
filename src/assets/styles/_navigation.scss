@@ -5,3 +5,12 @@ nav.subnav {
     font-weight: 400;
   }
 }
+
+nav.topnav .categories ul {
+  li.active a, a:hover {
+    background-image: url(/icon-triangle.svg);
+    background-position: center bottom -2px;
+    background-repeat: no-repeat;
+    background-size: 7px 7px;
+  }
+}
