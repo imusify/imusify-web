@@ -1,50 +1,51 @@
 <template>
-  <section class="home">
+  <section class="artists">
     <categories-menu></categories-menu>
-    <track-list :tracks="tracks"></track-list>
+    <artist-list :artists="tracks"></artist-list>
     <audio-player :track="track" />
   </section>
 </template>
 
 <script>
 import { mapActions, mapGetters, mapMutations } from 'vuex';
-import CategoriesMenu from '@/components/CategoriesMenu.vue';
-import TrackList from '@/components/artist/TrackList.vue';
 import * as types from '@/store/types';
+
+import CategoriesMenu from '@/components/CategoriesMenu.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
 import AudioPlayer from '@/components/AudioPlayer.vue';
 
 export default {
-  name: 'Home',
+  name: 'artist-list-page',
   components: {
     AudioPlayer,
     CategoriesMenu,
-    TrackList,
+    ArtistList,
   },
 
   computed: {
     ...mapGetters({
-      tracks: types.TRACK_LIST,
+      tracks: types.ARTIST_LIST,
       track: types.TRACK,
     }),
   },
 
   methods: {
     ...mapActions({
-      getTracks: types.TRACK_LIST,
+      getArtists: types.ARTIST_LIST,
       getTrack: types.TRACK_GET,
     }),
     ...mapMutations({
-      resetTracks: types.TRACK_LIST,
+      resetArtists: types.ARTIST_LIST,
     }),
   },
 
   mounted() {
-    this.getTracks();
+    this.getArtists();
     this.getTrack(1);
   },
 
   beforeDestroy() {
-    this.resetTracks({ id: 1 });
+    this.resetArtists({ id: 1 });
   },
 };
 </script>
