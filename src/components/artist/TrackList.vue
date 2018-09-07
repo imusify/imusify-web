@@ -23,5 +23,6 @@ export default {
   flex-grow: 1;
   flex-wrap: wrap;
   margin-top: 1rem;
+  min-height: 100vh;
 }
 </style>
