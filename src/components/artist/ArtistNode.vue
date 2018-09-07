@@ -9,8 +9,8 @@
     </div>
     <footer>
       <h4><router-link :to="`/artist/${artist.id}`">{{artist.name}}</router-link></h4>
-      <button class="small" :class="{ following: artist.isFollow }">
-        {{artist.isFollow ? 'following' : 'follow'}}
+      <button class="small" :class="{ following: artist.isFollowing }">
+        {{artist.isFollowing ? 'following' : 'follow'}}
       </button>
     </footer>
   </div>
