@@ -24,18 +24,18 @@ export default {
 
   computed: {
     ...mapGetters({
-      tracks: types.ARTISTS_TRACK_LIST,
+      tracks: types.ARTIST_TRACK_LIST,
       track: types.ARTIST_TRACK,
     }),
   },
 
   methods: {
     ...mapActions({
-      getTracks: types.ARTISTS_TRACK_LIST,
+      getTracks: types.ARTIST_TRACK_LIST,
       getTrack: types.ARTIST_TRACK_GET,
     }),
     ...mapMutations({
-      resetTracks: types.ARTISTS_TRACK_LIST,
+      resetTracks: types.ARTIST_TRACK_LIST,
     }),
   },
 

@@ -8,9 +8,9 @@ function fetch(res) {
 
 export default {
   getAll() {
-    const artists = {
+    const tracks = {
       data: {
-        artists: [
+        tracks: [
           {
             id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
           },
@@ -195,10 +195,10 @@ export default {
       },
     };
 
-    return fetch(artists);
+    return fetch(tracks);
   },
   get(id) {
-    const artist = {
+    const track = {
       data: {
         id,
         title: 'Track Listing 1',
@@ -213,6 +213,6 @@ export default {
       },
     };
 
-    return fetch(artist);
+    return fetch(track);
   },
 };
