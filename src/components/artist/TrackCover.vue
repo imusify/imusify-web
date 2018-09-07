@@ -9,11 +9,9 @@
       </span>
       <a href="#"
          class="thumb-button"
-         @mouseenter="toggleThumbImage()"
-         @mouseleave="toggleThumbImage()"
          @click.prevent="upvote(track)">
-        <icon name="thumb" :classes="(thumbImage === 'thumbHover' ? 'hide' : '')" />
-        <icon name="thumbHover" :classes="(thumbImage === 'thumb' ? 'hide' : '')" />
+        <icon name="thumb" />
+        <icon name="thumbHover" />
       </a>
     </header>
     <a href="#"
@@ -71,6 +69,26 @@ export default {
 
   .play-button {
     align-self: center;
+  }
+
+  .thumb-button {
+    .icon-svg.thumb {
+      display: inline-block;
+    }
+
+    .icon-svg.thumbHover {
+      display: none;
+    }
+
+    &:hover {
+      .icon-svg.thumb {
+        display: none;
+      }
+
+      .icon-svg.thumbHover {
+        display: inline-block;
+      }
+    }
   }
 
   header {
