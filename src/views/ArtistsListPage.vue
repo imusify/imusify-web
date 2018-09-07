@@ -24,28 +24,28 @@ export default {
 
   computed: {
     ...mapGetters({
-      tracks: types.ARTIST_TRACK_LIST,
-      track: types.ARTIST_TRACK,
+      tracks: types.ARTIST_LIST,
+      track: types.TRACK,
     }),
   },
 
   methods: {
     ...mapActions({
-      getTracks: types.ARTIST_TRACK_LIST,
-      getTrack: types.ARTIST_TRACK_GET,
+      getArtists: types.ARTIST_LIST,
+      getTrack: types.TRACK_GET,
     }),
     ...mapMutations({
-      resetTracks: types.ARTIST_TRACK_LIST,
+      resetArtists: types.ARTIST_LIST,
     }),
   },
 
   mounted() {
-    this.getTracks();
+    this.getArtists();
     this.getTrack(1);
   },
 
   beforeDestroy() {
-    this.resetTracks({ id: 1 });
+    this.resetArtists({ id: 1 });
   },
 };
 </script>

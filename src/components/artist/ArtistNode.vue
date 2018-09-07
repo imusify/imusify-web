@@ -3,13 +3,15 @@
     <div class="disc" :style="{ backgroundImage: `url(${artist.coverUrl})` }">
         <a href="#"
            class="play-button"
-           @click.prevent="playTrack(artist)">
+           @click.prevent="playArtist(artist)">
           <icon name="play" />
         </a>
     </div>
     <footer>
-      <h4><router-link :to="`/artist/${artist.id}`">{{artist.artist}}</router-link></h4>
-      <button class="small">{{artist.title}}</button>
+      <h4><router-link :to="`/artist/${artist.id}`">{{artist.name}}</router-link></h4>
+      <button class="small" :class="{ following: artist.isFollow }">
+        {{artist.isFollow ? 'following' : 'follow'}}
+      </button>
     </footer>
   </div>
 </template>
@@ -76,6 +78,11 @@ export default {
         padding: .5rem;
         margin: 10px 0px 0px;
         text-transform: uppercase;
+
+        &.following {
+          border-color: #E41C69;
+          background-color: #E41C69;
+        }
       }
 
       h4 {
