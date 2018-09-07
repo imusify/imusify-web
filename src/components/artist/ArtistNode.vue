@@ -24,21 +24,6 @@ export default {
     Icon,
   },
   props: ['artist'],
-  data() {
-    return {
-      thumbImage: 'thumb',
-    };
-  },
-  methods: {
-    toggleThumbImage() {
-      this.thumbImage = this.thumbImage === 'thumbHover' ? 'thumb' : 'thumbHover';
-    },
-
-    upvote(artist) {
-      // todo make api call to upvote track
-      console.log(artist);
-    },
-  },
 };
 </script>
 <style lang="scss" scoped>

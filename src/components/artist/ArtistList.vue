@@ -1,5 +1,5 @@
 <template>
-  <ul class="tracks">
+  <ul class="artists">
     <li v-for="(artist, index) in artists" :key="index">
       <artist-node :artist="artist" />
     </li>
@@ -17,7 +17,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .tracks {
+  .artists {
     display: flex;
     justify-content: flex-start;
     flex-grow: 1;
