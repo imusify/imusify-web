@@ -20,10 +20,12 @@ const actions = {
   [types.ARTIST_GET]: ({ commit }, id) => {
     // eslint-disable-next-line
     console.log('get track', id);
+    commit(types.LOADING, true);
 
     artists.get(id)
       .then((res) => {
         commit(types.ARTIST, res.data);
+        commit(types.LOADING, false);
       });
   },
 

@@ -5,6 +5,7 @@ import accounts from './modules/accounts';
 import items from './modules/items';
 import artists from './modules/artists';
 import tracks from './modules/tracks';
+import loading from './modules/loading';
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ const store = new Vuex.Store({
     artists,
     tracks,
     items,
+    loading,
   },
 });
 

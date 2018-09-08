@@ -28,3 +28,6 @@ export const TRACK_DELETE = 'tracks/TRACK_DELETE';
 export const TRACK_PUT = 'tracks/TRACK_PUT';
 export const TRACK_GET = 'tracks/TRACK_GET';
 export const TRACK_LIST = 'tracks/TRACKS_LIST';
+
+// loading indicator (spinner)
+export const LOADING = 'LOADING';
