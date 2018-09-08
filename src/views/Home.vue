@@ -2,6 +2,7 @@
   <section class="home">
     <categories-menu></categories-menu>
     <track-list :tracks="tracks"></track-list>
+    <artist-track-toggler selected="tracks"></artist-track-toggler>
     <audio-player :track="track" />
   </section>
 </template>
@@ -12,6 +13,7 @@ import CategoriesMenu from '@/components/CategoriesMenu.vue';
 import TrackList from '@/components/artist/TrackList.vue';
 import * as types from '@/store/types';
 import AudioPlayer from '@/components/AudioPlayer.vue';
+import ArtistTrackToggler from '@/components/ArtistTrackToggler.vue';
 
 export default {
   name: 'Home',
@@ -19,6 +21,7 @@ export default {
     AudioPlayer,
     CategoriesMenu,
     TrackList,
+    ArtistTrackToggler,
   },
 
   computed: {
