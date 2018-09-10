@@ -13,7 +13,7 @@ export default {
 </script>
 <style lang="scss">
   .spinner {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(calc(50% - 10rem), calc(50% - 12.2rem/2));
