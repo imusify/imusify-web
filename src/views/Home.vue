@@ -38,13 +38,13 @@ export default {
       track: types.TRACK,
     }),
 
-    selected () {
+    selected() {
       return this.$route.path === '/' ? 'tracks' : 'artists';
     },
 
-    transitionName () {
+    transitionName() {
       return this.selected === 'artists' ? 'slide-left' : 'slide-right';
-    }
+    },
   },
 
   methods: {
