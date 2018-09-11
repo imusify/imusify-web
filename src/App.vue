@@ -41,6 +41,7 @@ export default {
 </script>
 <style lang="scss">
 @import './src/assets/styles/base.scss';
+
 @media (min-width: 480px) {
   #app {
     display: flex;
