@@ -1,8 +1,13 @@
 <template>
   <section class="home">
     <categories-menu></categories-menu>
-    <track-list :tracks="tracks"></track-list>
-    <artist-track-toggler selected="tracks"></artist-track-toggler>
+    <section class="lists">
+      <transition :name="transitionName">
+        <track-list :tracks="tracks" v-if="selected == 'tracks'"></track-list>
+        <artist-list :artists="artists" v-else></artist-list>
+      </transition>
+    </section>
+    <artist-track-toggler :selected="selected"></artist-track-toggler>
     <audio-player :track="track" />
   </section>
 </template>
@@ -11,6 +16,7 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import CategoriesMenu from '@/components/CategoriesMenu.vue';
 import TrackList from '@/components/artist/TrackList.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
 import * as types from '@/store/types';
 import AudioPlayer from '@/components/AudioPlayer.vue';
 import ArtistTrackToggler from '@/components/ArtistTrackToggler.vue';
@@ -20,34 +26,79 @@ export default {
   components: {
     AudioPlayer,
     CategoriesMenu,
+    ArtistList,
     TrackList,
     ArtistTrackToggler,
   },
 
   computed: {
     ...mapGetters({
+      artists: types.ARTIST_LIST,
       tracks: types.TRACK_LIST,
       track: types.TRACK,
     }),
+
+    selected () {
+      return this.$route.path === '/' ? 'tracks' : 'artists';
+    },
+
+    transitionName () {
+      return this.selected === 'artists' ? 'slide-left' : 'slide-right';
+    }
   },
 
   methods: {
     ...mapActions({
+      getArtists: types.ARTIST_LIST,
       getTracks: types.TRACK_LIST,
       getTrack: types.TRACK_GET,
     }),
     ...mapMutations({
+      resetArtists: types.ARTIST_LIST,
       resetTracks: types.TRACK_LIST,
     }),
   },
 
   mounted() {
+    this.getArtists();
     this.getTracks();
     this.getTrack(1);
   },
 
   beforeDestroy() {
     this.resetTracks({ id: 1 });
+    this.resetArtists({ id: 1 });
   },
 };
 </script>
+<style lang="scss" scoped>
+.home {
+  .lists {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition-duration: 0.5s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  transform: translate(calc(100vw), 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  transform: translate(calc(-100vw), 0);
+}
+</style>

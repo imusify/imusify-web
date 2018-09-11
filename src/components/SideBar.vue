@@ -68,7 +68,7 @@ export default {
   align-items: flex-start;
   visibility: visible;
   transition: left .2s ease-in-out;
-  z-index: 1;
+  z-index: 2;
 
   &.open {
     left: 0;

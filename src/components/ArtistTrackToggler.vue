@@ -1,11 +1,11 @@
 <template>
   <div class="toggler">
-    <router-link to="/artists"
-                 class="button"
-                 :class="{ active: selected === 'artists' }">Artists</router-link>
     <router-link to="/"
                  class="button"
                 :class="{ active: selected === 'tracks' }">Tracks</router-link>
+    <router-link to="/artists"
+                 class="button"
+                 :class="{ active: selected === 'artists' }">Artists</router-link>
   </div>
 </template>
 <script>

@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Login from '@/components/Login.vue';
 import Home from './views/Home.vue';
 import Signup from './views/Signup.vue';
-import Artists from './views/Artists.vue';
 
 Vue.use(Router);
 
@@ -34,7 +33,7 @@ export default new Router({
     }, {
       path: '/artists',
       name: 'artists',
-      component: Artists,
+      component: Home,
     },
   ],
 });

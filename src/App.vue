@@ -4,7 +4,7 @@
       <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
       <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
     </aside>
-    <router-view/>
+    <router-view></router-view>
     <spinner v-if="loading"></spinner>
   </div>
 </template>
@@ -41,7 +41,6 @@ export default {
 </script>
 <style lang="scss">
 @import './src/assets/styles/base.scss';
-
 @media (min-width: 480px) {
   #app {
     display: flex;

@@ -2,7 +2,7 @@ function fetch(res) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(res);
-    }, 1500);
+    }, 100);
   });
 }
 
