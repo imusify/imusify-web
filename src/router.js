@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Login from '@/components/Login.vue';
 import Home from './views/Home.vue';
 import Signup from './views/Signup.vue';
+import SignupNext from './components/SignupNext.vue';
+import Profile from './components/Profile.vue';
 
 Vue.use(Router);
 
@@ -34,6 +36,14 @@ export default new Router({
       path: '/artists',
       name: 'artists',
       component: Home,
+    }, {
+      path: '/signupnext',
+      name: 'signupnext',
+      component: SignupNext,
+    }, {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
     },
   ],
 });
