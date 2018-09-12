@@ -20,6 +20,7 @@ export default {
   .artists {
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
     flex-grow: 1;
     flex-wrap: wrap;
     margin-top: 1rem;

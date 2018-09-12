@@ -91,7 +91,7 @@ export default {
       display: block;
       white-space: nowrap;
       text-transform: uppercase;
-      padding: 2rem 1rem;
+      padding: 2rem 1.7rem;
       border-bottom: 2px solid transparent;
 
       &:hover {
