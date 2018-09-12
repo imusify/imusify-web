@@ -4,7 +4,7 @@
       <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
       <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
     </aside>
-    <router-view/>
+    <router-view></router-view>
     <spinner v-if="loading"></spinner>
   </div>
 </template>
