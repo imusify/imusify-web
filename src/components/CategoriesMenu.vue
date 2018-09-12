@@ -5,7 +5,8 @@
         <icon name="prev" />
       </a>
       <ul>
-        <li v-for="(category, index) in categories" :key="index"
+        <li v-for="(category, index) in categories"
+            :key="index"
             :class="{ active: category == 'Electronic' }">
           <a href="#">{{category}}</a>
         </li>
@@ -19,7 +20,9 @@
         <icon name="prev" />
       </a>
       <ul>
-        <li v-for="(tag, index) in tags.Electronic" :key="index"><a href="#">{{tag}}</a></li>
+        <li v-for="(tag, index) in tags.Electronic"
+            :key="index"
+            :class="{ active: tag == 'Disco' }"><a href="#">{{tag}}</a></li>
       </ul>
       <a href="#" class="next">
         <icon name="next" />
@@ -96,7 +99,6 @@ export default {
 
       &:hover {
         color: #fff;
-        border-bottom: 2px solid #E41C69;
       }
     }
 
