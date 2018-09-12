@@ -37,7 +37,11 @@ export default {
       background-color: #000;
       color: #9F9F9F;
 
-      &.active, &:hover {
+      &:hover {
+        color: #fff;
+      }
+
+      &.active {
         color: #fff;
         background-color: #E41C69;
       }
