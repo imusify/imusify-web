@@ -116,6 +116,8 @@ export default {
     }
 
     .categories, .tags {
+      padding-left: 2.5rem;
+
       ul {
         display: flex;
         justify-content: flex-start;
