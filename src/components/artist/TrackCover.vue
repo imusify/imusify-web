@@ -63,7 +63,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 1.5rem;
+  padding: 0.7rem;
   background-position: center center;
   background-size: cover;
   box-shadow: inset 0px 35px 30px -10px #000000b3, inset 0px -35px 30px -5px #000000e6;
