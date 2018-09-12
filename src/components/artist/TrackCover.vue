@@ -66,6 +66,7 @@ export default {
   padding: 1.5rem;
   background-position: center center;
   background-size: cover;
+  box-shadow: inset 0px 35px 30px -10px #000000b3, inset 0px -35px 30px -5px #000000e6;
 
   .play-button {
     align-self: center;
