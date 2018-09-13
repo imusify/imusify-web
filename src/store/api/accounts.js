@@ -12,4 +12,7 @@ export default {
   signup(creds) {
     return api.post('/users/', creds);
   },
+  activate(code) {
+    return api.post(`/users/activate/${code}`);
+  },
 };

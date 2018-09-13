@@ -21,6 +21,15 @@ const actions = {
     commit(types.ACCOUNTS_TOKEN, null);
     return Promise.resolve();
   },
+
+  [types.ACCOUNTS_USER_ACTIVATE]: ({ commit }, code) => accounts.activate(code)
+    .then((res) => {
+      commit(types.ACCOUNTS_LOGIN_STATUS, 'Account activation successful!');
+      commit(types.ACCOUNTS_TOKEN, res.data.token);
+    })
+    .catch((err) => {
+      commit(types.ACCOUNTS_LOGIN_STATUS, err.response.data.error);
+    }),
 };
 
 const mutations = {

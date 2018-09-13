@@ -3,6 +3,7 @@ export const ACCOUNTS_LOGIN_STATUS = 'accounts/ACCOUNTS_LOGIN_STATUS';
 export const ACCOUNTS_LOGOUT = 'accounts/ACCOUNTS_LOGOUT';
 export const ACCOUNTS_TOKEN = 'accounts/ACCOUNTS_TOKEN';
 export const ACCOUNTS_SIGNUP = 'accounts/ACCOUNTS_SIGNUP';
+export const ACCOUNTS_USER_ACTIVATE = 'accounts/ACCOUNTS_USER_ACTIVATE';
 
 // items
 export const ITEMS_ITEM = 'items/ITEMS_ITEM';
