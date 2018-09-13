@@ -87,7 +87,7 @@ export default {
 .slide-right-leave-active {
   transition-duration: 0.5s;
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  transition-timing-function: linear;
   overflow: hidden;
   z-index: 0;
 }
