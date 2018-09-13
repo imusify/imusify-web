@@ -1,11 +1,11 @@
 <template>
   <div class="toggler">
-    <router-link to="/artists"
-                 class="button"
-                 :class="{ active: selected === 'artists' }">Artists</router-link>
     <router-link to="/"
                  class="button"
                 :class="{ active: selected === 'tracks' }">Tracks</router-link>
+    <router-link to="/artists"
+                 class="button"
+                 :class="{ active: selected === 'artists' }">Artists</router-link>
   </div>
 </template>
 <script>
@@ -37,7 +37,11 @@ export default {
       background-color: #000;
       color: #9F9F9F;
 
-      &.active, &:hover {
+      &:hover {
+        color: #fff;
+      }
+
+      &.active {
         color: #fff;
         background-color: #E41C69;
       }
