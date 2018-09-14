@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login.vue';
+import ActivateUser from '@/components/ActivateUser.vue';
 import Home from './views/Home.vue';
 import Signup from './views/Signup.vue';
 
@@ -34,6 +35,10 @@ export default new Router({
       path: '/artists',
       name: 'artists',
       component: Home,
+    }, {
+      path: '/users/activate/:code',
+      name: 'activate-user',
+      component: ActivateUser,
     },
   ],
 });
