@@ -37,3 +37,9 @@ npm run test:unit
 ```
 npm run test:e2e
 ```
+
+## contributing
+
+Please read through the [Developer Guidelines](https://github.com/imusify/imusify-web/wiki/Development-guidelines) wiki before submitting code.
+If you are not on a team yet, you should fork the repo and submit a PR to our master branch.
+
