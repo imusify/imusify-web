@@ -111,6 +111,11 @@ export default {
     }),
     onSubmit() {
       this.credentials.date_created = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
+
+      if (!this.credentials.date_of_birth) {
+        delete this.credentials.date_of_birth;
+      }
+
       this.signup(this.credentials)
         .then(() => {
           this.$router.push('/');
