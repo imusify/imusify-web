@@ -1,7 +1,7 @@
 <template>
   <div class="signupnext wrapform">
-     <h1 class="heading__">Please complete your registration</h1>
-     <p class="subheading__">In a consequat mi. Etiam sit amet diam in diam ullamcorper
+     <h1 class="heading">Please complete your registration</h1>
+     <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper
         consequat. Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
         Nullam ultricies, eros quis maximus.
      </p>
@@ -29,7 +29,7 @@
            </div>
         </div>
         <div class="cta left">
-           <button class="subbutton">SIGN UP</button>
+           <button class="subbutton" v-on:click="profilePage()">SIGN UP</button>
         </div>
      </form>
   </div>
@@ -40,5 +40,10 @@ export default {
   data() {
     return {};
   },
+  methods: {
+    profilePage() {
+      this.$router.push('/profile')
+    }
+  }
 };
 </script>
