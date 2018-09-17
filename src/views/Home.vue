@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section class="home" v-if="!isLoading">
     <categories-menu></categories-menu>
     <section class="lists">
       <transition :name="transitionName">
@@ -31,6 +31,12 @@ export default {
     ArtistTrackToggler,
   },
 
+  data() {
+    return {
+      isLoading: true,
+    };
+  },
+
   computed: {
     ...mapGetters({
       artists: types.ARTIST_LIST,
@@ -60,8 +66,11 @@ export default {
   },
 
   mounted() {
-    this.getArtists();
-    this.getTracks();
+    this.getArtists()
+      .then(this.getTracks)
+      .then(() => {
+        this.isLoading = false;
+      });
     this.getTrack(1);
   },
 
