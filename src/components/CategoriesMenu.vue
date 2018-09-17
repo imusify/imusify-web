@@ -5,7 +5,8 @@
         <icon name="prev" />
       </a>
       <ul>
-        <li v-for="(category, index) in categories" :key="index"
+        <li v-for="(category, index) in categories"
+            :key="index"
             :class="{ active: category == 'Electronic' }">
           <a href="#">{{category}}</a>
         </li>
@@ -19,7 +20,9 @@
         <icon name="prev" />
       </a>
       <ul>
-        <li v-for="(tag, index) in tags.Electronic" :key="index"><a href="#">{{tag}}</a></li>
+        <li v-for="(tag, index) in tags.Electronic"
+            :key="index"
+            :class="{ active: tag == 'Disco' }"><a href="#">{{tag}}</a></li>
       </ul>
       <a href="#" class="next">
         <icon name="next" />
@@ -91,12 +94,11 @@ export default {
       display: block;
       white-space: nowrap;
       text-transform: uppercase;
-      padding: 2rem 1rem;
+      padding: 2rem 1.7rem;
       border-bottom: 2px solid transparent;
 
       &:hover {
         color: #fff;
-        border-bottom: 2px solid #E41C69;
       }
     }
 
@@ -116,6 +118,8 @@ export default {
     }
 
     .categories, .tags {
+      padding-left: 2.5rem;
+
       ul {
         display: flex;
         justify-content: flex-start;
