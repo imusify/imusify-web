@@ -4,7 +4,7 @@
   </section>
 </template>
 <script>
-  export default {
-    name: 'about',
-  }
+export default {
+  name: 'about',
+};
 </script>
