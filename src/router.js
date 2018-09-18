@@ -45,6 +45,7 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile,
+    },{
       path: '/users/activate/:code',
       name: 'activate-user',
       component: ActivateUser,
