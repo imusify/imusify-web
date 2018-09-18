@@ -31,6 +31,15 @@
         <span>Following</span>
       </router-link></li>
     </ul>
+    <footer>
+      <nav>
+        <router-link to="/about">About</router-link> |
+        <router-link to="/privacy">Privacy Policy</router-link> |
+        <router-link to="/legal">Legal</router-link>
+      </nav>
+      <p>Copyright © 2018 imusify</p>
+      <p>All rights reserved</p>
+    </footer>
   </nav>
 </template>
 <script>
@@ -69,6 +78,8 @@ export default {
   visibility: visible;
   transition: left .2s ease-in-out;
   z-index: 2;
+  background: #22201e url("/sidebar-bg.png") no-repeat center center fixed;
+  background-size: cover;
 
   &.open {
     left: 0;
@@ -79,8 +90,6 @@ export default {
   }
 
   .menu {
-    background: #22201e url("/sidebar-bg.png") no-repeat center center fixed;
-    background-size: cover;
     width: 100%;
     height: 100%;
     overflow-y: auto;
@@ -110,6 +119,23 @@ export default {
       &:hover {
         color: #fff;
         background-color: #131314;
+      }
+    }
+  }
+
+  footer {
+    font-size: 1rem;
+    color: #7F8080;
+    width: 100%;
+    padding: 1.2rem;
+
+    nav {
+      display: block;
+      margin-bottom: 1rem;
+
+      a {
+        color: #7f8080;
+        text-decoration: none;
       }
     }
   }
