@@ -49,6 +49,7 @@ export default {
   right: 0;
   height: 6.7rem;
   font-size: 1.4rem;
+  box-shadow: 0px -20px 30px 6px rgba(0,0,0,0.74);
 
   .track {
     display: flex;

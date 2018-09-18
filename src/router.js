@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login.vue';
+import ActivateUser from '@/components/ActivateUser.vue';
 import Home from './views/Home.vue';
 import Signup from './views/Signup.vue';
 import SignupNext from './components/SignupNext.vue';
@@ -44,6 +45,9 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile,
+      path: '/users/activate/:code',
+      name: 'activate-user',
+      component: ActivateUser,
     },
   ],
 });
