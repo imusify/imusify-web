@@ -9,8 +9,8 @@
       </router-link>
     </div>
     <div class="subnav">
-      <router-link to="/signin" class="button">Sign in</router-link>
-      <router-link to="/signup" class="button">Sign up</router-link>
+      <router-link to="/signin" class="button">{{$t('login')}}</router-link>
+      <router-link to="/signup" class="button">{{$t('signup')}}</router-link>
     </div>
   </nav>
 </template>

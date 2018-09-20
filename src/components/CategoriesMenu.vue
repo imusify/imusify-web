@@ -28,15 +28,18 @@
         <icon name="next" />
       </a>
     </section>
+    <search-bar></search-bar>
   </nav>
 </template>
 <script>
 import Icon from '@/components/Icon.vue';
+import SearchBar from '@/components/SearchBar.vue';
 
 export default {
   name: 'categories-menu',
   components: {
     Icon,
+    SearchBar,
   },
   data() {
     return {

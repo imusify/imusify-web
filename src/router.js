@@ -2,6 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login.vue';
 import ActivateUser from '@/components/ActivateUser.vue';
+import PrivacyPolicy from '@/components/Privacy.vue';
+import About from '@/components/About.vue';
+import Legal from '@/components/Legal.vue';
 import Home from './views/Home.vue';
 import Signup from './views/Signup.vue';
 import SignupNext from './components/SignupNext.vue';
@@ -50,5 +53,5 @@ export default new Router({
       name: 'activate-user',
       component: ActivateUser,
     },
-  ],
+  ]
 });
