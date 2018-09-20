@@ -1,77 +1,34 @@
 <template>
-  <div class="signup">
-    <h1>Join with your email address</h1>
-    <form @submit.prevent="onSubmit">
-      <div>
-        <input type="text"
-               id="username"
-               placeholder="Enter username"
-               v-model="credentials.username">
-      </div>
-      <div>
-        <input type="email"
-               id="email"
-               placeholder="Enter email"
-               v-model="credentials.email">
-      </div>
-      <div>
-        <input type="text"
-               id="firstName"
-               placeholder="First name"
-               v-model="credentials.first_name">
-      </div>
-      <div>
-        <input type="text"
-               id="lastName"
-               placeholder="Last name"
-               v-model="credentials.last_name">
-      </div>
-      <div>
-        <input type="text"
-               id="birthday"
-               placeholder="Date of birth (mm/dd/yyyy)"
-               v-model="credentials.date_of_birth">
-      </div>
-      <div>
-        <input type="text"
-               id="wallet"
-               placeholder="Wallet address"
-               v-model="credentials.wallet_address">
-      </div>
-      <div>
-        <input type="text"
-               id="gender"
-               placeholder="Gender"
-               v-model="credentials.gender">
-      </div>
-      <div>
-        <input type="text"
-               id="bio"
-               placeholder="Bio"
-               v-model="credentials.bio">
-      </div>
-      <div>
-        <input type="text"
-               id="image"
-               placeholder="Image"
-               v-model="credentials.image">
-      </div>
-      <div>
-        <input type="password"
-               id="password"
-               placeholder="Enter password"
-               v-model="credentials.password">
-      </div>
-      <div>
-        <input type="password"
-               id="passwordRepeat"
-               placeholder="Enter password again"
-               v-model="credentials.passwordRepeat">
-      </div>
-      <div class="actions">
-        <button>Signup</button>
-      </div>
-    </form>
+  <div class="signup wrapform">
+    <h1 class="heading">Sign up to imusify</h1>
+    <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper consequat.
+      Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
+      Nullam ultricies, eros quis maximus.
+    </p>
+    <div class="social-icons">
+      <a  href="#">
+        <icon name="facebook" />
+      </a>
+      <a  href="#">
+        <icon name="linkedin" />
+      </a>
+      <a  href="#">
+        <icon name="cloud" />
+      </a>
+    </div>
+    <div class="or-ui"><span>OR</span></div>
+    <div>
+      <form @submit.prevent="registerationPage()">
+        <div class="form-group">
+          <label class="control-label">Email address</label>
+          <input type="text" id="username" class="form-control" placeholder="Enter username"
+            v-model="credentials.username">
+        </div>
+        <div class="cta">
+          <button class="button">SIGN UP</button>
+        </div>
+      </form>
+    </div>
     <div class="status" v-if="status">
       {{status}}
     </div>
@@ -79,27 +36,20 @@
 </template>
 
 <script>
+import Icon from '@/components/Icon.vue';
 import moment from 'moment';
 import { mapActions } from 'vuex';
 import * as types from '../store/types';
 
 export default {
   name: 'signup',
+  components: {
+    Icon,
+  },
   data() {
     return {
       credentials: {
-        date_of_birth: '',
         username: '',
-        first_name: '',
-        last_name: '',
-        email: '',
-        wallet_address: '',
-        password: '',
-        passwordRepeat: '',
-        gender: '',
-        bio: '',
-        image: '',
-        date_created: '',
       },
       status: '',
     };
@@ -116,9 +66,9 @@ export default {
           this.$router.push('/');
         });
     },
+    registerationPage() {
+      this.$router.push('/signupnext');
+    },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
