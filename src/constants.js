@@ -1,5 +1,5 @@
-import en from './l10n/en';
-import de from './l10n/de';
+import en from './l10n/en.json';
+import de from './l10n/de.json';
 
 // i18n
 const messages = {

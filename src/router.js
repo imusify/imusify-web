@@ -48,10 +48,22 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile,
-    },{
+    }, {
       path: '/users/activate/:code',
       name: 'activate-user',
       component: ActivateUser,
+    }, {
+      path: '/privacy',
+      name: 'privacy-policy',
+      component: PrivacyPolicy,
+    }, {
+      path: '/about',
+      name: 'about',
+      component: About,
+    }, {
+      path: '/legal',
+      name: 'legal',
+      component: Legal,
     },
-  ]
+  ],
 });
