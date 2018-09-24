@@ -18,10 +18,10 @@ export default {
     Icon,
   },
 
-  data () {
+  data() {
     return {
       filter: '',
-    }
+    };
   },
 
   methods: {
