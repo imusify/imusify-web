@@ -18,11 +18,11 @@
     </div>
     <div class="or-ui"><span>OR</span></div>
     <div>
-      <form @submit.prevent="signupPage()">
+      <form @submit.prevent="onSubmit()">
         <div class="form-group">
           <label class="control-label">Email address</label>
-          <input type="text" id="username" class="form-control"
-            placeholder="Enter your username" v-model="credentials.username">
+          <input type="text" id="email" class="form-control"
+            placeholder="Enter your email" v-model="credentials.email">
         </div>
         <div class="form-group">
           <label class="control-label">Password</label>
@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       credentials: {
-        username: '',
+        email: '',
         password: '',
       },
       status: '',

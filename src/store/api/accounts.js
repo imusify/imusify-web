@@ -2,7 +2,7 @@ import api from './create-api';
 
 export default {
   login(creds) {
-    return api.post('/users/login', creds)
+    return api.post('/auth-token/', creds)
       .then((res) => {
         api.defaults.headers.Authorization = `JWT ${res.data.token}`;
 

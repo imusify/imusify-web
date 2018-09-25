@@ -45,7 +45,7 @@ export default {
 
   mounted() {
     this.activateAccount();
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

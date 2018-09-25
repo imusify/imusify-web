@@ -57,7 +57,7 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import Icon from '@/components/Icon.vue';
 import * as types from '../store/types';
 
@@ -79,12 +79,12 @@ export default {
     ...mapActions({
       updateAccount: types.ACCOUNTS_USER_UPDATE,
     }),
-    onUpdateAccount () {
-     this.updateAccount(this.credentials)
-       .finally(() => {
-         this.$router.push('/');
-       });
-    }
-  }
+    onUpdateAccount() {
+      this.updateAccount(this.credentials)
+        .finally(() => {
+          this.$router.push('/');
+        });
+    },
+  },
 };
 </script>

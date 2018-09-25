@@ -12,13 +12,15 @@ const actions = {
   [types.ACCOUNTS_USER]: ({ commit }, creds) => accounts.login(creds)
     .then((res) => {
       commit(types.ACCOUNTS_USER, res.data.user);
-      commit(types.ACCOUNTS_LOGIN_STATUS, res.data.message);
+      commit(types.ACCOUNTS_LOGIN_STATUS, 'You are now logged in!');
       commit(types.ACCOUNTS_TOKEN, res.data.token);
     }),
 
   [types.ACCOUNTS_LOGOUT]: ({ commit }) => {
     commit(types.ACCOUNTS_USER, null);
     commit(types.ACCOUNTS_TOKEN, null);
+    commit(types.ACCOUNTS_LOGIN_STATUS, 'You are now logged out.');
+
     return Promise.resolve();
   },
 
