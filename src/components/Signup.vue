@@ -21,8 +21,8 @@
       <form @submit.prevent="registerationPage()">
         <div class="form-group">
           <label class="control-label">Email address</label>
-          <input type="text" id="username" class="form-control" placeholder="Enter username"
-            v-model="credentials.username">
+          <input type="text" id="username" class="form-control" placeholder="Enter email"
+            v-model="credentials.email">
         </div>
         <div class="cta">
           <button class="button">SIGN UP</button>
@@ -37,8 +37,7 @@
 
 <script>
 import Icon from '@/components/Icon.vue';
-import moment from 'moment';
-import { mapActions } from 'vuex';
+import { mapMutations } from 'vuex';
 import * as types from '../store/types';
 
 export default {
@@ -49,24 +48,16 @@ export default {
   data() {
     return {
       credentials: {
-        username: '',
+        email: '',
       },
-      status: '',
     };
   },
-
   methods: {
-    ...mapActions({
-      signup: types.ACCOUNTS_SIGNUP,
+    ...mapMutations({
+      setCredentials: types.ACCOUNTS_USER_CREDENTIALS,
     }),
-    onSubmit() {
-      this.credentials.date_created = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
-      this.signup(this.credentials)
-        .then(() => {
-          this.$router.push('/');
-        });
-    },
     registerationPage() {
+      this.setCredentials(this.credentials);
       this.$router.push('/signupnext');
     },
   },

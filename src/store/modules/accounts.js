@@ -43,6 +43,10 @@ const mutations = {
     state.user = user;
   },
 
+  [types.ACCOUNTS_USER_CREDENTIALS]: (state, credentials) => {
+    state.credentials = credentials;
+  },
+
   [types.ACCOUNTS_LOGIN_STATUS]: (state, message) => {
     state.status = message;
   },
@@ -59,6 +63,8 @@ const mutations = {
 };
 
 const getters = {
+  [types.ACCOUNTS_USER_CREDENTIALS]: state => state.credentials,
+
   [types.ACCOUNTS_USER]: state => state.user,
 
   [types.ACCOUNTS_LOGIN_STATUS]: state => state.status,
@@ -70,6 +76,12 @@ const state = {
   user: JSON.parse(localStorage.getItem('user')) || null,
   status: null,
   token: localStorage.getItem('token') || null,
+  credentials: {
+    email: '',
+    username: '',
+    password: '',
+    confirmPassword: '',
+  },
 };
 
 export default {

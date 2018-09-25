@@ -31,13 +31,21 @@ export default {
       resetArtists: types.ARTIST_LIST,
       resetTracks: types.TRACK_LIST,
     }),
-    onActivateAccount() {
+    activateAccount() {
+      if (!this.code) {
+        return;
+      }
+
       this.activate(this.code)
         .finally(() => {
-          this.$router.push('/');
+          this.$router.push('/profile');
         });
     },
   },
+
+  mounted() {
+    this.activateAccount();
+  }
 };
 </script>
 <style lang="scss" scoped>
