@@ -16,6 +16,12 @@ const actions = {
       commit(types.ACCOUNTS_TOKEN, res.data.token);
     }),
 
+  [types.ACCOUNTS_USER_UPDATE]: ({ commit }, user) => accounts.patch(user)
+    .then((res) => {
+      commit(types.ACCOUNTS_USER, res.data.user);
+      commit(types.ACCOUNTS_LOGIN_STATUS, 'You have updated your profile!');
+    }),
+
   [types.ACCOUNTS_LOGOUT]: ({ commit }) => {
     commit(types.ACCOUNTS_USER, null);
     commit(types.ACCOUNTS_TOKEN, null);
