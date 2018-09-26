@@ -1,6 +1,6 @@
 <template>
   <nav class="sidebar"
-       :class="{ open: isSideBarOpen }">
+       :class="{ open: isSideBarOpen, isLoggedIn }">
     <ul class="menu">
       <li>
         <router-link to="/">
@@ -59,7 +59,9 @@
   </nav>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 import Icon from '@/components/Icon.vue';
+import * as types from '@/store/types';
 
 export default {
   name: 'SideBar',
@@ -69,6 +71,14 @@ export default {
   props: ['isSideBarOpen'],
   data() {
     return {};
+  },
+  computed: {
+    ...mapGetters({
+      token: types.ACCOUNTS_TOKEN,
+    }),
+    isLoggedIn() {
+      return Boolean(this.token);
+    },
   },
   methods: {
     toggleSideBar() {
@@ -161,6 +171,10 @@ export default {
       left: 0;
       margin-top: 10rem;
       width: 19rem;
+
+      &.isLoggedIn {
+        margin-top: 6rem;
+      }
     }
   }
 

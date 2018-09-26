@@ -82,6 +82,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
+  transform: translateY(1px); /* fix sticky 1px gap with audio player */
+
   .lists {
     display: flex;
     justify-content: flex-start;

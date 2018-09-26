@@ -14,4 +14,17 @@ const api = Axios.create({
   headers,
 });
 
-export default api;
+function globalErrorHandler(err) {
+  if (err.code === 401) {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
+
+  console.error(err);
+  return Promise.reject(err);
+}
+
+export {
+  api,
+  globalErrorHandler,
+};
