@@ -19,7 +19,6 @@ const i18n = new VueI18n({
   messages,
 });
 
-
 new Vue({
   router,
   store,
