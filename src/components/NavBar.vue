@@ -9,13 +9,16 @@
       </router-link>
     </div>
     <div class="subnav">
-      <router-link to="/signin" class="button">{{$t('login')}}</router-link>
-      <router-link to="/signup" class="button">{{$t('signup')}}</router-link>
+      <router-link to="/signin" class="button" v-if="!isLoggedIn">{{$t('login')}}</router-link>
+      <router-link to="/signup" class="button" v-if="!isLoggedIn">{{$t('signup')}}</router-link>
+      <a href="#" @click.prevent="logout()" class="button"  v-if="isLoggedIn">{{$t('logout')}}</a>
     </div>
   </nav>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import Icon from '@/components/Icon.vue';
+import * as types from '../store/types';
 
 export default {
   name: 'NavBar',
@@ -23,12 +26,22 @@ export default {
     Icon,
   },
   props: ['isSideBarOpen'],
-  data() {
-    return {
-    };
+  computed: {
+    ...mapGetters({
+      user: types.ACCOUNTS_USER,
+      token: types.ACCOUNTS_TOKEN,
+    }),
+
+    isLoggedIn() {
+      return Boolean(this.token);
+    },
   },
 
   methods: {
+    ...mapActions({
+      logout: types.ACCOUNTS_LOGOUT,
+    }),
+
     toggleSideBar() {
       this.isSideBarOpen = !this.isSideBarOpen;
       this.$emit('toggleSideBar', this.isSideBarOpen);

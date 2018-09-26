@@ -12,32 +12,41 @@
         </button>
       </div>
       <div class="right-sec">
-        <form>
+        <form @submit.prevent="onUpdateAccount">
           <div class="form-group">
             <label class="control-label">First name</label>
-            <input  type="text" class="form-control"  id="username"
-              placeholder="Enter First name">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Enter First name">
           </div>
           <div class="form-group">
             <label class="control-label">Last name</label>
-            <input  type="text" class="form-control" id="username"
-              placeholder="Enter Last name">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Enter Last name">
           </div>
           <div class="form-group">
             <label class="control-label">Country</label>
-            <select type="text" class="form-control" id="username"></select>
+            <select type="text"
+                    class="form-control">
+
+            </select>
           </div>
           <div class="form-group">
             <label class="control-label">State</label>
-            <select  type="text" class="form-control" id="username"></select>
+            <select type="text"
+                    class="form-control"></select>
           </div>
           <div class="form-group">
             <label class="control-label">City</label>
-            <select type="text" class="form-control" id="username"></select>
+            <select type="text"
+                    class="form-control"></select>
           </div>
           <div class="form-group">
             <label class="control-label">Date of birth</label>
-            <input type="text" class="form-control" id="username" placeholder="_/_/_">
+            <input type="text"
+                   class="form-control"
+                   placeholder="_/_/_">
           </div>
           <div class="cta left">
             <button class="savebutton">SAVE SETTINGS</button>
@@ -48,7 +57,9 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import Icon from '@/components/Icon.vue';
+import * as types from '../store/types';
 
 export default {
   name: 'profile',
@@ -57,6 +68,23 @@ export default {
   },
   data() {
     return {};
+  },
+  computed: {
+    ...mapGetters({
+      status: types.ACCOUNTS_LOGIN_STATUS,
+      credentials: types.ACCOUNTS_USER_CREDENTIALS,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      updateAccount: types.ACCOUNTS_USER_UPDATE,
+    }),
+    onUpdateAccount() {
+      this.updateAccount(this.credentials)
+        .finally(() => {
+          this.$router.push('/');
+        });
+    },
   },
 };
 </script>

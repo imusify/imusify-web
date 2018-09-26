@@ -12,13 +12,15 @@ const actions = {
   [types.ACCOUNTS_USER]: ({ commit }, creds) => accounts.login(creds)
     .then((res) => {
       commit(types.ACCOUNTS_USER, res.data.user);
-      commit(types.ACCOUNTS_LOGIN_STATUS, res.data.message);
+      commit(types.ACCOUNTS_LOGIN_STATUS, 'You are now logged in!');
       commit(types.ACCOUNTS_TOKEN, res.data.token);
     }),
 
   [types.ACCOUNTS_LOGOUT]: ({ commit }) => {
     commit(types.ACCOUNTS_USER, null);
     commit(types.ACCOUNTS_TOKEN, null);
+    commit(types.ACCOUNTS_LOGIN_STATUS, 'You are now logged out.');
+
     return Promise.resolve();
   },
 
@@ -43,6 +45,10 @@ const mutations = {
     state.user = user;
   },
 
+  [types.ACCOUNTS_USER_CREDENTIALS]: (state, credentials) => {
+    state.credentials = credentials;
+  },
+
   [types.ACCOUNTS_LOGIN_STATUS]: (state, message) => {
     state.status = message;
   },
@@ -59,6 +65,8 @@ const mutations = {
 };
 
 const getters = {
+  [types.ACCOUNTS_USER_CREDENTIALS]: state => state.credentials,
+
   [types.ACCOUNTS_USER]: state => state.user,
 
   [types.ACCOUNTS_LOGIN_STATUS]: state => state.status,
@@ -70,6 +78,12 @@ const state = {
   user: JSON.parse(localStorage.getItem('user')) || null,
   status: null,
   token: localStorage.getItem('token') || null,
+  credentials: {
+    email: '',
+    username: '',
+    password: '',
+    confirmPassword: '',
+  },
 };
 
 export default {
