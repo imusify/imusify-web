@@ -1,10 +1,7 @@
 <template>
   <section class="activate-user">
-    <form @submit.prevent="onActivateAccount">
-      <h1>Activate Account</h1>
-      <input type="text" v-model="code" />
-      <button>Activate Account</button>
-    </form>
+    <h1>Activate Account</h1>
+    <input type="text" v-model="code" />
   </section>
 </template>
 <script>
@@ -43,7 +40,7 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
     this.activateAccount();
   },
 };
