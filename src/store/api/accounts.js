@@ -19,7 +19,7 @@ export default {
       .catch(globalErrorHandler);
   },
   patch(user) {
-    return api.patch(`/users/${user.id}`, user)
+    return api.patch(`/users/${user.id}/`, user)
       .catch(globalErrorHandler);
   },
 };

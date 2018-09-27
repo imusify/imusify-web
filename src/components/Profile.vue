@@ -73,10 +73,9 @@ export default {
   components: {
     Icon,
   },
-  data () {
+  data() {
     return {
-      user: {},
-    }
+    };
   },
   computed: {
     ...mapGetters({
@@ -90,7 +89,7 @@ export default {
       updateAccount: types.ACCOUNTS_USER_UPDATE,
     }),
     onUpdateAccount() {
-      this.updateAccount(this.credentials)
+      this.updateAccount(this.user)
         .finally(() => {
           this.$router.push('/');
         });
