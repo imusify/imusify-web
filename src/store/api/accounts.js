@@ -18,4 +18,8 @@ export default {
     return api.post(`/users/activate/${code}`)
       .catch(globalErrorHandler);
   },
+  patch(user) {
+    return api.patch(`/users/${user.id}/`, user)
+      .catch(globalErrorHandler);
+  },
 };

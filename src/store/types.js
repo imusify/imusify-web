@@ -5,6 +5,7 @@ export const ACCOUNTS_TOKEN = 'accounts/ACCOUNTS_TOKEN';
 export const ACCOUNTS_SIGNUP = 'accounts/ACCOUNTS_SIGNUP';
 export const ACCOUNTS_USER_ACTIVATE = 'accounts/ACCOUNTS_USER_ACTIVATE';
 export const ACCOUNTS_USER_CREDENTIALS = 'accounts/ACCOUNTS_USER_CREDENTIALS';
+export const ACCOUNTS_USER_UPDATE = 'accounts/ACCOUNTS_USER_UPDATE';
 
 // items
 export const ITEMS_ITEM = 'items/ITEMS_ITEM';
