@@ -1,56 +1,57 @@
 <template>
-  <div class="signupnext wrapform">
-    <div>{{credentials}}</div>
-    <h1 class="heading">Please complete your registration</h1>
-    <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper
-      consequat. Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
-      Nullam ultricies, eros quis maximus.
-    </p>
-    <form @submit.prevent="onSubmit()">
-      <div class="form-group">
-        <label class="control-label">Username</label>
-        <input type="text"
-               id="username"
-               placeholder="Enter username"
-               class="form-control"
-               v-model="credentials.username">
-      </div>
-      <div class="form-group">
-        <label class="control-label">Password</label>
-        <input type="text"
-               id="password"
-               placeholder="Enter password"
-               class="form-control"
-               v-model="credentials.password">
-      </div>
-      <div class="form-group">
-        <label class="control-label">Repeat Password</label>
-        <input type="text"
-               id="passwordConfirm"
-               placeholder="Confirm password"
-               class="form-control"
-               v-model="credentials.confirmPassword">
-      </div>
-      <div class="form-group">
-        <div class="checkbox long-text">
-          <label>
-            <input class="checkbox" type="checkbox"/>
-            I acknowledge that I have read and accept the Terms of Use Agreement
-            and consent to the Privacy Policy and Video Privacy Policy.</label>
+  <section class="signupnext">
+    <div class="body">
+      <h1 class="heading">Please complete your registration: {{credentials.email}}</h1>
+      <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper
+        consequat. Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
+        Nullam ultricies, eros quis maximus.
+      </p>
+      <form @submit.prevent="onSubmit()">
+        <div class="form-group">
+          <label class="control-label">Username</label>
+          <input type="text"
+                 id="username"
+                 placeholder="Enter username"
+                 class="form-control"
+                 v-model="credentials.username">
         </div>
-      </div>
-      <div class="form-group">
-        <div class="checkbox">
-          <label>
-            <input class="checkbox2" type="checkbox"/>
-            Subscribe to our Newsletter</label>
+        <div class="form-group">
+          <label class="control-label">Password</label>
+          <input type="text"
+                 id="password"
+                 placeholder="Enter password"
+                 class="form-control"
+                 v-model="credentials.password">
         </div>
-      </div>
-      <div class="cta left">
-        <button class="subbutton">SIGN UP</button>
-      </div>
-    </form>
-  </div>
+        <div class="form-group">
+          <label class="control-label">Repeat Password</label>
+          <input type="text"
+                 id="passwordConfirm"
+                 placeholder="Confirm password"
+                 class="form-control"
+                 v-model="credentials.confirmPassword">
+        </div>
+        <div class="form-group">
+          <div class="checkbox long-text">
+            <label>
+              <input class="checkbox" type="checkbox"/>
+              I acknowledge that I have read and accept the Terms of Use Agreement
+              and consent to the Privacy Policy and Video Privacy Policy.</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+              <input class="checkbox2" type="checkbox"/>
+              Subscribe to our Newsletter</label>
+          </div>
+        </div>
+        <div class="cta left">
+          <button class="subbutton">SIGN UP</button>
+        </div>
+      </form>
+    </div>
+  </section>
 </template>
 <script>
 import moment from 'moment';
@@ -95,3 +96,15 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+  .signupnext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .body {
+      max-width: 60rem;
+    }
+  }
+</style>

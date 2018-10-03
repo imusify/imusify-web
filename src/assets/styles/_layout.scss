@@ -13,33 +13,6 @@ html, body {
 .hide {
   display: none;
 }
-.wrapform {
-  max-width: 45.5rem;
-  margin: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  &.lg {
-    max-width: 60.4rem;
-    min-width: 60.4rem;
-  }
-  h1.heading {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 4rem;
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 2.4rem;
-  }
-  p.subheading {
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 1.4rem;
-    text-align: center;
-    color: #ffffff;
-    font-weight: 300;
-  }
-}
 
 .social-icons {
   a {
@@ -129,15 +102,6 @@ html, body {
   }
   .right-sec {
     width: 100%;
-  }
-  .wrapform {
-    &.lg {
-      min-width: inherit;
-    }
-    margin: 3rem auto;
-    h1.heading {
-      font-size: 3.2rem;
-    }
   }
   .social-icons {
     margin: 2rem 0;

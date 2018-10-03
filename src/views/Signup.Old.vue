@@ -1,5 +1,5 @@
 <template>
-    <signup/>
+  <signup/>
 </template>
 <script>
 import signup from '@/components/Signup.vue';
