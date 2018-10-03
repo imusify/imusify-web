@@ -39,7 +39,7 @@
 
 <script>
 import Icon from '@/components/Icon.vue';
-import { mapGetters, mapMutations } from 'vuex';
+import { mapMutations } from 'vuex';
 import * as types from '../store/types';
 
 export default {
