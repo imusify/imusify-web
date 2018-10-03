@@ -67,6 +67,7 @@ button, .button {
     color: #717172;
     padding: 1rem;
   }
+
   .form-control {
     border: 0.1rem solid #717172;
     border-radius: 0.4rem;
@@ -76,10 +77,8 @@ button, .button {
     height: 4rem;
     font-size: 1.4rem;
     font-weight: 400;
-    -o-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+
     &:focus {
       border: 0.1rem solid #949494;
       background: transparent;
@@ -90,10 +89,12 @@ button, .button {
   text-align: center;
   clear: both;
   margin-top: 2.5rem;
+
   &.dubble {
     display: flex;
     justify-content: space-between;
   }
+
   &.left {
     text-align: left;
   }
@@ -109,19 +110,19 @@ button, .button {
       background: #E41C69;
       border-color: #E41C69;
     }
+
     border: 0.1rem solid rgba(255, 255, 255, 0.4);
     background: transparent;
   }
+
   margin-right: 0 !important;
   min-width: 15rem;
   background: #E41C69;
   border-color: #E41C69;
   border-radius: 0.4rem;
   height: 4rem;
-  -o-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+
   &:hover {
     border: 0.1rem solid rgba(255, 255, 255, 0.4);
     background: transparent;
@@ -133,9 +134,6 @@ button, .button {
     + span {
       margin-right: 1rem;
       position: relative;
-      -o-transition: all .3s ease-in-out;
-      -moz-transition: all .3s ease-in-out;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
     }
     &:checked + span {
@@ -148,11 +146,9 @@ button, .button {
         position: absolute;
         left: 0.1rem;
         top: 0.1rem;
-        -o-transition: all .3s ease-in-out;
-        -moz-transition: all .3s ease-in-out;
-        -webkit-transition: all .3s ease-in-out;
         transition: all .3s ease-in-out;
       }
+
       display: inline-block;
       min-width: 1.6rem;
       height: 1.6rem;
@@ -160,23 +156,29 @@ button, .button {
       border-radius: 0.4rem;
     }
   }
+
   label {
     display: flex;
     align-items: center;
   }
+
   &.long-text label {
     align-items: flex-start;
     color: #fff;
+
     span {
       position: relative;
       top: 0.2rem;
     }
   }
+
   color: #717172;
   position: relative;
+
   input[type=checkbox] {
     position: absolute;
     opacity: 0;
+
     &:not(:checked) + span {
       display: inline-block;
       min-width: 1.6rem;
@@ -186,4 +188,3 @@ button, .button {
     }
   }
 }
-

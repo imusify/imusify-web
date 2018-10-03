@@ -84,9 +84,6 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     a.signup-close {
       color: #fff;
@@ -98,11 +95,7 @@ export default {
     }
 
     .body {
-      max-width: 60rem;
+      margin-top: 10rem;
     }
-  }
-
-  @media (min-width: 480px) {
-
   }
 </style>
