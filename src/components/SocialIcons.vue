@@ -32,20 +32,19 @@ export default {
       color: #fff;
       width: 5rem;
       height: 5rem;
-      border-radius: 50%;
-      border: 0.1rem solid #fff;
+      border-radius: 50rem;
+      border: 0.1rem solid #747475;
       margin: 0 1.1rem;
       font-size: 2.3rem;
-      justify-content: center;
       display: flex;
+      justify-content: center;
       align-items: center;
       text-decoration: none;
       background: #0d0d0e;
       transition: all .3s ease-in-out;
 
       &:hover {
-        background: #E41C69;
-        border-color: #E41C69;
+        border-color: #fff;
       }
     }
   }
