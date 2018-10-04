@@ -105,16 +105,6 @@ button, .button {
 }
 
 .cta button {
-  &.signupbutton {
-    &:hover {
-      background: #E41C69;
-      border-color: #E41C69;
-    }
-
-    border: 0.1rem solid rgba(255, 255, 255, 0.4);
-    background: transparent;
-  }
-
   margin-right: 0 !important;
   min-width: 15rem;
   background: #E41C69;

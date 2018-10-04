@@ -19,7 +19,7 @@
               v-model="credentials.email">
           </div>
           <div class="cta">
-            <button class="button">SIGN UP</button>
+            <button>Sign Up</button>
           </div>
         </form>
       </div>

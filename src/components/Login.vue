@@ -26,8 +26,8 @@
             </div>
           </div>
           <div class="cta dubble">
-            <button class="button">LOGIN</button>
-            <button class="signupbutton" >SIGNUP</button>
+            <button>Login</button>
+            <button type="button">Signup</button>
           </div>
         </form>
       </div>
