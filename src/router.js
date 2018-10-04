@@ -5,10 +5,9 @@ import ActivateUser from '@/components/ActivateUser.vue';
 import PrivacyPolicy from '@/components/Privacy.vue';
 import About from '@/components/About.vue';
 import Legal from '@/components/Legal.vue';
+import SignupNext from '@/components/SignupNext.vue';
+import Profile from '@/components/Profile.vue';
 import Home from './views/Home.vue';
-import Signup from './views/Signup.vue';
-import SignupNext from './components/SignupNext.vue';
-import Profile from './components/Profile.vue';
 
 Vue.use(Router);
 
@@ -32,10 +31,6 @@ export default new Router({
       path: '/signin',
       name: 'login',
       component: Login,
-    }, {
-      path: '/signup',
-      name: 'signup',
-      component: Signup,
     }, {
       path: '/artists',
       name: 'artists',

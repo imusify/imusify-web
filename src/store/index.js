@@ -6,6 +6,7 @@ import items from './modules/items';
 import artists from './modules/artists';
 import tracks from './modules/tracks';
 import loading from './modules/loading';
+import togglers from './modules/togglers';
 
 Vue.use(Vuex);
 
@@ -20,6 +21,7 @@ const store = new Vuex.Store({
     tracks,
     items,
     loading,
+    togglers,
   },
 });
 

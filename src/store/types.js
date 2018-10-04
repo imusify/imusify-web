@@ -34,3 +34,7 @@ export const TRACK_LIST = 'tracks/TRACKS_LIST';
 
 // loading indicator (spinner)
 export const LOADING = 'LOADING';
+
+
+// togglers
+export const TOGGLER_SIGNUP = 'toggler/TOGGLER_SIGNUP';

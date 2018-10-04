@@ -10,13 +10,16 @@
     </div>
     <div class="subnav">
       <router-link to="/signin" class="button" v-if="!isLoggedIn">{{$t('login')}}</router-link>
-      <router-link to="/signup" class="button" v-if="!isLoggedIn">{{$t('signup')}}</router-link>
+      <a href="#"
+         @click.prevent="toggleSignup(true)"
+         class="button"
+         v-if="!isLoggedIn">{{$t('signup')}}</a>
       <a href="#" @click.prevent="logout()" class="button"  v-if="isLoggedIn">{{$t('logout')}}</a>
     </div>
   </nav>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 import Icon from '@/components/Icon.vue';
 import * as types from '../store/types';
 
@@ -30,6 +33,7 @@ export default {
     ...mapGetters({
       user: types.ACCOUNTS_USER,
       token: types.ACCOUNTS_TOKEN,
+      isSignupOpen: types.TOGGLER_SIGNUP,
     }),
 
     isLoggedIn() {
@@ -40,6 +44,10 @@ export default {
   methods: {
     ...mapActions({
       logout: types.ACCOUNTS_LOGOUT,
+    }),
+
+    ...mapMutations({
+      toggleSignup: types.TOGGLER_SIGNUP,
     }),
 
     toggleSideBar() {

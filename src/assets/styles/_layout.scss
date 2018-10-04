@@ -13,67 +13,6 @@ html, body {
 .hide {
   display: none;
 }
-.wrapform {
-  max-width: 45.5rem;
-  margin: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  &.lg {
-    max-width: 60.4rem;
-    min-width: 60.4rem;
-  }
-  h1.heading {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 4rem;
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 2.4rem;
-  }
-  p.subheading {
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 1.4rem;
-    text-align: center;
-    color: #ffffff;
-    font-weight: 300;
-  }
-}
-
-.social-icons {
-  a {
-    svg {
-      fill: #fff;
-      width: 2.3rem;
-      height: 2.3rem;
-    }
-    color: #fff;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 0.1rem solid  #fff;
-    margin: 0 1.1rem;
-    font-size: 2.3rem;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    background: #0d0d0e;
-    -o-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    &:hover {
-      background: #E41C69;
-      border-color: #E41C69;
-    }
-  }
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 3.8rem 0;
-}
 
 .or-ui {
   width: 12.5rem;
@@ -85,6 +24,7 @@ html, body {
   position: relative;
   height: 3rem;
   margin-top: -1.5rem;
+
   span {
     display: block;
     text-align: center;
@@ -107,6 +47,7 @@ html, body {
   text-align: center;
   width: 17rem;
   margin-right: 4.5rem;
+
   img {
     width: 16.3rem;
     height: 16.3rem;
@@ -124,34 +65,41 @@ html, body {
   .two-column {
     flex-direction: column;
   }
+
   .left-sec {
     margin: auto !important;
   }
+
   .right-sec {
     width: 100%;
   }
-  .wrapform {
-    &.lg {
-      min-width: inherit;
-    }
-    margin: 3rem auto;
-    h1.heading {
-      font-size: 3.2rem;
-    }
-  }
-  .social-icons {
-    margin: 2rem 0;
-  }
+
   .or-ui {
     margin: 2rem auto;
   }
-  .social-icons a {
-    svg {
-      fill: #fff;
-      width: 1.8rem;
-      height: 1.8rem;
+}
+
+#app > section {
+  &.login, &.profile, &.signup {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
+
+  .body {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 480px) {
+  #app > section {
+    &.login, &.profile, &.signup {
+      align-items: center;
     }
-    width: 3.5rem;
-    height: 3.5rem;
+
+    .body {
+      max-width: 60rem;
+    }
   }
 }
