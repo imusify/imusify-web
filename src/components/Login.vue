@@ -6,17 +6,7 @@
         Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et. Nullam ultricies,
         eros quis maximus.
       </p>
-      <div class="social-icons">
-        <a  href="#">
-          <icon name="facebook" />
-        </a>
-        <a  href="#">
-          <icon name="linkedin" />
-        </a>
-        <a  href="#">
-          <icon name="cloud" />
-        </a>
-      </div>
+      <social-icons></social-icons>
       <div class="or-ui"><span>OR</span></div>
       <div>
         <form @submit.prevent="onSubmit()">
@@ -50,6 +40,7 @@
 
 <script>
 import Icon from '@/components/Icon.vue';
+import SocialIcons from '@/components/SocialIcons.vue';
 import { mapActions } from 'vuex';
 import * as types from '../store/types';
 
@@ -57,6 +48,7 @@ export default {
   name: 'login',
   components: {
     Icon,
+    SocialIcons,
   },
   data() {
     return {

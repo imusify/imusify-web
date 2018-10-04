@@ -14,40 +14,6 @@ html, body {
   display: none;
 }
 
-.social-icons {
-  a {
-    svg {
-      fill: #fff;
-      width: 2.3rem;
-      height: 2.3rem;
-    }
-
-    color: #fff;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 0.1rem solid  #fff;
-    margin: 0 1.1rem;
-    font-size: 2.3rem;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    background: #0d0d0e;
-    transition: all .3s ease-in-out;
-
-    &:hover {
-      background: #E41C69;
-      border-color: #E41C69;
-    }
-  }
-
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 3.8rem 0;
-}
-
 .or-ui {
   width: 12.5rem;
   margin: 2.4rem auto 2rem;
@@ -108,23 +74,8 @@ html, body {
     width: 100%;
   }
 
-  .social-icons {
-    margin: 2rem 0;
-  }
-
   .or-ui {
     margin: 2rem auto;
-  }
-
-  .social-icons a {
-    svg {
-      fill: #fff;
-      width: 1.8rem;
-      height: 1.8rem;
-    }
-
-    width: 3.5rem;
-    height: 3.5rem;
   }
 }
 

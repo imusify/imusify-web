@@ -88,7 +88,7 @@ export default {
                   M5.477,420.56h92.184v-277.32H5.477V420.56z"/>
                   </g>
                 </svg>`,
-      cloud: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+      soundcloud: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
                 <g id="XMLID_526_">
                   <path id="XMLID_527_" d="M14.492,208.896c0.619,0,1.143-0.509,1.232-1.226l3.365-26.671l-3.355-27.278
                     c-0.1-0.717-0.623-1.23-1.242-1.23c-0.635,0-1.176,0.524-1.26,1.23l-2.941,27.278l2.941,26.662
@@ -227,6 +227,14 @@ a.next {
   justify-content: center;
   align-items: center;
 }
+
+.facebook, .linkedin, .soundcloud {
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
 
 @keyframes Spinner {
   0% {
