@@ -49,6 +49,11 @@ export default {
     ...mapMutations({
       toggleSignup: types.TOGGLER_SIGNUP,
     }),
+
+    toggleSideBar() {
+      this.isSideBarOpen = !this.isSideBarOpen;
+      this.$emit('toggleSideBar', this.isSideBarOpen);
+    },
   },
 };
 </script>

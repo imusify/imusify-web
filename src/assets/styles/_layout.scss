@@ -129,10 +129,12 @@ html, body {
 }
 
 #app > section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
+  &.login, &.profile, &.signup {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
 
   .body {
     max-width: 80%;
@@ -141,7 +143,9 @@ html, body {
 
 @media (min-width: 480px) {
   #app > section {
-    align-items: center;
+    &.login, &.profile, &.signup {
+      align-items: center;
+    }
 
     .body {
       max-width: 60rem;
