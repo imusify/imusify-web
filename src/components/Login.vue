@@ -6,8 +6,8 @@
         Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et. Nullam ultricies,
         eros quis maximus.
       </p>
-      <social-icons></social-icons>
-      <div class="or-ui"><span>OR</span></div>
+      <social-icons v-if="false"></social-icons>
+      <div class="or-ui" v-if="false"><span>OR</span></div>
       <div>
         <form @submit.prevent="onSubmit()">
           <div class="form-group">
