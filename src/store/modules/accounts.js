@@ -14,6 +14,7 @@ const actions = {
       commit(types.ACCOUNTS_USER, res.data.user);
       commit(types.ACCOUNTS_LOGIN_STATUS, 'You are now logged in!');
       commit(types.ACCOUNTS_TOKEN, res.data.token);
+      commit(types.TOGGLER_LOGIN, false);
     }),
 
   [types.ACCOUNTS_USER_UPDATE]: ({ commit }, user) => accounts.patch(user)

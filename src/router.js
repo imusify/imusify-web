@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from '@/components/Login.vue';
 import ActivateUser from '@/components/ActivateUser.vue';
 import PrivacyPolicy from '@/components/Privacy.vue';
 import About from '@/components/About.vue';
@@ -27,10 +26,6 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    }, {
-      path: '/signin',
-      name: 'login',
-      component: Login,
     }, {
       path: '/artists',
       name: 'artists',

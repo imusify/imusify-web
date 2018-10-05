@@ -38,3 +38,5 @@ export const LOADING = 'LOADING';
 
 // togglers
 export const TOGGLER_SIGNUP = 'toggler/TOGGLER_SIGNUP';
+export const TOGGLER_LOGIN = 'toggler/TOGGLER_LOGIN';
+
