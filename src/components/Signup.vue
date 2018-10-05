@@ -1,6 +1,6 @@
 <template>
-  <section class="signup">
-    <a href="" @click.prevent="toggleSignupOpen" class="signup-close">
+  <section class="signup modal">
+    <a href="" @click.prevent="toggleSignupOpen" class="close">
       <Icon name="close" />
     </a>
     <div class="body">
@@ -64,30 +64,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+  @import './src/assets/styles/base.scss';
+
   .signup {
-    position: fixed;
-    max-width: auto;
-    margin: 0;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.6);
 
-    a.signup-close {
-      color: #fff;
-      font-weight: 700;
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      text-decoration: none;
-    }
-
-    .body {
-      margin-top: 10rem;
-    }
   }
 </style>

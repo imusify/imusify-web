@@ -10,6 +10,7 @@
     </header>
     <router-view></router-view>
     <spinner v-if="loading"></spinner>
+    <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
     <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
   </div>
 </template>
@@ -19,6 +20,7 @@ import NavBar from '@/components/NavBar.vue';
 import SideBar from '@/components/SideBar.vue';
 import Spinner from '@/components/Spinner.vue';
 import Signup from '@/components/Signup.vue';
+import Login from '@/components/Login.vue';
 import * as types from '@/store/types';
 
 export default {
@@ -27,6 +29,7 @@ export default {
     SideBar,
     Spinner,
     Signup,
+    Login,
   },
 
   data() {
@@ -42,6 +45,7 @@ export default {
       status: types.ACCOUNTS_LOGIN_STATUS,
       token: types.ACCOUNTS_TOKEN,
       isSignupOpen: types.TOGGLER_SIGNUP,
+      isLoginOpen: types.TOGGLER_LOGIN,
     }),
 
     isLoggedIn() {
@@ -52,6 +56,7 @@ export default {
   methods: {
     ...mapMutations({
       togglerSignup: types.TOGGLER_SIGNUP,
+      togglerLogin: types.TOGGLER_LOGIN,
     }),
     toggleSideBar(isSideBarOpen) {
       this.isSideBarOpen = isSideBarOpen;

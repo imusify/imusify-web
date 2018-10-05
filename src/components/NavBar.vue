@@ -9,7 +9,10 @@
       </router-link>
     </div>
     <div class="subnav">
-      <router-link to="/signin" class="button" v-if="!isLoggedIn">{{$t('login')}}</router-link>
+      <a href="#"
+         @click.prevent="toggleLogin(true)"
+         class="button"
+         v-if="!isLoggedIn">{{$t('login')}}</a>
       <a href="#"
          @click.prevent="toggleSignup(true)"
          class="button"
@@ -34,6 +37,7 @@ export default {
       user: types.ACCOUNTS_USER,
       token: types.ACCOUNTS_TOKEN,
       isSignupOpen: types.TOGGLER_SIGNUP,
+      isLoginOpen: types.TOGGLER_LOGIN,
     }),
 
     isLoggedIn() {
@@ -48,6 +52,7 @@ export default {
 
     ...mapMutations({
       toggleSignup: types.TOGGLER_SIGNUP,
+      toggleLogin: types.TOGGLER_LOGIN,
     }),
 
     toggleSideBar() {
