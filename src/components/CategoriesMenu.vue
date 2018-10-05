@@ -15,14 +15,14 @@
         <icon name="next" />
       </a>
     </section>
-    <section class="tags">
+    <section class="sub-categories">
       <a href="#" class="prev">
         <icon name="prev" />
       </a>
       <ul>
-        <li v-for="(tag, index) in tags.Electronic"
+        <li v-for="(subCategory, index) in subCategories.Electronic"
             :key="index"
-            :class="{ active: tag == 'Disco' }"><a href="#">{{tag}}</a></li>
+            :class="{ active: subCategory == 'Disco' }"><a href="#">{{subCategory}}</a></li>
       </ul>
       <a href="#" class="next">
         <icon name="next" />
@@ -54,7 +54,7 @@ export default {
         'R&B and Soul',
         'Rock',
       ],
-      tags: {
+      subCategories: {
         Electronic: [
           'Ambient',
           'Breakbeat',
@@ -116,11 +116,11 @@ export default {
       background-color: #131314;
     }
 
-    .tags {
+    .sub-categories {
       background-color: #000;
     }
 
-    .categories, .tags {
+    .categories, .sub-categories {
       padding-left: 2.5rem;
 
       ul {
@@ -142,7 +142,7 @@ export default {
   }
 
   @media (min-width: 480px) {
-    .categories, .tags {
+    .categories, .sub-categories {
       width: calc(100vw - 19rem);
     }
   }
