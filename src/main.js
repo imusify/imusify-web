@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
 import router from './router';
+import VueI18n from 'vue-i18n';
 import store from './store';
 import App from './App.vue';
 import { messages } from './constants';
