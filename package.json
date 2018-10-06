@@ -38,7 +38,10 @@
     "vue-template-compiler": "^2.5.17"
   },
   "pre-commit": [
-    "precommit-msg"
+    "precommit-msg",
+    "lint",
+    "test:e2e",
+    "test:unit"
   ],
   "license": "Apache 2.0"
 }

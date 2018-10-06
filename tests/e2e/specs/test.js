@@ -2,13 +2,14 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-  'default e2e tests': (browser) => {
+  navbar: (browser) => {
     browser
       .url(process.env.VUE_DEV_SERVER_URL)
       .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to Your Vue.js App')
-      .assert.elementCount('img', 1)
+      .assert.elementPresent('.navbar')
+      .assert.elementCount('.subnav a', 2)
+      .assert.containsText('.subnav a:nth-child(1)', 'SIGN IN')
+      .assert.containsText('.subnav a:nth-child(2)', 'SIGN UP')
       .end();
   },
 };
