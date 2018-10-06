@@ -39,7 +39,9 @@
   },
   "pre-commit": [
     "precommit-msg",
-    "lint"
+    "lint",
+    "test:e2e",
+    "test:unit"
   ],
   "license": "Apache 2.0"
 }
