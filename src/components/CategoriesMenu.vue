@@ -1,30 +1,38 @@
 <template>
   <nav class="topnav">
     <section class="categories">
-      <a href="#" class="prev">
+      <a href="#"
+         class="prev"
+         @click.prevent="prev('categories')">
         <icon name="prev" />
       </a>
-      <ul>
+      <ul id="categories">
         <li v-for="(category, index) in categories"
             :key="index"
             :class="{ active: category == 'Electronic' }">
           <a href="#">{{category}}</a>
         </li>
       </ul>
-      <a href="#" class="next">
+      <a href="#"
+         class="next"
+         @click.prevent="next('categories')">
         <icon name="next" />
       </a>
     </section>
-    <section class="tags">
-      <a href="#" class="prev">
+    <section class="sub-categories">
+      <a href="#"
+         class="prev"
+         @click.prevent="prev('sub-categories')">
         <icon name="prev" />
       </a>
-      <ul>
-        <li v-for="(tag, index) in tags.Electronic"
+      <ul id="sub-categories">
+        <li v-for="(subCategory, index) in subCategories.Electronic"
             :key="index"
-            :class="{ active: tag == 'Disco' }"><a href="#">{{tag}}</a></li>
+            :class="{ active: subCategory == 'Disco' }"><a href="#">{{subCategory}}</a></li>
       </ul>
-      <a href="#" class="next">
+      <a href="#"
+         class="next"
+         @click.prevent="next('sub-categories')">
         <icon name="next" />
       </a>
     </section>
@@ -54,7 +62,7 @@ export default {
         'R&B and Soul',
         'Rock',
       ],
-      tags: {
+      subCategories: {
         Electronic: [
           'Ambient',
           'Breakbeat',
@@ -71,6 +79,72 @@ export default {
 
       },
     };
+  },
+  methods: {
+    easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t);
+    },
+
+    animate(callbackObj, delay) {
+      const { requestAnimationFrame } = window;
+      let startTime = 0;
+      let percentage = 0;
+      let animationTime = 0;
+      const duration = delay * 1000 || 1000;
+
+      function animation(timestamp) {
+        if (startTime === 0) {
+          startTime = timestamp;
+        } else {
+          animationTime = timestamp - startTime;
+        }
+
+        if (typeof callbackObj.start === 'function' && startTime === timestamp) {
+          callbackObj.start();
+
+          requestAnimationFrame(animation);
+        } else if (animationTime < duration) {
+          if (typeof callbackObj.progress === 'function') {
+            percentage = animationTime / duration;
+            callbackObj.progress(percentage);
+          }
+
+          requestAnimationFrame(animation);
+        } else if (typeof callbackObj.done === 'function') {
+          callbackObj.done();
+        }
+      }
+
+      return requestAnimationFrame(animation);
+    },
+
+    sideScroll(el, rangeInPixels) {
+      if (el) {
+        const sequenceObj = {};
+        const seconds = 0.2;
+        const startingScrollPosition = el.scrollLeft;
+
+        sequenceObj.progress = ((percentage) => {
+          el.scroll((startingScrollPosition + (this.easeInOutQuad(percentage) * rangeInPixels)), 0);
+        });
+
+        this.animate(sequenceObj, seconds);
+      }
+    },
+
+    prev(id) {
+      const el = document.getElementById(id);
+      const scrollAmount = -el.offsetWidth; // todo this is wrong
+
+      this.sideScroll(el, scrollAmount);
+    },
+
+    next(id) {
+      const el = document.getElementById(id);
+      const scrollAmount = el.scrollLeft + el.offsetWidth;
+
+      this.sideScroll(el, scrollAmount);
+    },
   },
 };
 </script>
@@ -89,6 +163,7 @@ export default {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      overflow: hidden;
     }
 
     ul a {
@@ -116,11 +191,11 @@ export default {
       background-color: #131314;
     }
 
-    .tags {
+    .sub-categories {
       background-color: #000;
     }
 
-    .categories, .tags {
+    .categories, .sub-categories {
       padding-left: 2.5rem;
 
       ul {
@@ -136,13 +211,17 @@ export default {
       }
     }
 
+    a.prev, a.next {
+      z-index: 2;
+    }
+
     a.prev {
       transform: rotate(180deg);
     }
   }
 
   @media (min-width: 480px) {
-    .categories, .tags {
+    .categories, .sub-categories {
       width: calc(100vw - 19rem);
     }
   }
