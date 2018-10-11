@@ -80,7 +80,7 @@ html, body {
 }
 
 #app > section {
-  &.login, &.profile, &.signup {
+  &.login, &.profile, &.signup, &.signupnext {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -123,7 +123,7 @@ html, body {
 
 @media (min-width: 480px) {
   #app > section {
-    &.login, &.profile, &.signup {
+    &.login, &.profile, &.signup, &.signupnext {
       align-items: center;
     }
 
