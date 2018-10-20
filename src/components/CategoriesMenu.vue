@@ -1,16 +1,17 @@
 <template>
   <nav class="topnav">
-    <section class="categories">
+    <section class="categories" v-if="categories">
       <a href="#"
          class="prev"
          @click.prevent="prev('categories')">
         <icon name="prev" />
       </a>
       <ul id="categories">
-        <li v-for="(category, index) in categories"
+        <li v-for="(cat, index) in categories"
             :key="index"
-            :class="{ active: category == 'Electronic' }">
-          <a href="#">{{category}}</a>
+            :class="{ active: cat.name == category && category.name }">
+          <a href="#"
+             @click.prevent="setActiveCategory(cat)">{{cat.name}}</a>
         </li>
       </ul>
       <a href="#"
@@ -19,16 +20,19 @@
         <icon name="next" />
       </a>
     </section>
-    <section class="sub-categories">
+    <section class="sub-categories" v-if="subCategories">
       <a href="#"
          class="prev"
          @click.prevent="prev('sub-categories')">
         <icon name="prev" />
       </a>
       <ul id="sub-categories">
-        <li v-for="(subCategory, index) in subCategories.Electronic"
+        <li v-for="(subCat, index) in subCategories"
             :key="index"
-            :class="{ active: subCategory == 'Disco' }"><a href="#">{{subCategory}}</a></li>
+            :class="{ active: subCat.name == subCategory && subCategory.name }">
+          <a href="#"
+             @click.prevent="setActiveSubCategory(subCat)">{{subCat.name}}</a>
+        </li>
       </ul>
       <a href="#"
          class="next"
@@ -40,6 +44,8 @@
   </nav>
 </template>
 <script>
+import { mapGetters, mapActions, mapMutations } from 'vuex';
+import * as types from '@/store/types';
 import Icon from '@/components/Icon.vue';
 import SearchBar from '@/components/SearchBar.vue';
 
@@ -51,36 +57,39 @@ export default {
   },
   data() {
     return {
-      categories: [
-        'All Genres',
-        'Blues',
-        'Country',
-        'Electronic',
-        'Hip Hop',
-        'Jazz',
-        'Pop',
-        'R&B and Soul',
-        'Rock',
-      ],
-      subCategories: {
-        Electronic: [
-          'Ambient',
-          'Breakbeat',
-          'Disco',
-          'Downtempo',
-          'Drum and Bass',
-          'Electro',
-          'Hardcore',
-          'House',
-          'IDM',
-          'Techno',
-          'Trance',
-        ],
-
-      },
     };
   },
+  computed: {
+    ...mapGetters({
+      categories: types.POSTS_CATEGORIES,
+      subCategories: types.POSTS_CATEGORIES_SUBCATEGORIES,
+      category: types.POSTS_CATEGORIES_CATEGORY,
+      subCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY,
+    }),
+  },
+  created() {
+    this.getCategories();
+  },
   methods: {
+    ...mapMutations({
+      setCategory: types.POSTS_CATEGORIES_CATEGORY,
+      setSubCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY,
+      setSubCategories: types.POSTS_CATEGORIES_SUBCATEGORIES,
+    }),
+
+    ...mapActions({
+      getCategories: types.POSTS_CATEGORIES,
+    }),
+
+    setActiveCategory(cat) {
+      this.setCategory(cat);
+      this.setSubCategories(cat.children);
+    },
+
+    setActiveSubCategory(subCat) {
+      this.setSubCategory(subCat);
+    },
+
     easeInOutQuad(t) {
       return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t);
     },
