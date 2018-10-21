@@ -9,7 +9,7 @@
       <ul id="categories">
         <li v-for="(cat, index) in categories"
             :key="index"
-            :class="{ active: cat.name == category && category.name }">
+            :class="{ active: category && cat.name == category.name }">
           <a href="#"
              @click.prevent="setActiveCategory(cat)">{{cat.name}}</a>
         </li>
@@ -29,7 +29,7 @@
       <ul id="sub-categories">
         <li v-for="(subCat, index) in subCategories"
             :key="index"
-            :class="{ active: subCat.name == subCategory && subCategory.name }">
+            :class="{ active: subCategory && subCat.name == subCategory.name }">
           <a href="#"
              @click.prevent="setActiveSubCategory(subCat)">{{subCat.name}}</a>
         </li>
