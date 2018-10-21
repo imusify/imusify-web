@@ -7,6 +7,7 @@ import artists from './modules/artists';
 import tracks from './modules/tracks';
 import loading from './modules/loading';
 import togglers from './modules/togglers';
+import posts from './modules/posts';
 
 Vue.use(Vuex);
 
@@ -22,6 +23,7 @@ const store = new Vuex.Store({
     items,
     loading,
     togglers,
+    posts,
   },
 });
 
