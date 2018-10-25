@@ -15,13 +15,13 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import NavBar from '@/components/NavBar.vue';
-import SideBar from '@/components/SideBar.vue';
-import Spinner from '@/components/Spinner.vue';
-import Signup from '@/components/Signup.vue';
-import Login from '@/components/Login.vue';
-import * as types from '@/store/types';
+import { mapGetters, mapMutations } from "vuex";
+import NavBar from "@/components/NavBar.vue";
+import SideBar from "@/components/SideBar.vue";
+import Spinner from "@/components/Spinner.vue";
+import Signup from "@/components/Signup.vue";
+import Login from "@/components/Login.vue";
+import * as types from "@/store/types";
 
 export default {
   components: {
@@ -29,13 +29,13 @@ export default {
     SideBar,
     Spinner,
     Signup,
-    Login,
+    Login
   },
 
   data() {
     return {
       isSideBarOpen: false,
-      isHeaderActive: false,
+      isHeaderActive: false
     };
   },
 
@@ -45,42 +45,42 @@ export default {
       status: types.ACCOUNTS_LOGIN_STATUS,
       token: types.ACCOUNTS_TOKEN,
       isSignupOpen: types.TOGGLER_SIGNUP,
-      isLoginOpen: types.TOGGLER_LOGIN,
+      isLoginOpen: types.TOGGLER_LOGIN
     }),
 
     isLoggedIn() {
       return Boolean(this.token);
-    },
+    }
   },
 
   methods: {
     ...mapMutations({
       togglerSignup: types.TOGGLER_SIGNUP,
-      togglerLogin: types.TOGGLER_LOGIN,
+      togglerLogin: types.TOGGLER_LOGIN
     }),
     toggleSideBar(isSideBarOpen) {
       this.isSideBarOpen = isSideBarOpen;
     },
     isToastError() {
-      return this.status && this.status.toLowerCase().indexOf('invalid') > -1;
-    },
+      return this.status && this.status.toLowerCase().indexOf("invalid") > -1;
+    }
   },
 
   watch: {
     status(val) {
       this.isHeaderActive = Boolean(val);
-    },
+    }
   },
 
   mounted() {
     setTimeout(() => {
       this.isHeaderActive = false;
     }, 5000);
-  },
+  }
 };
 </script>
 <style lang="scss">
-@import './src/assets/styles/base.scss';
+@import "./src/assets/styles/base.scss";
 
 #app {
   .toast {
@@ -89,25 +89,24 @@ export default {
     right: 0;
     left: 0;
     color: #efe;
-    background-color: rgba(0, 255, 0, .6);
+    background-color: rgba(0, 255, 0, 0.6);
     z-index: 2;
-    transition: top .5s ease-in-out;
+    transition: top 0.5s ease-in-out;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     &.error {
       color: #fee;
-      background-color: rgba(255, 0, 0, .6);
+      background-color: rgba(255, 0, 0, 0.6);
     }
-
 
     &.active {
       top: 0;
     }
 
     h1 {
-      padding: .5rem 1rem;
+      padding: 0.5rem 1rem;
       font-size: 1.6rem;
       font-weight: normal;
     }
@@ -143,6 +142,5 @@ export default {
       height: 100vh;
     }
   }
-
 }
 </style>
