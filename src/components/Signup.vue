@@ -15,7 +15,7 @@
         <form @submit.prevent="registerationPage()">
           <div class="form-group">
             <label class="control-label">Email address</label>
-            <input type="text" id="username" class="form-control" placeholder="Enter email"
+            <input type="text" id="username" class="form-control" placeholder="email@example.com"
               v-model="credentials.email">
           </div>
           <div class="cta">
@@ -28,45 +28,57 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon.vue';
-import SocialIcons from '@/components/SocialIcons.vue';
-import { mapMutations } from 'vuex';
-import * as types from '../store/types';
+import Icon from "@/components/Icon.vue";
+import SocialIcons from "@/components/SocialIcons.vue";
+import { mapMutations } from "vuex";
+import * as types from "../store/types";
 
 export default {
-  name: 'signup',
+  name: "signup",
   components: {
     Icon,
-    SocialIcons,
+    SocialIcons
   },
   data() {
     return {
       credentials: {
-        email: '',
-      },
+        email: ""
+      }
     };
   },
   methods: {
     ...mapMutations({
       setCredentials: types.ACCOUNTS_USER_CREDENTIALS,
-      isSignupOpen: types.TOGGLER_SIGNUP,
+      isSignupOpen: types.TOGGLER_SIGNUP
     }),
     registerationPage() {
       this.setCredentials(this.credentials);
       this.isSignupOpen(false);
-      this.$router.push('/signupnext');
+      this.$router.push("/signupnext");
     },
 
     toggleSignupOpen() {
-      this.$emit('toggleSignupOpen', false);
-    },
-  },
+      this.$emit("toggleSignupOpen", false);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
-  @import './src/assets/styles/base.scss';
+@import "./src/assets/styles/base.scss";
 
-  .signup {
-
+.body {
+  max-width: 50rem !important;
+  .heading {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 4rem;
   }
+  .subheading {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .cta {
+    margin-top: 4rem;
+  }
+}
 </style>

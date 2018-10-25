@@ -16,7 +16,7 @@
           <div class="form-group">
             <label class="control-label">Email address</label>
             <input type="text" id="email" class="form-control"
-              placeholder="Enter your email" v-model="credentials.email">
+              placeholder="email@example.com" v-model="credentials.email">
           </div>
           <div class="form-group">
             <label class="control-label">Password</label>
@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             <div class="checkbox">
-              <label><input type="checkbox"/> <span></span> keep me signed in</label>
+              <label><input type="checkbox"/> <span></span> Keep me signed in</label>
             </div>
           </div>
           <div class="cta dubble">
@@ -43,43 +43,41 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon.vue';
-import SocialIcons from '@/components/SocialIcons.vue';
-import { mapActions, mapMutations } from 'vuex';
-import * as types from '../store/types';
+import Icon from "@/components/Icon.vue";
+import SocialIcons from "@/components/SocialIcons.vue";
+import { mapActions, mapMutations } from "vuex";
+import * as types from "../store/types";
 
 export default {
-  name: 'login',
+  name: "login",
   components: {
     Icon,
-    SocialIcons,
+    SocialIcons
   },
   data() {
     return {
       credentials: {
-        email: '',
-        password: '',
+        email: "",
+        password: ""
       },
-      status: '',
+      status: ""
     };
   },
 
   methods: {
     ...mapActions({
-      login: types.ACCOUNTS_USER,
-
+      login: types.ACCOUNTS_USER
     }),
 
     ...mapMutations({
       isLoginOpen: types.TOGGLER_LOGIN,
-      isSignupOpen: types.TOGGLER_SIGNUP,
+      isSignupOpen: types.TOGGLER_SIGNUP
     }),
 
     onSubmit() {
-      this.login(this.credentials)
-        .then(() => {
-          this.$router.replace(this.$route.query.redirect || '/');
-        });
+      this.login(this.credentials).then(() => {
+        this.$router.replace(this.$route.query.redirect || "/");
+      });
     },
 
     openSignupModal() {
@@ -88,18 +86,31 @@ export default {
     },
 
     signupPage() {
-      this.$router.push('/signupnext');
+      this.$router.push("/signupnext");
     },
 
     toggleLoginOpen() {
-      this.$emit('toggleLoginOpen', false);
-    },
-  },
+      this.$emit("toggleLoginOpen", false);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
-  @import './src/assets/styles/base.scss';
+@import "./src/assets/styles/base.scss";
 
-  .login {
+.body {
+  max-width: 50rem !important;
+  .heading {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 4rem;
   }
+  .subheading {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .cta {
+    margin-top: 4rem;
+  }
+}
 </style>
