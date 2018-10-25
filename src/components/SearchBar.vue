@@ -26,7 +26,7 @@ export default {
 
   methods: {
     search() {
-      /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+      /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
       console.log('do search');
     },
   },
