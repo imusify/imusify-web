@@ -67,6 +67,8 @@ export default {
   @import './src/assets/styles/base.scss';
 
   .signup {
-
+    .subheading {
+      line-height: 1.8rem;
+    }
   }
 </style>

@@ -88,13 +88,17 @@ export default {
       this.credentials.date_created = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
       this.credentials.date_of_birth = moment('1970-01-01').format('YYYY-MM-DD');
 
-      return this.signup(this.credentials)
-        .then(() => {
-          this.$router.push('/');
-        });
+      return this.signup(this.credentials).then(() => {
+        this.$router.push('/');
+      });
     },
   },
 };
 </script>
 <style lang="scss" scoped>
+.signupnext {
+  .subheading {
+    line-height: 1.8rem;
+  }
+}
 </style>
