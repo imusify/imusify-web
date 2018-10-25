@@ -13,12 +13,12 @@
       <icon name="play" />
       <icon name="skip" classes="forward" />
       <span class="time elapsed">0:47</span>
-      <progress-bar percent="20" width="30rem" />
+      <progress-bar percent="20" width="45%" />
       <span class="time remaining">4:27</span>
       <span class="volume">
         <icon name="volume" />
       </span>
-      <progress-bar percent="70" width="10rem" />
+      <progress-bar percent="70" width="20%" />
       <span class="level">70%</span>
     </div>
   </div>
@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 .audio-player {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
   background: #131314;
@@ -55,6 +55,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-grow: 1;
 
     .cover {
       width: 4.7rem;
@@ -72,7 +73,8 @@ export default {
 
   .controls {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-grow: 6;
     align-items: center;
     margin-left: 5rem;
 
@@ -86,7 +88,7 @@ export default {
 
 
     .volume {
-      margin-left: 1rem;
+      margin-left: 4rem;
     }
   }
 }
