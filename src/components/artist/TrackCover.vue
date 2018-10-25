@@ -46,6 +46,7 @@ export default {
 
     upvote(track) {
       // todo make api call to upvote track
+      /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
       console.log(track);
     },
   },
