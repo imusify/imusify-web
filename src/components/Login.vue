@@ -67,7 +67,6 @@ export default {
   methods: {
     ...mapActions({
       login: types.ACCOUNTS_USER,
-
     }),
 
     ...mapMutations({
@@ -76,10 +75,9 @@ export default {
     }),
 
     onSubmit() {
-      this.login(this.credentials)
-        .then(() => {
-          this.$router.replace(this.$route.query.redirect || '/');
-        });
+      this.login(this.credentials).then(() => {
+        this.$router.replace(this.$route.query.redirect || '/');
+      });
     },
 
     openSignupModal() {
@@ -98,8 +96,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  @import './src/assets/styles/base.scss';
+@import "./src/assets/styles/base.scss";
 
-  .login {
+.login {
+  .subheading {
+    line-height: 1.8rem;
   }
+}
 </style>
