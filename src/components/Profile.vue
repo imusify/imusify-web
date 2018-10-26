@@ -52,6 +52,7 @@
             <div class="form-group">
               <label class="control-label">Gender</label>
               <select class="form-control" v-model="user.gender">
+                <option value="" selected>Select Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="U">Decline to state</option>
