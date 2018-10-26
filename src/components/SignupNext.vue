@@ -95,10 +95,10 @@ export default {
       );
 
       return this.signup(this.credentials).then(() => {
-        this.$router.push("/");
+        this.$router.push('/');
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -80,7 +80,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import './src/assets/styles/base.scss';
+@import "./src/assets/styles/base.scss";
 
 #app {
   .toast {
@@ -89,25 +89,24 @@ export default {
     right: 0;
     left: 0;
     color: #efe;
-    background-color: rgba(0, 255, 0, .6);
+    background-color: rgba(0, 255, 0, 0.6);
     z-index: 2;
-    transition: top .5s ease-in-out;
+    transition: top 0.5s ease-in-out;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     &.error {
       color: #fee;
-      background-color: rgba(255, 0, 0, .6);
+      background-color: rgba(255, 0, 0, 0.6);
     }
-
 
     &.active {
       top: 0;
     }
 
     h1 {
-      padding: .5rem 1rem;
+      padding: 0.5rem 1rem;
       font-size: 1.6rem;
       font-weight: normal;
     }
@@ -143,6 +142,5 @@ export default {
       height: 100vh;
     }
   }
-
 }
 </style>

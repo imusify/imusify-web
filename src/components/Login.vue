@@ -66,7 +66,7 @@ export default {
 
   methods: {
     ...mapActions({
-      login: types.ACCOUNTS_USER
+      login: types.ACCOUNTS_USER,
     }),
 
     ...mapMutations({
@@ -76,7 +76,7 @@ export default {
 
     onSubmit() {
       this.login(this.credentials).then(() => {
-        this.$router.replace(this.$route.query.redirect || "/");
+        this.$router.replace(this.$route.query.redirect || '/');
       });
     },
 
