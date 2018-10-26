@@ -169,7 +169,7 @@ export default {
   @media (min-width: 480px) {
     .sidebar {
       left: 0;
-      margin-top: 10rem;
+      margin-top: 12rem;
       width: 19rem;
 
       &.isLoggedIn {
