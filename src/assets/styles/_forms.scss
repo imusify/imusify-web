@@ -135,11 +135,12 @@ select {
     + span {
       margin-right: 1rem;
       position: relative;
+      border-radius: 0rem;
       transition: all .3s ease-in-out;
     }
     &:checked + span {
       &:after {
-        border-radius: 0.4rem;
+        border-radius: 0rem;
         background: #E41C69;
         height: 1.2rem;
         width: 1.2rem;
