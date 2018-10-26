@@ -20,6 +20,7 @@ function globalErrorHandler(err) {
     window.location.href = '/login';
   }
 
+  /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
   console.error(err);
   return Promise.reject(err);
 }

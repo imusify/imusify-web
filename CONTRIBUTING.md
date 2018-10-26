@@ -50,10 +50,10 @@ git fetch upstream
 
 It's always better to create local branches to work on a specific issue. Makes
 life easier for you if you are the kind who enjoys multiple things parallely.
-These should also be created directly off of the `develop` branch.
+These should also be created directly off of the `master` branch.
 
 ```shell
-git checkout -b feature -t upstream/develop
+git checkout -b feature -t upstream/master
 ```
 
 ### Step 3: Code
