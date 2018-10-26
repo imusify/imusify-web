@@ -9,6 +9,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 
 textarea {
   height: 8rem;
+  overflow-y: visible;
 }
 
 fieldset {
@@ -38,7 +39,15 @@ button, .button {
     background-color: #E41C69;
   }
 }
-
+select {
+  border: none;
+  overflow: hidden;
+  background-image: none;
+  box-shadow: none;
+  &:focus{
+    outline: none;
+  }
+}
 .form-field {
   &:last-child {
     input[type=text], input[type=password], input[type=email], textarea {
@@ -74,10 +83,12 @@ button, .button {
     width: 100%;
     background: #0b0b0c;
     color: #fff;
-    height: 4rem;
     font-size: 1.4rem;
     font-weight: 400;
     transition: all .3s ease-in-out;
+    &:not(textarea) {
+      height: 4rem;
+    }
 
     &:focus {
       border: 0.1rem solid #949494;

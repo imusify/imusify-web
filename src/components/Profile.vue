@@ -45,12 +45,14 @@
             <div class="form-group">
               <label class="control-label">Biography</label>
               <textarea id="biography"
+                        class="form-control"
                         v-model="user.bio"
-                        placeholder="Enter biography"></textarea>
+                        placeholder="Enter biography" style="resize:none"></textarea>
             </div>
             <div class="form-group">
               <label class="control-label">Gender</label>
-              <select v-model="user.gender">
+              <select class="form-control" v-model="user.gender">
+                <option value="" selected>Select Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="U">Decline to state</option>
@@ -101,5 +103,24 @@ export default {
 </script>
 <style lang="scss" scoped>
   .profile {
+    .body {
+      .heading {
+        text-align: center;
+        font-size: 5rem;
+        font-weight: 300;
+        font-style: normal;
+      }
+      .two-column {
+        align-items: flex-start;
+        margin-top: 4rem;
+        .left-sec {
+          margin-top: 2rem;
+          width: 20rem;
+        }
+        button {
+          border: none;
+        }
+      }
+    }
   }
 </style>
