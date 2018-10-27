@@ -1,6 +1,8 @@
 
 ![imusify.](./public/apple-touch-icon.png "imusify.")
 
+[![Build Status](https://travis-ci.com/imusify/imusify-web.svg?branch=master)](https://travis-ci.com/imusify/imusify-web)
+
 A free, blockchain based, incentified and decentralized platform for music related digital content such as audio, video, apps, images, and blogging where anyone can join, contribute and get paid $IMU!
 
 # Website
