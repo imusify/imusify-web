@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import SocialIcons from '@/components/SocialIcons.vue';
 import Icon from '@/components/Icon.vue';
 
-describe('SocialIcons.vue', () => {
+describe.skip('SocialIcons.vue', () => {
   it('contains 3 icons', () => {
     const wrapper = shallowMount(SocialIcons);
     expect(wrapper.findAll(Icon).length).to.equal(3);

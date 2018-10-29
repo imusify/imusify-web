@@ -4,10 +4,10 @@
       <Icon name="close" />
     </a>
     <div class="body">
-      <h1 class="heading">Sign up to imusify</h1>
-      <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper consequat.
-        Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
-        Nullam ultricies, eros quis maximus.
+      <h1 v-if="false" class="heading">Sign up to imusify</h1>
+      <p v-if="false" class="subheading">In a consequat mi. Etiam sit amet diam in diam
+        ullamcorper consequat. Maecenas pellentesque mauris augue, in scelerisque
+        lectus imperdiet et. Nullam ultricies, eros quis maximus.
       </p>
       <social-icons v-if="false"></social-icons>
       <div class="or-ui" v-if="false"><span>OR</span></div>
@@ -28,39 +28,39 @@
 </template>
 
 <script>
-import Icon from "@/components/Icon.vue";
-import SocialIcons from "@/components/SocialIcons.vue";
-import { mapMutations } from "vuex";
-import * as types from "../store/types";
+import Icon from '@/components/Icon.vue';
+import SocialIcons from '@/components/SocialIcons.vue';
+import { mapMutations } from 'vuex';
+import * as types from '../store/types';
 
 export default {
-  name: "signup",
+  name: 'signup',
   components: {
     Icon,
-    SocialIcons
+    SocialIcons,
   },
   data() {
     return {
       credentials: {
-        email: ""
-      }
+        email: '',
+      },
     };
   },
   methods: {
     ...mapMutations({
       setCredentials: types.ACCOUNTS_USER_CREDENTIALS,
-      isSignupOpen: types.TOGGLER_SIGNUP
+      isSignupOpen: types.TOGGLER_SIGNUP,
     }),
     registerationPage() {
       this.setCredentials(this.credentials);
       this.isSignupOpen(false);
-      this.$router.push("/signupnext");
+      this.$router.push('/signupnext');
     },
 
     toggleSignupOpen() {
-      this.$emit("toggleSignupOpen", false);
-    }
-  }
+      this.$emit('toggleSignupOpen', false);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
