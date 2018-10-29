@@ -10,11 +10,10 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 const Axios = require('axios');
-const baseURL = 'https://imusify-prod.herokuapp.com/v1';
+const baseURL = 'https://imusify-dev.herokuapp.com/v1';
 const headers = {
   'Content-Type': 'application/json',
-  Authorization: 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwidXNlcm5hbWUiOiJldHRpbmdlcit0ZXN0MWFiQGdtYWlsLmNvbSIsImV4cCI6MTUzOTgzNTk0NCwiZW1haWwiOiJldHRpbmdlcit0ZXN0MWFiQGdtYWlsLmNvbSIsIm9yaWdfaWF0IjoxNTM5MjMxMTQ0fQ.KyrcLgtuNjNuuQ3PxFC-Huq77fHJW7P-WCBYWv4Q-vA',
-  // 'X-CSRFToken': 'BeQrPzSfGKydvvSmwGF8wyTvDpuluvrBmw7VySaLQu5klDn2dd1VoJwi1gxoWcEp'
+  Authorization: `JWT ${process.env.IMUSIFY_JWT}`,
 };
 const http = Axios.create({
   baseURL,
