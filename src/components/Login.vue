@@ -43,24 +43,24 @@
 </template>
 
 <script>
-import Icon from "@/components/Icon.vue";
-import SocialIcons from "@/components/SocialIcons.vue";
-import { mapActions, mapMutations } from "vuex";
-import * as types from "../store/types";
+import Icon from '@/components/Icon.vue';
+import SocialIcons from '@/components/SocialIcons.vue';
+import { mapActions, mapMutations } from 'vuex';
+import * as types from '../store/types';
 
 export default {
-  name: "login",
+  name: 'login',
   components: {
     Icon,
-    SocialIcons
+    SocialIcons,
   },
   data() {
     return {
       credentials: {
-        email: "",
-        password: ""
+        email: '',
+        password: '',
       },
-      status: ""
+      status: '',
     };
   },
 
@@ -71,7 +71,7 @@ export default {
 
     ...mapMutations({
       isLoginOpen: types.TOGGLER_LOGIN,
-      isSignupOpen: types.TOGGLER_SIGNUP
+      isSignupOpen: types.TOGGLER_SIGNUP,
     }),
 
     onSubmit() {
@@ -86,13 +86,13 @@ export default {
     },
 
     signupPage() {
-      this.$router.push("/signupnext");
+      this.$router.push('/signupnext');
     },
 
     toggleLoginOpen() {
-      this.$emit("toggleLoginOpen", false);
-    }
-  }
+      this.$emit('toggleLoginOpen', false);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

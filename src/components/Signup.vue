@@ -28,39 +28,39 @@
 </template>
 
 <script>
-import Icon from "@/components/Icon.vue";
-import SocialIcons from "@/components/SocialIcons.vue";
-import { mapMutations } from "vuex";
-import * as types from "../store/types";
+import Icon from '@/components/Icon.vue';
+import SocialIcons from '@/components/SocialIcons.vue';
+import { mapMutations } from 'vuex';
+import * as types from '../store/types';
 
 export default {
-  name: "signup",
+  name: 'signup',
   components: {
     Icon,
-    SocialIcons
+    SocialIcons,
   },
   data() {
     return {
       credentials: {
-        email: ""
-      }
+        email: '',
+      },
     };
   },
   methods: {
     ...mapMutations({
       setCredentials: types.ACCOUNTS_USER_CREDENTIALS,
-      isSignupOpen: types.TOGGLER_SIGNUP
+      isSignupOpen: types.TOGGLER_SIGNUP,
     }),
     registerationPage() {
       this.setCredentials(this.credentials);
       this.isSignupOpen(false);
-      this.$router.push("/signupnext");
+      this.$router.push('/signupnext');
     },
 
     toggleSignupOpen() {
-      this.$emit("toggleSignupOpen", false);
-    }
-  }
+      this.$emit('toggleSignupOpen', false);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
