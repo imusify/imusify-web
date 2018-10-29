@@ -112,5 +112,8 @@ export default {
   .cta {
     margin-top: 4rem;
   }
+  button {
+    padding: 0;
+  }
 }
 </style>
