@@ -12,184 +12,184 @@ export default {
       data: {
         tracks: [
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+            id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png',
+            id: 2, title: 'Track Listing 2', artist: 'Artist 2', coverUrl: '/artists/cover2.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png',
+            id: 3, title: 'Track Listing 3', artist: 'Artist 3', coverUrl: '/artists/cover3.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png',
+            id: 4, title: 'Track Listing 4', artist: 'Artist 4', coverUrl: '/artists/cover4.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png',
+            id: 5, title: 'Track Listing 5', artist: 'Artist 5', coverUrl: '/artists/cover5.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
           {
-            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png',
+            id: 6, title: 'Track Listing 6', artist: 'Artist 6', coverUrl: '/artists/cover6.png', attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
           },
         ],
       },
@@ -211,6 +211,7 @@ export default {
 
 <p>In hac habitasse platea dictumst. Donec urna orci, rhoncus vitae eleifend pharetra, volutpat vel sapien. Phasellus sed commodo ligula. Integer pharetra enim a libero sollicitudin, at ultricies ex pretium. Quisque felis enim, fermentum quis augue maximus, lobortis tempor urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed pulvinar risus risus, et venenatis nisi venenatis et. Praesent diam magna, placerat at tellus in, varius fringilla eros. Morbi in tellus pharetra, hendrerit mauris id, tincidunt sapien. Aenean accumsan iaculis iaculis. Nulla porttitor pulvinar viverra. Nunc vitae facilisis neque. Etiam venenatis, magna a mollis suscipit, sem orci pharetra magna, id rutrum erat turpis non mi. Nam fermentum lacus nec risus tristique dictum.</p>`,
       },
+      attachment_url: 'https://imusify-dev.s3.amazonaws.com/Vitne+-+Jupiter+-+02+Masquerade.mp3',
     };
 
     return fetch(track);
