@@ -1,14 +1,6 @@
-import _ from 'lodash';
 import { api, globalErrorHandler } from './create-api';
-import mocks from './mocks/posts';
 
-let mockApi = {};
-
-if (process.env.NODE_ENV === 'development') {
-  mockApi = _.extend({}, mocks);
-}
-
-export default _.extend({
+export default {
   post(opts) {
     return api.post('/posts', opts)
       .catch(globalErrorHandler);
@@ -35,7 +27,7 @@ export default _.extend({
   },
 
   getAll() {
-    return api.get('/posts')
+    return api.get('/posts/')
       .catch(globalErrorHandler);
   },
-}, mockApi);
+};

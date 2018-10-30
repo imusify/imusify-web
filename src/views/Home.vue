@@ -40,7 +40,7 @@ export default {
   computed: {
     ...mapGetters({
       artists: types.ARTIST_LIST,
-      tracks: types.TRACK_LIST,
+      tracks: types.POST_LIST,
       track: types.TRACK,
     }),
 
@@ -56,12 +56,12 @@ export default {
   methods: {
     ...mapActions({
       getArtists: types.ARTIST_LIST,
-      getTracks: types.TRACK_LIST,
+      getTracks: types.POST_LIST,
       getTrack: types.TRACK_GET,
     }),
     ...mapMutations({
       resetArtists: types.ARTIST_LIST,
-      resetTracks: types.TRACK_LIST,
+      resetTracks: types.POST_LIST,
     }),
   },
 
