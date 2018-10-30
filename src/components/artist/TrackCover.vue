@@ -26,6 +26,8 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapMutations } from 'vuex';
+import * as types from '@/store/types';
 import Icon from '@/components/Icon.vue';
 
 export default {
@@ -40,14 +42,22 @@ export default {
     };
   },
   methods: {
-    toggleThumbImage() {
-      this.thumbImage = this.thumbImage === 'thumbHover' ? 'thumb' : 'thumbHover';
-    },
+    ...mapGetters({
+      currentTrack: types.TRACK_GET,
+    }),
+
+    ...mapMutations({
+      setCurrentTrack: types.TRACK,
+    }),
 
     upvote(track) {
       // todo make api call to upvote track
       /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
       console.log(track);
+    },
+
+    playTrack(track) {
+      this.setCurrentTrack(track);
     },
   },
 };

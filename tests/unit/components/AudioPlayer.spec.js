@@ -20,7 +20,7 @@ describe('AudioPlayer.vue', () => {
         track,
       },
     });
-    expect(wrapper.findAll('div').length).to.equal(4);
+    expect(wrapper.findAll('div').length).to.equal(5);
   });
   it('shows 4 icons and 2 progress bars inside the controls div section', () => {
     const wrapper = shallowMount(AudioPlayer, {

@@ -21,11 +21,15 @@
       <progress-bar percent="70" width="20%" />
       <span class="level">70%</span>
     </div>
+    <div id="player" ref="player">
+      {{track.attachment_url}}
+    </div>
   </div>
 </template>
 <script>
 import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
+
 
 export default {
   name: 'audio-player',
@@ -34,6 +38,25 @@ export default {
     ProgressBar,
   },
   props: ['track'],
+  computed: {
+    player() {
+      return window.jwplayer(this.$refs.player);
+    },
+  },
+
+  watch: {
+    track(newTrack) {
+      if (!this.player) return;
+      this.player.setup({
+        file: newTrack.attachment_url,
+        title: newTrack.title,
+      });
+      this.player.play();
+    },
+  },
+
+  mounted() {
+  },
 };
 </script>
 <style lang="scss" scoped>
