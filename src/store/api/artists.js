@@ -1,36 +1,28 @@
-import _ from 'lodash';
 import { api, globalErrorHandler } from './create-api';
-import mocks from './mocks/artists';
 
-let mockApi = {};
-
-if (process.env.NODE_ENV === 'development') {
-  mockApi = _.extend({}, mocks);
-}
-
-export default _.extend({
+export default {
   post(opts) {
-    return api.post('/artists', opts)
+    return api.post('/artist', opts)
       .catch(globalErrorHandler);
   },
 
   put(opts) {
-    return api.put(`/artists/${opts._id}`, opts)
+    return api.put(`/artist/${opts._id}`, opts)
       .catch(globalErrorHandler);
   },
 
   delete(id) {
-    return api.delete(`/artists/${id}`)
+    return api.delete(`/artist/${id}`)
       .catch(globalErrorHandler);
   },
 
   get(id) {
-    return api.get(`/artists/${id}`)
+    return api.get(`/artist/${id}`)
       .catch(globalErrorHandler);
   },
 
   getAll() {
-    return api.get('/artists')
+    return api.get('/artist/')
       .catch(globalErrorHandler);
   },
-}, mockApi);
+};

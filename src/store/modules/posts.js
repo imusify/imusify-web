@@ -2,6 +2,31 @@ import posts from '../api/posts';
 import * as types from '../types';
 
 const actions = {
+  [types.POST_CREATE]: ({ commit }, opts) => posts.post(opts)
+    .then((res) => {
+      commit(types.POST, res.data);
+    }),
+  [types.POST_LIST]: ({ commit }) => posts.getAll()
+    .then((res) => {
+      commit(types.POST_LIST, res.data.results);
+    }),
+  [types.POST_DELETE]: ({ commit }, opts) => posts.delete(opts.id)
+    .then((res) => {
+      commit(types.POST_DELETE, res.data);
+    }),
+  [types.POST_GET]: ({ commit }, id) => {
+    commit(types.LOADING, true);
+
+    posts.get(id)
+      .then((res) => {
+        commit(types.POST, res.data);
+        commit(types.LOADING, false);
+      });
+  },
+  [types.POST_PUT]: ({ commit }, opts) => posts.put(opts)
+    .then((res) => {
+      commit(types.POST_PUT, res.data);
+    }),
   [types.POSTS_CATEGORIES]: ({ commit }) => posts.getCategories()
     .then((res) => {
       commit(types.POSTS_CATEGORIES, res.data);
@@ -15,6 +40,13 @@ const actions = {
 };
 
 const mutations = {
+  [types.POST]: (state, data) => {
+    state.post = data;
+  },
+
+  [types.POST_LIST]: (state, data) => {
+    state.posts = data;
+  },
   [types.POSTS_CATEGORIES]: (state, data) => {
     state.categories = data.results;
   },
@@ -31,6 +63,10 @@ const mutations = {
 };
 
 const getters = {
+  [types.POST]: state => state.post,
+
+  [types.POST_LIST]: state => state.posts,
+
   [types.POSTS_CATEGORIES]: state => state.categories,
 
   [types.POSTS_CATEGORIES_SUBCATEGORIES]: state => state.subCategories,
@@ -45,6 +81,8 @@ const state = {
   categories: [],
   subCategory: null,
   subCategories: [],
+  post: null,
+  posts: [],
 };
 
 export default {

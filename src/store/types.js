@@ -41,6 +41,12 @@ export const TOGGLER_SIGNUP = 'toggler/TOGGLER_SIGNUP';
 export const TOGGLER_LOGIN = 'toggler/TOGGLER_LOGIN';
 
 // posts
+export const POST = 'posts/POST';
+export const POST_CREATE = 'posts/POST_CREATE';
+export const POST_DELETE = 'posts/POST_DELETE';
+export const POST_PUT = 'posts/POST_PUT';
+export const POST_GET = 'posts/POST_GET';
+export const POST_LIST = 'posts/POST_LIST';
 export const POSTS_CATEGORIES = 'posts/POSTS_CATEGORIES';
 export const POSTS_CATEGORIES_CATEGORY = 'posts/POSTS_CATEGORIES_CATEGORY';
 export const POSTS_CATEGORIES_SUBCATEGORIES = 'posts/POSTS_CATEGORIES_SUBCATEGORIES';
