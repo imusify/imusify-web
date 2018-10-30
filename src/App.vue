@@ -128,6 +128,7 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
+    overflow-x: hidden;
 
     .toast {
       left: 19rem;

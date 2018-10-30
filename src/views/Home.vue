@@ -81,6 +81,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@media(max-width: 480px) {
+  .home {
+    margin-left: 0px !important;
+  }
+}
 #app > section {
   height: 100vh;
 }
