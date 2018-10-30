@@ -163,7 +163,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-grow: 1;
+    flex-grow: 0;
     position: sticky;
     top: 0;
     z-index: 1;

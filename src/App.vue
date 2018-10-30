@@ -135,11 +135,14 @@ export default {
 
     > aside {
       width: 19rem;
-      position: sticky;
+      position: fixed;
+      z-index: 1;
       top: 0;
       left: 0;
       bottom: 0;
       height: 100vh;
+      overflow: hidden;
+      flex-shrink: 0;
     }
   }
 }

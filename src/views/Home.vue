@@ -81,14 +81,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+#app > section {
+  height: 100vh;
+}
 .home {
+  display: flex;
+  flex-direction: column;
+  margin-left: 19rem;
   transform: translateY(1px); /* fix sticky 1px gap with audio player */
 
   .lists {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    overflow: hidden;
+    overflow-y: visible;
+    flex-grow: 1;
   }
 }
 
