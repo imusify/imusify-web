@@ -4,10 +4,10 @@
       <Icon name="close" />
     </a>
     <div class="body">
-      <h1 class="heading">Sign up to imusify</h1>
-      <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper consequat.
-        Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
-        Nullam ultricies, eros quis maximus.
+      <h1 v-if="false" class="heading">Sign up to imusify</h1>
+      <p v-if="false" class="subheading">In a consequat mi. Etiam sit amet diam in diam
+        ullamcorper consequat. Maecenas pellentesque mauris augue, in scelerisque
+        lectus imperdiet et. Nullam ultricies, eros quis maximus.
       </p>
       <social-icons v-if="false"></social-icons>
       <div class="or-ui" v-if="false"><span>OR</span></div>
