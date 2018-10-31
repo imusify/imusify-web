@@ -57,7 +57,7 @@ export default {
     ...mapActions({
       getArtists: types.ARTIST_LIST,
       getTracks: types.POST_LIST,
-      getTrack: types.TRACK_GET,
+      getTrack: types.POST_GET,
     }),
     ...mapMutations({
       resetArtists: types.ARTIST_LIST,
@@ -81,18 +81,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@media(max-width: 480px) {
-  .home {
-    margin-left: 0px !important;
-  }
-}
 #app > section {
   height: 100vh;
 }
 .home {
   display: flex;
   flex-direction: column;
-  margin-left: 19rem;
   transform: translateY(1px); /* fix sticky 1px gap with audio player */
 
   .lists {
