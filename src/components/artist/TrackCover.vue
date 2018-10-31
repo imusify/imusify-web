@@ -56,8 +56,8 @@ export default {
 @import './src/assets/styles/base.scss';
 
 .track {
-  width: 18.25rem;
-  height: 18.25rem;
+  width: 21rem;
+  height: 21rem;
   margin-left: .5rem;
   margin-bottom: .5rem;
   display: flex;
