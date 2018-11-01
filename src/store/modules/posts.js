@@ -25,7 +25,6 @@ const actions = {
     posts.get(id)
       .then((res) => {
         commit(types.POST, res.data);
-        commit(types.LOADING, false);
       });
   },
   [types.POST_PUT]: ({ commit }, opts) => posts.put(opts)
