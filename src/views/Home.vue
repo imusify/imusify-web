@@ -13,27 +13,27 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
-import CategoriesMenu from "@/components/CategoriesMenu.vue";
-import TrackList from "@/components/artist/TrackList.vue";
-import ArtistList from "@/components/artist/ArtistList.vue";
-import * as types from "@/store/types";
-import AudioPlayer from "@/components/AudioPlayer.vue";
-import ArtistTrackToggler from "@/components/ArtistTrackToggler.vue";
+import { mapActions, mapGetters, mapMutations } from 'vuex';
+import CategoriesMenu from '@/components/CategoriesMenu.vue';
+import TrackList from '@/components/artist/TrackList.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
+import * as types from '@/store/types';
+import AudioPlayer from '@/components/AudioPlayer.vue';
+import ArtistTrackToggler from '@/components/ArtistTrackToggler.vue';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     AudioPlayer,
     CategoriesMenu,
     ArtistList,
     TrackList,
-    ArtistTrackToggler
+    ArtistTrackToggler,
   },
 
   data() {
     return {
-      isLoading: true
+      isLoading: true,
     };
   },
 
@@ -41,28 +41,28 @@ export default {
     ...mapGetters({
       artists: types.ARTIST_LIST,
       tracks: types.POST_LIST,
-      track: types.POST
+      track: types.POST,
     }),
 
     selected() {
-      return this.$route.path === "/" ? "tracks" : "artists";
+      return this.$route.path === '/' ? 'tracks' : 'artists';
     },
 
     transitionName() {
-      return this.selected === "artists" ? "slide-left" : "slide-right";
-    }
+      return this.selected === 'artists' ? 'slide-left' : 'slide-right';
+    },
   },
 
   methods: {
     ...mapActions({
       getArtists: types.ARTIST_LIST,
       getTracks: types.POST_LIST,
-      getTrack: types.POST_GET
+      getTrack: types.POST_GET,
     }),
     ...mapMutations({
       resetArtists: types.ARTIST_LIST,
-      resetTracks: types.POST_LIST
-    })
+      resetTracks: types.POST_LIST,
+    }),
   },
 
   mounted() {
@@ -77,7 +77,7 @@ export default {
   beforeDestroy() {
     this.resetTracks({ id: 1 });
     this.resetArtists({ id: 1 });
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -94,6 +94,7 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
     flex-grow: 1;
+    width: calc(100vw - 19rem);
   }
 }
 
