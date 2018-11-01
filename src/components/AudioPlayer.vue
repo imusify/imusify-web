@@ -1,8 +1,8 @@
 <template>
-  <div class="audio-player" v-if="track">
+  <div class="audio-player">
     <div class="track">
-      <div class="cover"
-           :style="{ backgroundImage: `url(${track.coverUrl})` }"></div>
+      <!--<div class="cover"-->
+           <!--:style="{ backgroundImage: `url(${track.coverUrl})` }"></div>-->
       <aside>
         <h3>{{track.title}}</h3>
         <h4>{{track.artist}}</h4>
@@ -18,7 +18,7 @@
       </a>
       <a href="#" @click.prevent="pause()"
          v-else>
-        pause
+        <icon name="pause" />
       </a>
       <a href="#" @click.prevent="forward()">
         <icon name="skip" classes="forward" />
@@ -74,18 +74,24 @@ export default {
     track(newTrack) {
       if (!this.player.setup || !newTrack) return;
 
-      this.player.setup({
-        file: newTrack.attachment_url,
-        title: newTrack.title,
-        height: 40,
-        width: '100%',
-      });
-
-      this.play();
+      this.setup(newTrack);
     },
   },
 
   methods: {
+    setup(track) {
+      if (!this.player) return;
+
+      this.player.setup({
+        file: track.attachment_url,
+        title: track.title,
+        height: 40,
+        width: '10%',
+      });
+
+      this.play();
+    },
+
     play() {
       this.player.play();
       this.isPlaying = true;
@@ -113,6 +119,22 @@ export default {
     rewind() {
       this.seek(-10);
     },
+
+    loadPlayer() {
+      const script = document.createElement('script');
+
+      script.onload = () => {
+        window.jwplayer.key = 'gqWMKSJFrSCFPcg4SHSHTFbVSyeE6Iz69Q/8BTvTyNk=';
+        this.setup(this.track);
+      };
+
+      script.src = '//d1t85561ay7mwz.cloudfront.net/jwplayer.js';
+      document.head.appendChild(script);
+    },
+  },
+
+  mounted() {
+    this.loadPlayer();
   },
 };
 </script>
