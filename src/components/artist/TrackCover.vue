@@ -43,11 +43,11 @@ export default {
   },
   methods: {
     ...mapGetters({
-      currentTrack: types.TRACK_GET,
+      currentTrack: types.POST_GET,
     }),
 
     ...mapMutations({
-      setCurrentTrack: types.TRACK,
+      setCurrentTrack: types.POST,
     }),
 
     upvote(track) {

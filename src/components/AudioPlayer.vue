@@ -9,21 +9,30 @@
       </aside>
     </div>
     <div class="controls">
-      <icon name="skip" />
-      <icon name="play" />
-      <icon name="skip" classes="forward" />
-      <span class="time elapsed">0:47</span>
-      <progress-bar percent="20" width="45%" />
-      <span class="time remaining">4:27</span>
+      <a href="#" @click.prevent="rewind()">
+        <icon name="skip" />
+      </a>
+      <a href="#" @click.prevent="play()"
+          v-if="!isPlaying">
+        <icon name="play" />
+      </a>
+      <a href="#" @click.prevent="pause()"
+         v-else>
+        pause
+      </a>
+      <a href="#" @click.prevent="forward()">
+        <icon name="skip" classes="forward" />
+      </a>
+      <span class="time elapsed"></span>
+      <progress-bar percent="20" width="" />
+      <span class="time remaining"></span>
       <span class="volume">
         <icon name="volume" />
       </span>
       <progress-bar percent="70" width="20%" />
       <span class="level">70%</span>
     </div>
-    <div id="player" ref="player">
-      {{track.attachment_url}}
-    </div>
+    <div id="player" ref="player"></div>
   </div>
 </template>
 <script>
@@ -38,24 +47,72 @@ export default {
     ProgressBar,
   },
   props: ['track'],
+  data() {
+    return {
+      isPlaying: false,
+    };
+  },
   computed: {
     player() {
       return window.jwplayer(this.$refs.player);
+    },
+
+    length() {
+      return this.player.getDuration && this.player.getDuration();
+    },
+
+    elapsed() {
+      return this.player.getPosition && this.player.getPosition();
+    },
+
+    progress() {
+      return `${(this.length / this.elapsed) * 100}%`;
     },
   },
 
   watch: {
     track(newTrack) {
-      if (!this.player) return;
+      if (!this.player.setup || !newTrack) return;
+
       this.player.setup({
         file: newTrack.attachment_url,
         title: newTrack.title,
+        height: 40,
+        width: '100%',
       });
-      this.player.play();
+
+      this.play();
     },
   },
 
-  mounted() {
+  methods: {
+    play() {
+      this.player.play();
+      this.isPlaying = true;
+    },
+
+    pause() {
+      this.player.pause();
+      this.isPlaying = false;
+    },
+
+    seek(secs) {
+      let time = this.player.getPosition() + secs;
+
+      if (time < 0) {
+        time = 0;
+      }
+
+      this.player.seek(time);
+    },
+
+    forward() {
+      this.seek(10);
+    },
+
+    rewind() {
+      this.seek(-10);
+    },
   },
 };
 </script>

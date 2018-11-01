@@ -32,13 +32,13 @@ describe('AudioPlayer.vue', () => {
     expect(controlDiv.findAll(Icon).length).to.equal(4);
     expect(controlDiv.findAll(ProgressBar).length).to.equal(2);
   });
-  it('time progress bar width is 45%', () => {
+  it('time progress bar width is nothing', () => {
     const wrapper = shallowMount(AudioPlayer, {
       propsData: {
         track,
       },
     });
-    expect(wrapper.find('.controls').findAll(ProgressBar).at(0).props().width).to.equal('45%');
+    expect(wrapper.find('.controls').findAll(ProgressBar).at(0).props().width).to.equal('');
   });
   it('volume progress bar width is 20%', () => {
     const wrapper = shallowMount(AudioPlayer, {
