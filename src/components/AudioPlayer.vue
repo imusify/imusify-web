@@ -47,6 +47,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  flex-grow: 0;
   height: 6.7rem;
   font-size: 1.4rem;
   box-shadow: 0px -20px 30px 6px rgba(0,0,0,0.74);

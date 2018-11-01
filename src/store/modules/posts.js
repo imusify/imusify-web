@@ -8,6 +8,7 @@ const actions = {
     }),
   [types.POST_LIST]: ({ commit }) => posts.getAll()
     .then((res) => {
+      console.log(res.data);
       commit(types.POST_LIST, res.data.results);
     }),
   [types.POST_DELETE]: ({ commit }, opts) => posts.delete(opts.id)

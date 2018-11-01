@@ -128,7 +128,6 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
-    overflow-x: hidden;
 
     .toast {
       left: 19rem;
@@ -137,13 +136,10 @@ export default {
     > aside {
       width: 19rem;
       position: sticky;
-      z-index: 1;
       top: 0;
       left: 0;
       bottom: 0;
       height: 100vh;
-      overflow: hidden;
-      flex-shrink: 0;
     }
   }
 }
