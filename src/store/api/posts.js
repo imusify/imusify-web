@@ -17,7 +17,7 @@ export default {
   },
 
   get(id) {
-    return api.get(`/posts/${id}`)
+    return api.get(`/posts/${id}/`)
       .catch(globalErrorHandler);
   },
 

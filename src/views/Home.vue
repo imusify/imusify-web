@@ -41,7 +41,7 @@ export default {
     ...mapGetters({
       artists: types.ARTIST_LIST,
       tracks: types.POST_LIST,
-      track: types.TRACK,
+      track: types.POST,
     }),
 
     selected() {
@@ -57,7 +57,7 @@ export default {
     ...mapActions({
       getArtists: types.ARTIST_LIST,
       getTracks: types.POST_LIST,
-      getTrack: types.TRACK_GET,
+      getTrack: types.POST_GET,
     }),
     ...mapMutations({
       resetArtists: types.ARTIST_LIST,
@@ -71,7 +71,7 @@ export default {
       .then(() => {
         this.isLoading = false;
       });
-    this.getTrack(1);
+    this.getTrack(20);
   },
 
   beforeDestroy() {
@@ -81,6 +81,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+#app > section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .home {
   transform: translateY(1px); /* fix sticky 1px gap with audio player */
 
@@ -88,7 +93,8 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    overflow: hidden;
+    flex-grow: 1;
+    width: calc(100vw - 19rem);
   }
 }
 
