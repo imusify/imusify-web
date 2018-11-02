@@ -2,46 +2,60 @@
   <nav class="sidebar"
        :class="{ open: isSideBarOpen, isLoggedIn }">
     <ul class="menu">
-      <li>
+      <li v-on:click="home = !home">
         <router-link to="/">
           <icon name="home"/>
-          <span>Home</span>
+            <div v-bind:class="homeClasses">
+            <span >Home</span>
+            </div>
         </router-link>
       </li>
-      <li>
+      <li v-on:click="channels = !channels">
         <router-link to="/channels">
           <icon name="channels"/>
-          <span>Channels</span>
+          <div v-bind:class="channelsClasses">
+            <span>Channels</span>
+          </div>
         </router-link>
       </li>
-      <li>
+      <li v-on:click="browse = !browse">
         <router-link to="/browse">
           <icon name="browse"/>
-          <span>Browse</span>
+          <div v-bind:class="browseClasses">
+            <span>Browse</span>
+          </div>
         </router-link>
       </li>
-      <li>
+      <li v-on:click="crowdfunding = !crowdfunding">
         <router-link to="/crowdfunding">
           <icon name="crowdfunding"/>
-          <span>Crowd Funding</span>
+          <div v-bind:class="crowdfundingClasses">
+           <span>Crowd Funding</span>
+          </div>
         </router-link>
       </li>
-      <li>
+      <li v-on:click="upload = !upload">
         <router-link to="/upload">
           <icon name="upload"/>
-          <span>Upload</span>
+          <div v-bind:class="uploadClasses">
+            <span>Upload</span>
+          </div>
         </router-link>
       </li>
-      <li>
+      <li v-on:click="wallet = !wallet">
         <router-link to="/wallet">
           <icon name="wallet"/>
-          <span>Wallet</span>
+          <div v-bind:class="walletClasses">
+            <span>Wallet</span>
+          </div>
         </router-link>
-      </li>
-      <li>
+      </li> 
+      <li v-on:click="following = !following">
         <router-link to="/following">
           <icon name="following"/>
-          <span>Following</span>
+          <div v-bind:class="followingClasses">
+            <span>Following</span>
+          </div>
         </router-link>
       </li>
     </ul>
@@ -70,7 +84,7 @@ export default {
   },
   props: ['isSideBarOpen'],
   data() {
-    return {};
+    return {home: false, channels: false, browse: false, crowdfunding: false, upload: false, wallet: false, following: false};
   },
   computed: {
     ...mapGetters({
@@ -79,6 +93,41 @@ export default {
     isLoggedIn() {
       return Boolean(this.token);
     },
+    homeClasses:function() {
+      return{
+        home: this.home,
+      }
+    },
+    channelsClasses:function() {
+      return{
+        channels: this.channels
+      }
+    },
+    browseClasses:function() {
+      return{ 
+        browse: this.browse
+      }
+    },
+    crowdfundingClasses:function() {
+      return{
+        crowdfunding: this.crowdfunding
+      }
+    },
+    uploadClasses:function() {
+      return{
+        upload: this.upload
+      }
+    },
+    followingClasses:function() {
+      return{
+        following: this.following
+      }
+    },
+    walletClasses:function() {
+      return{
+        wallet: this.wallet
+      }
+    }
   },
   methods: {
     toggleSideBar() {
@@ -145,6 +194,30 @@ export default {
           color: #fff;
           background-color: #131314;
         }
+      span{
+        background: #131314;
+      }  
+      .home span{
+        background: #fff;
+      }
+      .channels span{
+        background: #fff;
+      }
+      .browse span{
+        background: #fff;
+      }
+      .crowdfunding span{
+        background: #fff;
+      }
+      .upload span{
+        background: #fff;
+      }
+      .following span{
+        background: #fff;
+      }
+      .wallet span{
+        background: #fff;
+      }
       }
     }
 
