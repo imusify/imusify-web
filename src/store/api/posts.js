@@ -30,4 +30,14 @@ export default {
     return api.get('/posts/')
       .catch(globalErrorHandler);
   },
+
+  upvote(id) {
+    return api.post(`/posts/${id}/vote/up/`)
+      .catch(globalErrorHandler);
+  },
+
+  downvote(id) {
+    return api.post(`/posts/${id}/vote/down/`)
+      .catch(globalErrorHandler);
+  },
 };
