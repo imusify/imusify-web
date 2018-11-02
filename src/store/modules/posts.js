@@ -2,6 +2,20 @@ import posts from '../api/posts';
 import * as types from '../types';
 
 const actions = {
+  [types.POST_UPVOTE]: ({ commit }, opts) => {
+    commit(types.LOADING, true);
+    posts.upvote(opts.id)
+      .then(() => {
+        commit(types.LOADING, false);
+      });
+  },
+  [types.POST_DOWNVOTE]: ({ commit }, opts) => {
+    commit(types.LOADING, true);
+    posts.downvote(opts.id)
+      .then(() => {
+        commit(types.LOADING, false);
+      });
+  },
   [types.POST_CREATE]: ({ commit }, opts) => posts.post(opts)
     .then((res) => {
       commit(types.POST, res.data);

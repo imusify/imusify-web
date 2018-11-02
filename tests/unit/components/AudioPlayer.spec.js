@@ -52,7 +52,7 @@ describe('AudioPlayer.vue', () => {
     const wrapper = shallowMount(AudioPlayer, {
       propsData: {
         track,
-      }
+      },
     });
     expect(wrapper.find('aside').find('h3').text()).to.equal(track.title);
   });

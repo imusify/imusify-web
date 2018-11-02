@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 import * as types from '@/store/types';
 import Icon from '@/components/Icon.vue';
 
@@ -42,6 +42,10 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      upvote: types.POST_UPVOTE,
+      downvote: types.POST_DOWNVOTE,
+    }),
     ...mapGetters({
       currentTrack: types.POST_GET,
     }),
@@ -49,12 +53,6 @@ export default {
     ...mapMutations({
       setCurrentTrack: types.POST,
     }),
-
-    upvote(track) {
-      // todo make api call to upvote track
-      /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
-      console.log(track);
-    },
 
     playTrack(track) {
       this.setCurrentTrack(track);
