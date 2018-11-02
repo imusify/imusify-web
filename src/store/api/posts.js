@@ -32,12 +32,12 @@ export default {
   },
 
   upvote(id) {
-    return api.post(`/posts/${id}/action/up/`)
+    return api.post(`/posts/${id}/vote/up/`)
       .catch(globalErrorHandler);
   },
 
   downvote(id) {
-    return api.post(`/posts/${id}/action/down/`)
+    return api.post(`/posts/${id}/vote/down/`)
       .catch(globalErrorHandler);
   },
 };
