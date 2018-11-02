@@ -6,10 +6,15 @@ const actions = {
     .then((res) => {
       commit(types.POST, res.data);
     }),
-  [types.POST_LIST]: ({ commit }) => posts.getAll()
-    .then((res) => {
-      commit(types.POST_LIST, res.data.results);
-    }),
+  [types.POST_LIST]: ({ commit }) => {
+    commit(types.LOADING, true);
+
+    posts.getAll()
+      .then((res) => {
+        commit(types.POST_LIST, res.data.results);
+        commit(types.LOADING, false);
+      });
+  },
   [types.POST_DELETE]: ({ commit }, opts) => posts.delete(opts.id)
     .then((res) => {
       commit(types.POST_DELETE, res.data);
@@ -20,7 +25,6 @@ const actions = {
     posts.get(id)
       .then((res) => {
         commit(types.POST, res.data);
-        commit(types.LOADING, false);
       });
   },
   [types.POST_PUT]: ({ commit }, opts) => posts.put(opts)
