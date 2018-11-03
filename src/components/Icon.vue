@@ -159,7 +159,7 @@ export default {
       height: 1.6rem;
     }
 
-    &:hover {
+    &:hover, &.voted_up {
       path {
         fill: #e41c69;
       }

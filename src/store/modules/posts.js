@@ -5,15 +5,17 @@ const actions = {
   [types.POST_UPVOTE]: ({ commit }, opts) => {
     commit(types.LOADING, true);
     posts.upvote(opts.id)
-      .then(() => {
+      .then((res) => {
         commit(types.LOADING, false);
+        commit(types.POST, res.data);
       });
   },
   [types.POST_DOWNVOTE]: ({ commit }, opts) => {
     commit(types.LOADING, true);
     posts.downvote(opts.id)
-      .then(() => {
+      .then((res) => {
         commit(types.LOADING, false);
+        commit(types.POST, res.data);
       });
   },
   [types.POST_CREATE]: ({ commit }, opts) => posts.post(opts)
