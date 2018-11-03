@@ -8,7 +8,15 @@
         <span class="imu">ϑ74</span>
       </span>
       <a href="#"
+        v-if="!isLoggedIn"
          class="thumb-button"
+         @click.prevent="toggleLogin(true)">
+        <icon name="thumb" />
+        <icon name="thumbHover" />
+      </a>
+      <a href="#"
+         class="thumb-button"
+         v-else
          @click.prevent="upvote(track)">
         <icon name="thumb" />
         <icon name="thumbHover" />
@@ -41,6 +49,15 @@ export default {
       thumbImage: 'thumb',
     };
   },
+  computed: {
+    isLoggedIn() {
+      return Boolean(this.token);
+    },
+    ...mapGetters({
+      user: types.ACCOUNTS_USER,
+      token: types.ACCOUNTS_TOKEN,
+    }),
+  },
   methods: {
     ...mapActions({
       upvote: types.POST_UPVOTE,
@@ -52,6 +69,7 @@ export default {
 
     ...mapMutations({
       setCurrentTrack: types.POST,
+      toggleLogin: types.TOGGLER_LOGIN,
     }),
 
     playTrack(track) {
@@ -61,13 +79,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import './src/assets/styles/base.scss';
+@import "./src/assets/styles/base.scss";
 
 .track {
   width: 21rem;
   height: 21rem;
-  margin-left: .5rem;
-  margin-bottom: .5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,7 +93,8 @@ export default {
   padding: 0.7rem;
   background-position: center center;
   background-size: cover;
-  box-shadow: inset 0px 35px 30px -10px #000000b3, inset 0px -35px 30px -5px #000000e6;
+  box-shadow: inset 0px 35px 30px -10px #000000b3,
+    inset 0px -35px 30px -5px #000000e6;
 
   .play-button {
     align-self: center;
@@ -116,8 +135,8 @@ export default {
     }
 
     .divider {
-      color: #E41C69;
-      margin: 0 .25rem;
+      color: #e41c69;
+      margin: 0 0.25rem;
     }
   }
 
@@ -134,7 +153,7 @@ export default {
 
     h4 {
       font-size: 1.4rem;
-      opacity: .6;
+      opacity: 0.6;
       text-transform: uppercase;
 
       a {
