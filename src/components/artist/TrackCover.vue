@@ -16,8 +16,9 @@
       </a>
       <a href="#"
          class="thumb-button"
+         :class="{ voted_up: track.voted_up }"
          v-else
-         @click.prevent="upvote(track)">
+         @click.prevent="upvoteTrack(track)">
         <icon name="thumb" />
         <icon name="thumbHover" />
       </a>
@@ -75,6 +76,13 @@ export default {
     playTrack(track) {
       this.setCurrentTrack(track);
     },
+
+    upvoteTrack(track) {
+      this.upvote(track)
+        .then(() => {
+          track.voted_up += 1;
+        });
+    },
   },
 };
 </script>
@@ -109,7 +117,7 @@ export default {
       display: none;
     }
 
-    &:hover {
+    &:hover, &.voted_up {
       .icon-svg.thumb {
         display: none;
       }
