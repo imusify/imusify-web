@@ -80,7 +80,7 @@ export default {
     upvoteTrack(track) {
       this.upvote(track)
         .then(() => {
-          track.voted_up = +1;
+          track.voted_up += 1;
         });
     },
   },
