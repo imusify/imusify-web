@@ -94,7 +94,7 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
     flex-grow: 1;
-    width: calc(100vw - 19rem);
+    width: 100vw;
   }
 }
 
