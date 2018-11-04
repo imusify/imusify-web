@@ -118,4 +118,12 @@ export default {
 .slide-right-enter {
   transform: translate(calc(-100vw), 0);
 }
+
+@media (min-width: 480px) {
+  .home {
+    .lists {
+      width: calc(100vw - 19rem);
+    }
+  }
+}
 </style>
