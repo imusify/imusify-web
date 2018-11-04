@@ -94,7 +94,7 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
     flex-grow: 1;
-    width: calc(100vw - 19rem);
+    width: 100vw;
   }
 }
 
@@ -117,5 +117,13 @@ export default {
 .slide-left-leave-active,
 .slide-right-enter {
   transform: translate(calc(-100vw), 0);
+}
+
+@media (min-width: 480px) {
+  .home {
+    .lists {
+      width: calc(100vw - 19rem);
+    }
+  }
 }
 </style>

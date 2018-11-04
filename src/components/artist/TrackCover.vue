@@ -90,8 +90,8 @@ export default {
 @import "./src/assets/styles/base.scss";
 
 .track {
-  width: 21rem;
-  height: 21rem;
+  width: 18rem;
+  height: 18rem;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
   display: flex;
