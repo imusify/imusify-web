@@ -2,7 +2,7 @@
   <form class="search-bar"
         @submit.prevent="search()">
     <input type="text"
-           placeholder="What are you looking for?"
+           placeholder="Search"
            v-model="filter" />
     <button>
       <icon name="magnify" />
@@ -37,7 +37,6 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    display: none;
     justify-content: flex-end;
     align-items: center;
 
@@ -46,7 +45,7 @@ export default {
       background: transparent;
       color: #fff;
       font-size: 1.6rem;
-      width: 26rem;
+      width: 10rem;
       opacity: .6;
 
       &::placeholder {
