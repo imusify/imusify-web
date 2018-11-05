@@ -165,14 +165,19 @@ export default {
     justify-content: flex-start;
     flex-grow: 0;
     position: sticky;
-    top: 0;
+    top: -1px;
     z-index: 1;
+    background-color: #131314;
 
     > section {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       overflow: hidden;
+
+      &.categories {
+        width: 66vw;
+      }
     }
 
     ul a {
@@ -230,14 +235,40 @@ export default {
   }
 
   @media (min-width: 480px) {
+    .topnav {
+      width: calc(100vw - 19rem);
+    }
+
     .categories, .sub-categories {
       width: calc(100vw - 19rem);
+
+      &.categories {
+        width: 40vw !important;
+      }
     }
   }
 
-  @media (min-width: 1200px) {
-    a.prev, a.next {
-      display: none !important;
+  @media (min-width: 800px) {
+    .categories, .sub-categories {
+      &.categories {
+        width: 60vw !important;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .categories, .sub-categories {
+      &.categories {
+        width: 66vw !important;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .categories, .sub-categories {
+      &.categories {
+        width: 75vw !important;
+      }
     }
   }
 </style>
