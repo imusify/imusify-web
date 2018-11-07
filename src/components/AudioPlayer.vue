@@ -1,6 +1,6 @@
 <template>
   <div class="audio-player">
-    <div class="track">
+    <div class="track" v-if="track">
       <!--<div class="cover"-->
            <!--:style="{ backgroundImage: `url(${track.coverUrl})` }"></div>-->
       <aside>
@@ -8,7 +8,7 @@
         <h4>{{track.artist}}</h4>
       </aside>
     </div>
-    <div class="controls">
+    <div class="controls" v-if="track">
       <a href="#" @click.prevent="rewind()">
         <icon name="skip" />
       </a>
@@ -23,73 +23,77 @@
       <a href="#" @click.prevent="forward()">
         <icon name="skip" classes="forward" />
       </a>
-      <span class="time elapsed"></span>
-      <progress-bar percent="20" width="" />
-      <span class="time remaining"></span>
+      <span class="time elapsed">{{elapsed}}s</span>
+      <progress-bar :percent="progress" width="10rem" />
+      <span class="time remaining">{{duration}}s</span>
       <span class="volume">
         <icon name="volume" />
       </span>
       <progress-bar percent="70" width="20%" />
       <span class="level">70%</span>
     </div>
-    <div id="player" ref="player"></div>
+    <video-player class="video-player-box"
+                  ref="videoPlayer"
+                  :options="playerOptions"
+                  :playsinline="true"
+                  @timeupdate="onTimeUpdate($event)"
+                  @statechanged="playerStateChanged($event)">
+    </video-player>
   </div>
 </template>
 <script>
 import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
-
+import { videoPlayer } from 'vue-video-player';
 
 export default {
   name: 'audio-player',
   components: {
     Icon,
     ProgressBar,
+    videoPlayer,
   },
   props: ['track'],
   data() {
     return {
       isPlaying: false,
+      currentTime: 0,
+      duration: 0,
+      playerOptions: {
+        muted: false,
+        language: 'en',
+        playbackRates: [0.7, 1.0, 1.5, 2.0],
+        sources: [{
+          type: 'audio/mp3',
+        }],
+      },
     };
   },
   computed: {
     player() {
-      return window.jwplayer(this.$refs.player);
-    },
-
-    length() {
-      return this.player.getDuration && this.player.getDuration();
+      return this.$refs.videoPlayer.player;
     },
 
     elapsed() {
-      return this.player.getPosition && this.player.getPosition();
+      return this.currentTime.toFixed(2);
     },
 
     progress() {
-      return `${(this.length / this.elapsed) * 100}%`;
+      return ((this.elapsed / this.duration) * 100).toFixed(2);
     },
   },
 
   watch: {
     track(newTrack) {
-      if (!this.player.setup || !newTrack) return;
-
-      this.setup(newTrack);
+      if (!this.player || !newTrack) return;
+      this.player.src({ type: 'audio/mp3', src: newTrack.attachment_url });
+      this.play();
     },
   },
 
   methods: {
-    setup(track) {
-      if (!this.player) return;
-
-      this.player.setup({
-        file: track.attachment_url,
-        title: track.title,
-        height: 40,
-        width: '10%',
-      });
-
-      this.play();
+    onTimeUpdate() {
+      this.duration = this.player.duration().toFixed(2);
     },
 
     play() {
@@ -103,13 +107,13 @@ export default {
     },
 
     seek(secs) {
-      let time = this.player.getPosition() + secs;
+      let time = this.player.currentTime() + secs;
 
       if (time < 0) {
         time = 0;
       }
 
-      this.player.seek(time);
+      this.player.currentTime(time);
     },
 
     forward() {
@@ -120,21 +124,16 @@ export default {
       this.seek(-10);
     },
 
-    loadPlayer() {
-      const script = document.createElement('script');
-
-      script.onload = () => {
-        window.jwplayer.key = 'gqWMKSJFrSCFPcg4SHSHTFbVSyeE6Iz69Q/8BTvTyNk=';
-        this.setup(this.track);
-      };
-
-      script.src = '//d1t85561ay7mwz.cloudfront.net/jwplayer.js';
-      document.head.appendChild(script);
+    // or listen state event
+    playerStateChanged(playerCurrentState) {
+      if (playerCurrentState.timeupdate) {
+        this.currentTime = playerCurrentState.timeupdate;
+      }
     },
   },
 
   mounted() {
-    this.loadPlayer();
+    this.play();
   },
 };
 </script>
