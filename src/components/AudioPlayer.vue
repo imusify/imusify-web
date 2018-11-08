@@ -32,13 +32,15 @@
       <progress-bar percent="70" width="20%" />
       <span class="level">70%</span>
     </div>
-    <video-player class="video-player-box"
-                  ref="videoPlayer"
-                  :options="playerOptions"
-                  :playsinline="true"
-                  @timeupdate="onTimeUpdate($event)"
-                  @statechanged="playerStateChanged($event)">
-    </video-player>
+    <div class="player">
+      <video-player class="video-player-box"
+                    ref="videoPlayer"
+                    :options="playerOptions"
+                    :playsinline="true"
+                    @timeupdate="onTimeUpdate($event)"
+                    @statechanged="playerStateChanged($event)">
+      </video-player>
+    </div>
   </div>
 </template>
 <script>
@@ -135,6 +137,8 @@ export default {
   },
 
   mounted() {
+    this.player.width(10);
+    this.player.height(20);
     this.play();
   },
 };
@@ -196,10 +200,9 @@ export default {
     }
   }
 
-  .video-player-box {
-    display: none;
-    width: 1rem !important;
-    height: 1rem !important;
+  .player {
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 </style>
@@ -217,6 +220,18 @@ export default {
     .forward {
       svg {
         transform: rotate(180deg);
+      }
+    }
+  }
+
+  .player {
+    .video-player-box {
+      display: none;
+
+      .video-js {
+        .vjs-big-play-button {
+          display: none;
+        }
       }
     }
   }
