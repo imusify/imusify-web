@@ -42,9 +42,11 @@
   </div>
 </template>
 <script>
+import { videoPlayer } from 'vue-video-player';
 import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
-import { videoPlayer } from 'vue-video-player';
+import '../../node_modules/video.js/dist/video-js.css';
+
 
 export default {
   name: 'audio-player',
@@ -192,6 +194,12 @@ export default {
     .volume {
       margin-left: 4rem;
     }
+  }
+
+  .video-player-box {
+    display: none;
+    width: 1rem !important;
+    height: 1rem !important;
   }
 }
 </style>
