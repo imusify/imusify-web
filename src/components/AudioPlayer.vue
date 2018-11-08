@@ -209,7 +209,7 @@ export default {
 <style lang="scss">
 .audio-player {
   .controls {
-    .play {
+    .play, .pause {
       margin: 0 1rem;
 
       svg {
