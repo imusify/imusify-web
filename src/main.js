@@ -6,6 +6,7 @@ import App from './App.vue';
 import { messages } from './constants';
 
 Vue.config.productionTip = false;
+
 Vue.use(VueI18n);
 
 // get user's locale settings

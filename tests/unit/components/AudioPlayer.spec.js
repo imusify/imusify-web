@@ -4,17 +4,54 @@ import AudioPlayer from '@/components/AudioPlayer.vue';
 import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
 
-describe('AudioPlayer.vue', () => {
+describe.skip('AudioPlayer.vue', () => {
   const track = {
-    id: 1, title: 'Track Listing 1', artist: 'Artist 1', coverUrl: '/artists/cover1.png',
+    id: 20,
+    title: 'Be free !',
+    slug: 'be-free',
+    description: 'Very cool song, check it out!',
+    owner: {
+      id: 13,
+      username: 'TadejKrevh1',
+      first_name: 'Tadej',
+      last_name: 'Krevh',
+      image: 'profile.jpg',
+      image_url: 'https://imusify-prod.s3.amazonaws.com/profile.jpg',
+      date_created: '2018-02-17 12:31:57',
+      date_modified: '2018-03-05T07:34:44+0000',
+      bio: 'Check out my profile at https://angel.co/tadej-krevh',
+      date_of_birth: null,
+      imu_balance: 400000000,
+    },
+    categories: [],
+    tags: [],
+    channels: [48],
+    vote_up_count: 8,
+    vote_down_count: 2,
+    attachment: 'free.mp3',
+    attachment_url: 'https://imusify-prod.s3.amazonaws.com/free.mp3',
+    date_created: '2018-02-26 18:51:42',
+    attachment_streaming_url: 'rtmp://s3s4uaqsuwvcsf.cloudfront.net/cfx/st/free.mp3',
+    streaming_url: 'rtmp://s3s4uaqsuwvcsf.cloudfront.net/cfx/st',
+    voted_up: 0,
+    voted_down: 0,
   };
+
+  beforeEach(() => {
+    global.videojs = { my: 'mock', object: 'here', player: { play: () => {} } };
+  });
+
+  afterEach(() => {
+    delete global.videojs; // Cleanup
+  });
+
   it.skip('hide audio player if no track is selected', () => {
     const wrapper = shallowMount(AudioPlayer, {
       propsData: {},
     });
     expect(wrapper.findAll('div').length).to.equal(0);
   });
-  it('show audio player if track is selected', () => {
+  it.only('show audio player if track is selected', () => {
     const wrapper = shallowMount(AudioPlayer, {
       propsData: {
         track,
