@@ -13,7 +13,7 @@
         <icon name="skip" />
       </a>
       <a href="#" @click.prevent="play()"
-          v-if="!isPlaying">
+          v-if="!isTrackPlaying">
         <icon name="play" />
       </a>
       <a href="#" @click.prevent="pause()"
@@ -44,9 +44,11 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapMutations } from 'vuex';
 import { videoPlayer } from 'vue-video-player';
 import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
+import * as types from '@/store/types';
 import '../../node_modules/video.js/dist/video-js.css';
 
 
@@ -60,7 +62,6 @@ export default {
   props: ['track'],
   data() {
     return {
-      isPlaying: false,
       currentTime: 0,
       duration: 0,
       playerOptions: {
@@ -74,6 +75,14 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      currentTrack: types.POST,
+    }),
+
+    isTrackPlaying() {
+      return this.$store.state.isTrackPlaying;
+    },
+
     player() {
       return this.$refs.videoPlayer.player;
     },
@@ -89,25 +98,35 @@ export default {
 
   watch: {
     track(newTrack) {
-      if (!this.player || !newTrack) return;
+      if (!this.player) return;
+
+      if (!newTrack) {
+        this.pause();
+        return;
+      }
+
       this.player.src({ type: 'audio/mp3', src: newTrack.attachment_url });
       this.play();
     },
   },
 
   methods: {
+    ...mapMutations({
+      setCurrentTrack: types.POST,
+    }),
+
     onTimeUpdate() {
       this.duration = this.player.duration().toFixed(2);
     },
 
     play() {
       this.player.play();
-      this.isPlaying = true;
+      this.$store.commit('isTrackPlaying', true);
     },
 
     pause() {
       this.player.pause();
-      this.isPlaying = false;
+      this.$store.commit('isTrackPlaying', false);
     },
 
     seek(secs) {

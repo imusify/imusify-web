@@ -14,6 +14,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     isModalOpen: false,
+    isTrackPlaying: false,
   },
   mutations,
   modules: {
