@@ -2,7 +2,6 @@
   <div class="track"
        :style="{ backgroundImage: `url(${track.coverUrl})` }">
     <header>
-      <span v-if="currentTrack">{{currentTrack.id}}</span>
       <span class="cost">
         <span class="fiat">$47</span>
         <span class="divider">/</span>
