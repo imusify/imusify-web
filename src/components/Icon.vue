@@ -176,6 +176,11 @@ export default {
         fill: #fff;
       }
     }
+    a.router-link-exact-active {
+      path {
+        fill: #fff;
+      }
+    }
   }
 
   a.prev,
