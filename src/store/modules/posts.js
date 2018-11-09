@@ -57,6 +57,10 @@ const actions = {
         res.data.results[0].children.length ?
         res.data.results[0].children[0] : null);
     }),
+  [types.POST]: ({ commit }, data) => {
+    commit('isTrackPlaying', Boolean(data));
+    commit(types.POST, data);
+  },
 };
 
 const mutations = {

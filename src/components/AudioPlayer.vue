@@ -13,7 +13,7 @@
         <icon name="skip" />
       </a>
       <a href="#" @click.prevent="play()"
-          v-if="!isPlaying">
+          v-if="!isTrackPlaying">
         <icon name="play" />
       </a>
       <a href="#" @click.prevent="pause()"
@@ -32,19 +32,25 @@
       <progress-bar percent="70" width="20%" />
       <span class="level">70%</span>
     </div>
-    <video-player class="video-player-box"
-                  ref="videoPlayer"
-                  :options="playerOptions"
-                  :playsinline="true"
-                  @timeupdate="onTimeUpdate($event)"
-                  @statechanged="playerStateChanged($event)">
-    </video-player>
+    <div class="player">
+      <video-player class="video-player-box"
+                    ref="videoPlayer"
+                    :options="playerOptions"
+                    :playsinline="true"
+                    @timeupdate="onTimeUpdate($event)"
+                    @statechanged="playerStateChanged($event)">
+      </video-player>
+    </div>
   </div>
 </template>
 <script>
+import { mapGetters, mapMutations } from 'vuex';
+import { videoPlayer } from 'vue-video-player';
 import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
-import { videoPlayer } from 'vue-video-player';
+import * as types from '@/store/types';
+import '../../node_modules/video.js/dist/video-js.css';
+
 
 export default {
   name: 'audio-player',
@@ -56,7 +62,6 @@ export default {
   props: ['track'],
   data() {
     return {
-      isPlaying: false,
       currentTime: 0,
       duration: 0,
       playerOptions: {
@@ -70,6 +75,14 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      currentTrack: types.POST,
+    }),
+
+    isTrackPlaying() {
+      return this.$store.state.isTrackPlaying;
+    },
+
     player() {
       return this.$refs.videoPlayer.player;
     },
@@ -85,25 +98,35 @@ export default {
 
   watch: {
     track(newTrack) {
-      if (!this.player || !newTrack) return;
+      if (!this.player) return;
+
+      if (!newTrack) {
+        this.pause();
+        return;
+      }
+
       this.player.src({ type: 'audio/mp3', src: newTrack.attachment_url });
       this.play();
     },
   },
 
   methods: {
+    ...mapMutations({
+      setCurrentTrack: types.POST,
+    }),
+
     onTimeUpdate() {
       this.duration = this.player.duration().toFixed(2);
     },
 
     play() {
       this.player.play();
-      this.isPlaying = true;
+      this.$store.commit('isTrackPlaying', true);
     },
 
     pause() {
       this.player.pause();
-      this.isPlaying = false;
+      this.$store.commit('isTrackPlaying', false);
     },
 
     seek(secs) {
@@ -133,6 +156,8 @@ export default {
   },
 
   mounted() {
+    this.player.width(10);
+    this.player.height(20);
     this.play();
   },
 };
@@ -193,12 +218,17 @@ export default {
       margin-left: 4rem;
     }
   }
+
+  .player {
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 </style>
 <style lang="scss">
 .audio-player {
   .controls {
-    .play {
+    .play, .pause {
       margin: 0 1rem;
 
       svg {
@@ -209,6 +239,18 @@ export default {
     .forward {
       svg {
         transform: rotate(180deg);
+      }
+    }
+  }
+
+  .player {
+    .video-player-box {
+      display: none;
+
+      .video-js {
+        .vjs-big-play-button {
+          display: none;
+        }
       }
     }
   }

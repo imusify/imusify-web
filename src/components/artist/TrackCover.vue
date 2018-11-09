@@ -2,6 +2,7 @@
   <div class="track"
        :style="{ backgroundImage: `url(${track.coverUrl})` }">
     <header>
+      <span v-if="currentTrack">{{currentTrack.id}}</span>
       <span class="cost">
         <span class="fiat">$47</span>
         <span class="divider">/</span>
@@ -18,15 +19,22 @@
          class="thumb-button"
          :class="{ voted_up: track.voted_up }"
          v-else
-         @click.prevent="upvoteTrack(track)">
+         @click.prevent="upvoteTrack()">
         <icon name="thumb" />
         <icon name="thumbHover" />
       </a>
     </header>
     <a href="#"
        class="play-button"
-       @click.prevent="playTrack(track)">
+       @click.prevent="playTrack()"
+       v-if="!isPlaying">
       <icon name="play" />
+    </a>
+    <a href="#"
+       class="pause-button"
+       @click.prevent="pauseTrack()"
+       v-if="isPlaying">
+      <icon name="pause" />
     </a>
     <footer>
       <h3><a href="#">{{track.title}}</a></h3>
@@ -51,36 +59,44 @@ export default {
     };
   },
   computed: {
+    isPlaying() {
+      if (!this.currentTrack) return false;
+
+      return this.$store.state.isTrackPlaying && this.currentTrack.id === this.track.id;
+    },
+
     isLoggedIn() {
       return Boolean(this.token);
     },
     ...mapGetters({
       user: types.ACCOUNTS_USER,
       token: types.ACCOUNTS_TOKEN,
+      currentTrack: types.POST,
     }),
   },
   methods: {
     ...mapActions({
       upvote: types.POST_UPVOTE,
       downvote: types.POST_DOWNVOTE,
-    }),
-    ...mapGetters({
-      currentTrack: types.POST_GET,
+      setCurrentTrack: types.POST,
     }),
 
     ...mapMutations({
-      setCurrentTrack: types.POST,
       toggleLogin: types.TOGGLER_LOGIN,
     }),
 
-    playTrack(track) {
-      this.setCurrentTrack(track);
+    playTrack() {
+      this.setCurrentTrack(this.track);
     },
 
-    upvoteTrack(track) {
-      this.upvote(track)
+    pauseTrack() {
+      this.setCurrentTrack(null);
+    },
+
+    upvoteTrack() {
+      this.upvote(this.track)
         .then(() => {
-          track.voted_up += 1;
+          this.track.voted_up += 1;
         });
     },
   },
@@ -104,7 +120,7 @@ export default {
   box-shadow: inset 0px 35px 30px -10px #000000b3,
     inset 0px -35px 30px -5px #000000e6;
 
-  .play-button {
+  .play-button, .pause-button {
     align-self: center;
   }
 
