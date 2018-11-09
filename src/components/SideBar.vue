@@ -145,6 +145,11 @@ export default {
           color: #fff;
           background-color: #131314;
         }
+
+        &.router-link-exact-active {
+          color: #fff;
+          background-color: #131314;
+        }
       }
     }
 
