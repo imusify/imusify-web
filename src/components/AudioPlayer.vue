@@ -26,11 +26,11 @@
       <span class="time elapsed">{{elapsed}}s</span>
       <progress-bar :percent="progress" width="10rem" />
       <span class="time remaining">{{duration}}s</span>
-      <span class="volume">
+      <span class="volume" @click.prevent="toggleMute()">
         <icon name="volume" />
       </span>
-      <progress-bar percent="70" width="20%" />
-      <span class="level">70%</span>
+      <progress-bar :percent="volume" width="10rem" v-on:onClickProgress="onClickProgress"/>
+      <span class="level">{{volume}}%</span>
     </div>
     <div class="player">
       <video-player class="video-player-box"
@@ -62,6 +62,7 @@ export default {
   props: ['track'],
   data() {
     return {
+      volume: 0,
       currentTime: 0,
       duration: 0,
       playerOptions: {
@@ -153,12 +154,30 @@ export default {
         this.currentTime = playerCurrentState.timeupdate;
       }
     },
+
+    setVolume(decimal) {
+      this.player.volume(decimal);
+      this.volume = Math.round(this.player.volume() * 100);
+    },
+
+    toggleMute() {
+      if (this.player.volume() === 0) {
+        this.setVolume(1);
+      } else {
+        this.setVolume(0);
+      }
+    },
+
+    onClickProgress(data) {
+      this.setVolume((data.percent / 100).toFixed(1));
+    },
   },
 
   mounted() {
     this.player.width(10);
     this.player.height(20);
     this.play();
+    this.setVolume(0.5);
   },
 };
 </script>

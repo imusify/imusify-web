@@ -1,6 +1,8 @@
 <template>
-  <span class="progress" :style="{ width }">
-    <span class="elapsed" :style="{ width: completed }"></span>
+  <span class="progress"
+        :style="{ width }"
+        @click.prevent="onClickProgress($event)">
+    <span class="elapsed" :style="{ width: completed }" ref="elapsed"></span>
     <span class="remainder" :style="{ width: remainder }"></span>
   </span>
 </template>
@@ -16,6 +18,16 @@ export default {
       return `${100 - this.percent}%`;
     },
   },
+  methods: {
+    onClickProgress($event) {
+      // calculate where on progress bar click happened
+      const width = $event.currentTarget.clientWidth;
+      const offsetX = ($event.offsetX + $event.target.offsetLeft) - $event.currentTarget.offsetLeft;
+      const percent = Math.round((offsetX / width) * 100);
+
+      this.$emit('onClickProgress', { percent });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -25,6 +37,7 @@ export default {
   flex-wrap: nowrap;
   align-items: center;
   margin: 0 1rem;
+  cursor: pointer;
 
   .elapsed {
     display: inline-block;
