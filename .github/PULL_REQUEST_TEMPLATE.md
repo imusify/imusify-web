@@ -1,5 +1,5 @@
 #### Description
 
-#### Related Issue
-
 #### Screenshots
+
+Please use the "Connect with an Issue" button
