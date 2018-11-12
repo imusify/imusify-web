@@ -9,27 +9,35 @@
       </aside>
     </div>
     <div class="controls" v-if="track">
-      <a href="#" @click.prevent="rewind()">
+      <a href="#"
+         @click.prevent="rewind()">
         <icon name="skip" />
       </a>
-      <a href="#" @click.prevent="play()"
+      <a href="#"
+         @click.prevent="play()"
           v-if="!isTrackPlaying">
         <icon name="play" />
       </a>
-      <a href="#" @click.prevent="pause()"
+      <a href="#"
+         @click.prevent="pause()"
          v-else>
         <icon name="pause" />
       </a>
-      <a href="#" @click.prevent="forward()">
+      <a href="#"
+         @click.prevent="forward()">
         <icon name="skip" classes="forward" />
       </a>
       <span class="time elapsed">{{elapsed}}s</span>
-      <progress-bar :percent="progress" width="10rem" />
+      <progress-bar :percent="progress"
+                    width="10rem" />
       <span class="time remaining">{{duration}}s</span>
-      <span class="volume" @click.prevent="toggleMute()">
+      <span class="volume-button"
+            @click.prevent="toggleMute()">
         <icon name="volume" />
       </span>
-      <progress-bar :percent="volume" width="10rem" v-on:onClickProgress="onClickProgress"/>
+      <progress-bar :percent="volume"
+                    width="10rem"
+                    v-on:onClickProgress="onClickVolumeBar" />
       <span class="level">{{volume}}%</span>
     </div>
     <div class="player">
@@ -168,7 +176,7 @@ export default {
       }
     },
 
-    onClickProgress(data) {
+    onClickVolumeBar(data) {
       this.setVolume((data.percent / 100).toFixed(1));
     },
   },
@@ -233,8 +241,26 @@ export default {
     }
 
 
-    .volume {
+    .volume-button {
       margin-left: 4rem;
+    }
+
+    .level {
+      text-align: right;
+      width: 3rem;
+    }
+
+    .time {
+      width: 5rem;
+      text-align: right;
+
+      .elapsed {
+        margin-right: 1rem;
+      }
+
+      .remaining {
+        text-align: left;
+      }
     }
   }
 
