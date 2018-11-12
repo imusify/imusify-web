@@ -9,28 +9,36 @@
       </aside>
     </div>
     <div class="controls" v-if="track">
-      <a href="#" @click.prevent="rewind()">
+      <a href="#"
+         @click.prevent="rewind()">
         <icon name="skip" />
       </a>
-      <a href="#" @click.prevent="play()"
+      <a href="#"
+         @click.prevent="play()"
           v-if="!isTrackPlaying">
         <icon name="play" />
       </a>
-      <a href="#" @click.prevent="pause()"
+      <a href="#"
+         @click.prevent="pause()"
          v-else>
         <icon name="pause" />
       </a>
-      <a href="#" @click.prevent="forward()">
+      <a href="#"
+         @click.prevent="forward()">
         <icon name="skip" classes="forward" />
       </a>
       <span class="time elapsed">{{elapsed}}s</span>
-      <progress-bar :percent="progress" width="10rem" />
+      <progress-bar :percent="progress"
+                    width="10rem" />
       <span class="time remaining">{{duration}}s</span>
-      <span class="volume">
+      <span class="volume-button"
+            @click.prevent="toggleMute()">
         <icon name="volume" />
       </span>
-      <progress-bar percent="70" width="20%" />
-      <span class="level">70%</span>
+      <progress-bar :percent="volume"
+                    width="10rem"
+                    v-on:onClickProgress="onClickVolumeBar" />
+      <span class="level">{{volume}}%</span>
     </div>
     <div class="player">
       <video-player class="video-player-box"
@@ -62,6 +70,7 @@ export default {
   props: ['track'],
   data() {
     return {
+      volume: 0,
       currentTime: 0,
       duration: 0,
       playerOptions: {
@@ -153,12 +162,30 @@ export default {
         this.currentTime = playerCurrentState.timeupdate;
       }
     },
+
+    setVolume(decimal) {
+      this.player.volume(decimal);
+      this.volume = Math.round(this.player.volume() * 100);
+    },
+
+    toggleMute() {
+      if (this.player.volume() === 0) {
+        this.setVolume(1);
+      } else {
+        this.setVolume(0);
+      }
+    },
+
+    onClickVolumeBar(data) {
+      this.setVolume((data.percent / 100).toFixed(1));
+    },
   },
 
   mounted() {
     this.player.width(10);
     this.player.height(20);
     this.play();
+    this.setVolume(0.5);
   },
 };
 </script>
@@ -214,8 +241,26 @@ export default {
     }
 
 
-    .volume {
+    .volume-button {
       margin-left: 4rem;
+    }
+
+    .level {
+      text-align: right;
+      width: 3rem;
+    }
+
+    .time {
+      width: 5rem;
+      text-align: right;
+
+      .elapsed {
+        margin-right: 1rem;
+      }
+
+      .remaining {
+        text-align: left;
+      }
     }
   }
 

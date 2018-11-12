@@ -100,6 +100,8 @@ export default {
 </script>
 <style lang="scss">
   .icon-svg {
+    display: inline-block;
+
     path {
       fill: #fff;
     }
