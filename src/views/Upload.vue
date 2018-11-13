@@ -4,20 +4,20 @@
       <upload-track></upload-track>
     </header>
     <div class="body">
-      <upload-album></upload-album>
+      <upload-album-cover></upload-album-cover>
       <upload-form></upload-form>
     </div>
   </section>
 </template>
 <script>
 import UploadTrack from '@/components/upload/Track.vue';
-import UploadAlbum from '@/components/upload/Album.vue';
+import UploadAlbumCover from '@/components/upload/AlbumCover.vue';
 import UploadForm from '@/components/upload/Form.vue';
 
 export default {
   components: {
     UploadTrack,
-    UploadAlbum,
+    UploadAlbumCover,
     UploadForm,
   },
 };
