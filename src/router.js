@@ -7,6 +7,7 @@ import Legal from '@/components/Legal.vue';
 import SignupNext from '@/components/SignupNext.vue';
 import Profile from '@/components/Profile.vue';
 import Home from './views/Home.vue';
+import Upload from './views/Upload.vue';
 
 Vue.use(Router);
 
@@ -46,6 +47,10 @@ export default new Router({
       path: '/legal',
       name: 'legal',
       component: Legal,
+    }, {
+      path: '/upload',
+      name: 'upload',
+      component: Upload,
     },
   ],
 });
