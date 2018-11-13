@@ -171,6 +171,7 @@ export default {
       a {
         color: #fff;
         text-decoration: none;
+        word-break: break-word;
       }
     }
 
@@ -182,6 +183,7 @@ export default {
       a {
         color: #fff;
         text-decoration: none;
+        word-break: break-word;
       }
     }
   }
