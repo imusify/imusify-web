@@ -10,7 +10,8 @@
     "start": "npm run serve",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+    "deploy": "npm run build && python ./s3deploy-production.py"
   },
   "dependencies": {
     "animated-scroll": "0.0.2",
