@@ -9,36 +9,44 @@
       </aside>
     </div>
     <div class="controls" v-if="track">
-      <a href="#"
-         @click.prevent="rewind()">
-        <icon name="skip" />
-      </a>
-      <a href="#"
-         @click.prevent="play()"
-          v-if="!isTrackPlaying">
-        <icon name="play" />
-      </a>
-      <a href="#"
-         @click.prevent="pause()"
-         v-else>
-        <icon name="pause" />
-      </a>
-      <a href="#"
-         @click.prevent="forward()">
-        <icon name="skip" classes="forward" />
-      </a>
-      <span class="time elapsed">{{elapsed}}s</span>
-      <progress-bar :percent="progress"
-                    width="10rem" />
-      <span class="time remaining">{{duration}}s</span>
-      <span class="volume-button"
-            @click.prevent="toggleMute()">
+      <div class="controlButtonsTime">
+        <div class="controlButtons">
+          <a href="#"
+             @click.prevent="rewind()">
+            <icon name="skip" />
+          </a>
+          <a href="#"
+             @click.prevent="play()"
+             v-if="!isTrackPlaying">
+            <icon name="play" />
+          </a>
+          <a href="#"
+             @click.prevent="pause()"
+             v-else>
+            <icon name="pause" />
+          </a>
+          <a href="#"
+             @click.prevent="forward()">
+            <icon name="skip" classes="forward" />
+          </a>
+        </div>
+        <div class="controlTime">
+          <span class="time elapsed">{{elapsed}}s</span>
+          <progress-bar :percent="progress"
+                        width="10rem" />
+          <span class="time remaining">{{duration}}s</span>
+        </div>
+      </div>
+      <div class="controlVolume">
+        <span class="volume-button"
+                    @click.prevent="toggleMute()">
         <icon name="volume" />
-      </span>
-      <progress-bar :percent="volume"
-                    width="10rem"
-                    v-on:onClickProgress="onClickVolumeBar" />
-      <span class="level">{{volume}}%</span>
+        </span>
+        <progress-bar :percent="volume"
+                      width="10rem"
+                      v-on:onClickProgress="onClickVolumeBar" />
+        <span class="level">{{volume}}%</span>
+      </div>
     </div>
     <div class="player">
       <video-player class="video-player-box"
@@ -225,6 +233,17 @@ export default {
     }
   }
 
+  .controlButtonsTime {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .controlButtons, .controlTime, .controlVolume {
+    display: flex;
+    align-items: center;
+  }
+
   .controls {
     display: flex;
     justify-content: flex-start;
@@ -269,6 +288,46 @@ export default {
     align-items: center;
   }
 }
+
+  @media (max-width: 360px) {
+    .controls {
+      flex-direction: column;
+      .controlButtons, .controlTime, .controlVolume {
+        padding: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      .controlButtonsTime {
+        padding-bottom: 8px;
+      }
+      .volume-button {
+        margin-left: 0!important;
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .audio-player {
+      flex-direction: column;
+      height: 100%;
+      padding-bottom: 5px;
+      .track {
+        padding-top: 10px;
+      }
+      .controls {
+        margin-left: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .forward {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
 </style>
 <style lang="scss">
 .audio-player {
