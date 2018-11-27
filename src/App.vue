@@ -8,7 +8,8 @@
       <h1 v-if="status">{{status}}</h1>
       <a href="#" @click.prevent="isHeaderActive = false">x</a>
     </header>
-    <router-view></router-view>
+    <router-view :isSideBarOpen="isSideBarOpen" :class="{ isSideBarOpen: isSideBarOpen }">
+    </router-view>
     <spinner v-if="loading"></spinner>
     <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
     <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
@@ -166,4 +167,8 @@ export default {
     }
   }
 }
+  .isSideBarOpen {
+    top: 69px;
+    position: relative;
+  }
 </style>

@@ -177,4 +177,9 @@ export default {
     }
   }
 
+  @media (max-width: 480px) {
+    .sidebar.open {
+      position: fixed;
+    }
+  }
 </style>
