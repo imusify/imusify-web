@@ -48,10 +48,15 @@ export default {
     }
   }
 
-
   @media (min-width: 480px) {
     .toggler {
       left: calc(19rem + 50% - 23rem/2);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .toggler {
+      bottom: 15rem;
     }
   }
 </style>

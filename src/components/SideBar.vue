@@ -178,8 +178,17 @@ export default {
   }
 
   @media (max-width: 480px) {
+    .sidebar {
+      top: 82px;
+    }
     .sidebar.open {
       position: fixed;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 14rem;
     }
   }
 </style>

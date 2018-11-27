@@ -109,12 +109,42 @@ export default {
     }
   }
 
+  @media (max-width: 768px) {
+    .navbar {
+      width: 14rem;
+      .logo {
+        width: 12rem;
+      }
+      .subnav {
+        .button {
+          margin: 0 0 2.1rem 0;
+          width: 12rem;
+        }
+      }
+    }
+  }
+
   @media (max-width: 480px) {
     .navbar.open {
       background-color: #0d0d0e;
       position: fixed;
       z-index: 1000;
-      width: 100%;
+      width: 19rem;
+    }
+    .navbar {
+      width: 19rem;
+      .logo {
+        width: inherit;
+      }
+      .subnav {
+        display: flex;
+        flex-direction: column;
+        .button {
+          padding: 0.5rem 1rem;
+          margin: 0 0.2rem 0 0;
+          width: 10rem;
+        }
+      }
     }
   }
 </style>

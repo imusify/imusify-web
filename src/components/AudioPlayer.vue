@@ -293,7 +293,7 @@ export default {
     .controls {
       flex-direction: column;
       .controlButtons, .controlTime, .controlVolume {
-        padding: 5px;
+        padding: 1px;
       }
     }
   }

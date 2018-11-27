@@ -278,6 +278,20 @@ export default {
       .categories, .sub-categories {
         padding-left: 0.5rem;
       }
+      ul a {
+        padding: 1rem 1.7rem;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .topnav, .sub-categories {
+      width: calc(100vw - 15rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .topnav, .sub-categories {
+      width: inherit;
     }
   }
 </style>

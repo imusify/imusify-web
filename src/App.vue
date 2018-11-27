@@ -168,7 +168,7 @@ export default {
   }
 }
   .isSideBarOpen {
-    top: 69px;
+    top: 82px;
     position: relative;
   }
 </style>
