@@ -8,7 +8,8 @@
       <h1 v-if="status">{{status}}</h1>
       <a href="#" @click.prevent="isHeaderActive = false">x</a>
     </header>
-    <router-view></router-view>
+    <router-view :isSideBarOpen="isSideBarOpen" :class="{ isSideBarOpen: isSideBarOpen }">
+    </router-view>
     <spinner v-if="loading"></spinner>
     <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
     <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
@@ -58,8 +59,8 @@ export default {
       togglerSignup: types.TOGGLER_SIGNUP,
       togglerLogin: types.TOGGLER_LOGIN,
     }),
-    toggleSideBar(isSideBarOpen) {
-      this.isSideBarOpen = isSideBarOpen;
+    toggleSideBar() {
+      this.isSideBarOpen = !this.isSideBarOpen;
     },
     isToastError() {
       return this.status && this.status.toLowerCase().indexOf('invalid') > -1;
@@ -166,4 +167,8 @@ export default {
     }
   }
 }
+  .isSideBarOpen {
+    top: 82px;
+    position: relative;
+  }
 </style>

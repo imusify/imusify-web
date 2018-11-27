@@ -66,4 +66,14 @@ export default {
       display: flex;
     }
   }
+
+  @media (max-width: 800px) {
+    .search-bar{
+      display: flex;
+      align-items: center;
+      input {
+        margin: 0 1rem 0 0;
+      }
+    }
+  }
 </style>

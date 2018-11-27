@@ -80,12 +80,6 @@ export default {
       return Boolean(this.token);
     },
   },
-  methods: {
-    toggleSideBar() {
-      this.isSideBarOpen = !this.isSideBarOpen;
-      this.$emit('toggleSideBar', this.isSideBarOpen);
-    },
-  },
 };
 </script>
 <style lang="scss" scoped>
@@ -183,4 +177,18 @@ export default {
     }
   }
 
+  @media (max-width: 480px) {
+    .sidebar {
+      top: 82px;
+    }
+    .sidebar.open {
+      position: fixed;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 14rem;
+    }
+  }
 </style>

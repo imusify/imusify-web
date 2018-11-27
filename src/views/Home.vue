@@ -1,6 +1,6 @@
 <template>
   <section class="home" v-if="!isLoading">
-    <categories-menu></categories-menu>
+    <categories-menu :isSideBarOpen="isSideBarOpen"></categories-menu>
     <section class="lists">
       <transition :name="transitionName">
         <track-list :tracks="tracks" v-if="selected == 'tracks'"></track-list>
@@ -36,6 +36,8 @@ export default {
       isLoading: true,
     };
   },
+
+  props: ['isSideBarOpen'],
 
   computed: {
     ...mapGetters({

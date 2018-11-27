@@ -1,5 +1,5 @@
 <template>
-  <nav class="topnav">
+  <nav class="topnav" :class="{ open: isSideBarOpen }">
     <section class="categories" v-if="categories">
       <a href="#"
          class="prev"
@@ -51,6 +51,7 @@ import SearchBar from '@/components/SearchBar.vue';
 
 export default {
   name: 'categories-menu',
+  props: ['isSideBarOpen'],
   components: {
     Icon,
     SearchBar,
@@ -269,6 +270,28 @@ export default {
       &.categories {
         width: 75vw !important;
       }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .topnav {
+      .categories, .sub-categories {
+        padding-left: 0.5rem;
+      }
+      ul a {
+        padding: 1rem 1.7rem;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .topnav, .sub-categories {
+      width: calc(100vw - 15rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .topnav, .sub-categories {
+      width: inherit;
     }
   }
 </style>
