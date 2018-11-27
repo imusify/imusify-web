@@ -80,12 +80,6 @@ export default {
       return Boolean(this.token);
     },
   },
-  methods: {
-    toggleSideBar() {
-      this.isSideBarOpen = !this.isSideBarOpen;
-      this.$emit('toggleSideBar', this.isSideBarOpen);
-    },
-  },
 };
 </script>
 <style lang="scss" scoped>
