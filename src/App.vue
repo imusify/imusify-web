@@ -58,8 +58,8 @@ export default {
       togglerSignup: types.TOGGLER_SIGNUP,
       togglerLogin: types.TOGGLER_LOGIN,
     }),
-    toggleSideBar(isSideBarOpen) {
-      this.isSideBarOpen = isSideBarOpen;
+    toggleSideBar() {
+      this.isSideBarOpen = !this.isSideBarOpen;
     },
     isToastError() {
       return this.status && this.status.toLowerCase().indexOf('invalid') > -1;

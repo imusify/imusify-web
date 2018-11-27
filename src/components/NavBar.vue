@@ -56,8 +56,7 @@ export default {
     }),
 
     toggleSideBar() {
-      this.isSideBarOpen = !this.isSideBarOpen;
-      this.$emit('toggleSideBar', this.isSideBarOpen);
+      this.$emit('toggleSideBar');
     },
   },
 };
