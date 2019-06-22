@@ -1,0 +1,51 @@
+$purple: #887af9;
+$orange: #fe8f59;
+$blue: #51d0f0;
+$pink: #e41c69;
+$green: #7cda00;
+$red: #fa6565;
+$yellow: #ffca0f;
+$white: #ffffff;
+$grey: #7f8080;
+$lighter-black-bg: #0d0e0e;
+$black: #000000;
+
+$purple-bg: rgba(
+  $color: $purple,
+  $alpha: 0.15
+);
+
+$orange-bg: rgba(
+  $color: $orange,
+  $alpha: 0.15
+);
+
+$yellow-bg: rgba(
+  $color: $yellow,
+  $alpha: 0.15
+);
+
+$pink-bg: rgba(
+  $color: $pink,
+  $alpha: 0.15
+);
+
+$blue-bg: rgba(
+  $color: $blue,
+  $alpha: 0.15
+);
+
+$green-bg: rgba(
+  $color: $green,
+  $alpha: 0.15
+);
+
+$red-bg: rgba(
+  $color: $red,
+  $alpha: 0.15
+);
+
+$link-color: #9f9f9f;
+$text-color: #939ba1;
+$background: #131314;
+$error-alert: linear-gradient(250.68deg, #e41c69 9.78%, #9b19bb 91.77%);

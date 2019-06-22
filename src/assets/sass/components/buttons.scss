@@ -1,0 +1,34 @@
+.btn {
+  color: $white;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  padding: calculateRem(15) calculateRem(20);
+  outline: none;
+  font-size: 1.6rem;
+  text-decoration: none;
+  margin-right: 1rem;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: #e41c69;
+    background-color: #e41c69;
+  }
+  &-white {
+    background-color: $white;
+    color: $background;
+  }
+  &-primary {
+    background-color: $pink;
+  }
+  &-default {
+    background-color: transparent;
+    border: 1px solid $white;
+  }
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $pink;
+    border: none;
+  }
+}

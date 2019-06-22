@@ -1,18 +1,17 @@
 <template>
-  <div id="app">
-    <aside>
-      <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
-      <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
-    </aside>
-    <header class="toast" :class="{ active: isHeaderActive, error: isToastError() }">
-      <h1 v-if="status">{{status}}</h1>
-      <a href="#" @click.prevent="isHeaderActive = false">x</a>
-    </header>
-    <router-view :isSideBarOpen="isSideBarOpen" :class="{ isSideBarOpen: isSideBarOpen }">
-    </router-view>
-    <spinner v-if="loading"></spinner>
-    <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
-    <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
+  <div class="imusify-app">
+    <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
+    <div class="main">
+      <!-- <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
+      <header class="toast" :class="{ active: isHeaderActive, error: isToastError() }">
+        <h1 v-if="status">{{status}}</h1>
+        <a href="#" @click.prevent="isHeaderActive = false">x</a>
+      </header> -->
+      <router-view></router-view>
+      <spinner v-if="loading"></spinner>
+      <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
+      <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
+    </div>
   </div>
 </template>
 <script>
@@ -81,7 +80,8 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "./src/assets/styles/base.scss";
+// @import "./src/assets/styles/base.scss";
+@import "./src/assets/sass/main.scss";
 
 /* width */
 ::-webkit-scrollbar {

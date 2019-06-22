@@ -164,9 +164,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-grow: 0;
     position: sticky;
-    top: -1px;
+    flex-shrink: 0;
+    top: 0;
     z-index: 1;
     background-color: #131314;
 

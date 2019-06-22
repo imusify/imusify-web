@@ -1,46 +1,16 @@
-<template>
-  <div class="track-list">
-    <div v-for="(track, index) in tracks" :key="index">
-      <track-cover :track="track"/>
-    </div>
-  </div>
-  <!-- <ul class="track-list">
-    <li v-for="(track, index) in tracks" :key="index">
-      <track-cover :track="track"/>
-    </li>
-  </ul>-->
-</template>
-<script>
-import TrackCover from '@/components/artist/TrackCover.vue';
-
-export default {
-  name: 'track-list',
-  components: {
-    TrackCover,
-  },
-  props: ['tracks'],
-};
-</script>
-<style lang="scss" scoped>
-@import "../../assets/sass/main.scss";
-// .tracks {
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: flex-start;
-//   flex-wrap: wrap;
-//   margin-top: 1rem;
-// }
 .track-list {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: auto;
   grid-gap: calculateRem(1);
-  padding: 0 calculateRem(10);
-  overflow: hidden;
+  margin-bottom: calculateRem(50);
+  margin-left: calculateRem(5);
+  // width: 100vw;
+  overflow-x: hidden;
   &__item {
     background-size: cover;
-    height: calculateRem(200);
-    width: calculateRem(200);
+    height: calculateRem(180);
+    width: calculateRem(180);
     display: flex;
     flex-direction: column;
     padding: calculateRem(10);
@@ -87,4 +57,3 @@ export default {
     }
   }
 }
-</style>

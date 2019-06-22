@@ -1,0 +1,9 @@
+.media-player {
+  background-color: $background;
+  max-height: calculateRem(50);
+  z-index: 99;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  color: $white;
+}
