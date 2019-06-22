@@ -89,6 +89,19 @@ export default {
                 <circle opacity="0.4" cx="18.5" cy="18.5" r="18" fill="black" stroke="white"/>
                 <path d="M17.75 26H14V10H17.75V26ZM24 10H20.25V26H24V10Z" />
               </svg>`,
+      progressupload: `
+            <svg width="90" height="90" viewBox="0 0 90 90" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="90" rx="3" fill="url(#paint0_linear)"/>
+              <path d="M53 52.5556H47.375V62H43.625V52.5556H38L45.5 45L53 52.5556ZM59.5231 41.396C59.1256 33.933 53.0112 28 45.5 28C37.9887 28 31.8744 33.933 31.4769 41.396C26.6581 42.2706 23 46.5073 23 51.6111C23 57.3477 27.6181 62 33.3125 62H39.875V58.2222H33.3125C29.6937 58.2222 26.75 55.2567 26.75 51.6111C26.75 46.3279 31.3981 44.371 35.0619 44.5844C34.7487 36.6171 39.2019 31.7778 45.5 31.7778C51.9744 31.7778 56.5456 37.061 55.9381 44.5844C59.21 44.4976 64.25 46.003 64.25 51.6111C64.25 55.2567 61.3063 58.2222 57.6875 58.2222H51.125V62H57.6875C63.3819 62 68 57.3477 68 51.6111C68 46.5073 64.3419 42.2706 59.5231 41.396Z" fill="white"/>
+              <defs>
+                  <linearGradient id="paint0_linear" x1="76" y1="5.36442e-07" x2="15" y2="90" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#E41C69"/>
+                      <stop offset="1" stop-color="#9B19BB"/>
+                  </linearGradient>
+              </defs>
+          </svg>
+`,
     };
   },
   methods: {
@@ -99,123 +112,124 @@ export default {
 };
 </script>
 <style lang="scss">
-  .icon-svg {
-    display: inline-block;
+.icon-svg {
+  display: inline-block;
+
+  path {
+    fill: #fff;
+  }
+
+  &.play {
+    circle {
+      fill: #000;
+      stroke: #fff;
+      opacity: 0.4;
+    }
+
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+
+  &.imu {
+    svg {
+      width: 1.1rem;
+      height: auto;
+    }
 
     path {
       fill: #fff;
     }
+  }
 
-    &.play {
-      circle {
-        fill: #000;
-        stroke: #fff;
-        opacity: 0.4;
-      }
+  &.facebook {
+    height: 2.25rem;
 
-      path {
-        fill: #fff;
-        stroke: #fff;
-      }
-    }
-
-    &.imu {
-      svg {
-        width: 1.1rem;
-        height: auto;
-      }
-
-      path {
-        fill: #fff;
-      }
-    }
-
-    &.facebook {
-      height: 2.25rem;
-
-      svg {
-        width: 1rem;
-      }
-    }
-
-    &.linkedin {
-      height: 2.25rem;
-
-      svg {
-        width: 2rem;
-      }
-    }
-
-    &.soundcloud {
-      height: 2.4rem;
-
-      svg {
-        width: 2.4rem;
-      }
+    svg {
+      width: 1rem;
     }
   }
 
-  .thumb-button {
-    .thumb {
-      width: 1.4rem;
-      height: 1.6rem;
-    }
+  &.linkedin {
+    height: 2.25rem;
 
-    &:hover, &.voted_up {
-      path {
-        fill: #e41c69;
-      }
+    svg {
+      width: 2rem;
     }
   }
 
-  .sidebar {
+  &.soundcloud {
+    height: 2.4rem;
+
+    svg {
+      width: 2.4rem;
+    }
+  }
+}
+
+.thumb-button {
+  .thumb {
+    width: 1.4rem;
+    height: 1.6rem;
+  }
+
+  &:hover,
+  &.voted_up {
     path {
-      fill: #9f9f9f;
-    }
-
-    a:hover {
-      path {
-        fill: #fff;
-      }
-    }
-    a.router-link-exact-active {
-      path {
-        fill: #fff;
-      }
+      fill: #e41c69;
     }
   }
+}
 
-  a.prev,
-  a.next {
-    display: block;
-    margin: 0 1rem;
-
-    &:hover {
-      svg path {
-        fill: #e41c69;
-      }
-    }
+.sidebar {
+  path {
+    fill: #9f9f9f;
   }
 
-  .spinner {
-    background: linear-gradient(180deg, #000, #ff4395, #9b19bb, #000);
-    background-size: 800% 800%;
-    animation: Spinner 1s ease-in-out infinite;
-    border-radius: 80rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  a:hover {
+    path {
+      fill: #fff;
+    }
   }
+  a.router-link-exact-active {
+    path {
+      fill: #fff;
+    }
+  }
+}
 
-  @keyframes Spinner {
-    0% {
-      background-position: 50% 0%;
-    }
-    50% {
-      background-position: 51% 100%;
-    }
-    100% {
-      background-position: 50% 0%;
+a.prev,
+a.next {
+  display: block;
+  margin: 0 1rem;
+
+  &:hover {
+    svg path {
+      fill: #e41c69;
     }
   }
+}
+
+.spinner {
+  background: linear-gradient(180deg, #000, #ff4395, #9b19bb, #000);
+  background-size: 800% 800%;
+  animation: Spinner 1s ease-in-out infinite;
+  border-radius: 80rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes Spinner {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 51% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
 </style>

@@ -65,12 +65,12 @@
   </section>
 </template>
 <script>
-import moment from "moment";
-import { mapActions, mapGetters, mapMutations } from "vuex";
-import * as types from "../store/types";
+import moment from 'moment';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
+import * as types from '../store/types';
 
 export default {
-  name: "signupnext",
+  name: 'signupnext',
   data() {
     return {};
   },
@@ -78,36 +78,32 @@ export default {
     ...mapGetters({
       status: types.ACCOUNTS_LOGIN_STATUS,
       token: types.ACCOUNTS_TOKEN,
-      credentials: types.ACCOUNTS_USER_CREDENTIALS
-    })
+      credentials: types.ACCOUNTS_USER_CREDENTIALS,
+    }),
   },
   methods: {
     ...mapActions({
-      signup: types.ACCOUNTS_SIGNUP
+      signup: types.ACCOUNTS_SIGNUP,
     }),
     ...mapMutations({
-      status: types.ACCOUNTS_LOGIN_STATUS
+      status: types.ACCOUNTS_LOGIN_STATUS,
     }),
     onSubmit() {
       if (this.credentials.password !== this.credentials.confirmPassword) {
-        this.status("Passwords do not match");
+        this.status('Passwords do not match');
         return false;
       }
 
       delete this.credentials.confirmPassword;
 
-      this.credentials.date_created = moment(new Date()).format(
-        "YYYY-MM-DD hh:mm:ss"
-      );
-      this.credentials.date_of_birth = moment("1970-01-01").format(
-        "YYYY-MM-DD"
-      );
+      this.credentials.date_created = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
+      this.credentials.date_of_birth = moment('1970-01-01').format('YYYY-MM-DD');
 
       return this.signup(this.credentials).then(() => {
-        this.$router.push("/");
+        this.$router.push('/');
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

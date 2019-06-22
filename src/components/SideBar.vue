@@ -113,16 +113,16 @@
   </nav>-->
 </template>
 <script>
-import { mapGetters, mapMutations } from "vuex";
-import Icon from "@/components/Icon.vue";
-import * as types from "@/store/types";
+import { mapGetters, mapMutations } from 'vuex';
+import Icon from '@/components/Icon.vue';
+import * as types from '@/store/types';
 
 export default {
-  name: "SideBar",
+  name: 'SideBar',
   components: {
-    Icon
+    Icon,
   },
-  props: ["isSideBarOpen"],
+  props: ['isSideBarOpen'],
   data() {
     return {};
   },
@@ -130,20 +130,19 @@ export default {
     ...mapGetters({
       token: types.ACCOUNTS_TOKEN,
       user: types.ACCOUNTS_USER,
-      token: types.ACCOUNTS_TOKEN,
       isSignupOpen: types.TOGGLER_SIGNUP,
-      isLoginOpen: types.TOGGLER_LOGIN
+      isLoginOpen: types.TOGGLER_LOGIN,
     }),
     isLoggedIn() {
       return Boolean(this.token);
-    }
+    },
   },
   methods: {
     ...mapMutations({
       toggleSignup: types.TOGGLER_SIGNUP,
-      toggleLogin: types.TOGGLER_LOGIN
-    })
-  }
+      toggleLogin: types.TOGGLER_LOGIN,
+    }),
+  },
 };
 </script>
 <style lang="scss" scoped>

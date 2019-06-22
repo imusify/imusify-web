@@ -1,8 +1,17 @@
-input {
+input,
+textarea {
   background: transparent;
-  border: none;
+  border: 1px solid $grey !important;
+  width: 100% !important;
+  border-radius: calculateRem(5);
+  &::placeholder {
+    color: $grey;
+  }
 }
 
+textarea {
+  resize: none;
+}
 *:focus {
   outline: none;
 }

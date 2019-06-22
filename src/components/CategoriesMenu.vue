@@ -38,17 +38,17 @@
   </nav>
 </template>
 <script>
-import { mapGetters, mapActions, mapMutations } from "vuex";
-import * as types from "@/store/types";
-import Icon from "@/components/Icon.vue";
-import SearchBar from "@/components/SearchBar.vue";
+import { mapGetters, mapActions, mapMutations } from 'vuex';
+import * as types from '@/store/types';
+import Icon from '@/components/Icon.vue';
+import SearchBar from '@/components/SearchBar.vue';
 
 export default {
-  name: "categories-menu",
-  props: ["isSideBarOpen"],
+  name: 'categories-menu',
+  props: ['isSideBarOpen'],
   components: {
     Icon,
-    SearchBar
+    SearchBar,
   },
   data() {
     return {};
@@ -58,8 +58,8 @@ export default {
       categories: types.POSTS_CATEGORIES,
       subCategories: types.POSTS_CATEGORIES_SUBCATEGORIES,
       category: types.POSTS_CATEGORIES_CATEGORY,
-      subCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY
-    })
+      subCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY,
+    }),
   },
   created() {
     this.getCategories();
@@ -68,11 +68,11 @@ export default {
     ...mapMutations({
       setCategory: types.POSTS_CATEGORIES_CATEGORY,
       setSubCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY,
-      setSubCategories: types.POSTS_CATEGORIES_SUBCATEGORIES
+      setSubCategories: types.POSTS_CATEGORIES_SUBCATEGORIES,
     }),
 
     ...mapActions({
-      getCategories: types.POSTS_CATEGORIES
+      getCategories: types.POSTS_CATEGORIES,
     }),
 
     setActiveCategory(cat) {
@@ -103,20 +103,20 @@ export default {
         }
 
         if (
-          typeof callbackObj.start === "function" &&
+          typeof callbackObj.start === 'function' &&
           startTime === timestamp
         ) {
           callbackObj.start();
 
           requestAnimationFrame(animation);
         } else if (animationTime < duration) {
-          if (typeof callbackObj.progress === "function") {
+          if (typeof callbackObj.progress === 'function') {
             percentage = animationTime / duration;
             callbackObj.progress(percentage);
           }
 
           requestAnimationFrame(animation);
-        } else if (typeof callbackObj.done === "function") {
+        } else if (typeof callbackObj.done === 'function') {
           callbackObj.done();
         }
       }
@@ -130,11 +130,11 @@ export default {
         const seconds = 0.2;
         const startingScrollPosition = el.scrollLeft;
 
-        sequenceObj.progress = percentage => {
+        sequenceObj.progress = (percentage) => {
           el.scroll(
             startingScrollPosition +
               this.easeInOutQuad(percentage) * rangeInPixels,
-            0
+            0,
           );
         };
 
@@ -154,8 +154,8 @@ export default {
       const scrollAmount = el.scrollLeft + el.offsetWidth;
 
       this.sideScroll(el, scrollAmount);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
