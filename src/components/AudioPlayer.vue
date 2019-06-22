@@ -175,11 +175,12 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: calculateRem(20) calculateRem(10);
   background: #131314;
   height: 6.7rem;
   font-size: 1.4rem;
   position: sticky;
+  margin-left: calculateRem(20);
   bottom: 0;
   box-shadow: 0px -20px 30px 6px rgba(0, 0, 0, 0.74);
 

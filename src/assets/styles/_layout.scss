@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   background-color: $body-bg;
   color: $body-color;
   font-family: Roboto, sans-serif;
@@ -80,7 +81,10 @@ html, body {
 }
 
 #app > section {
-  &.login, &.profile, &.signup, &.signupnext {
+  &.login,
+  &.profile,
+  &.signup,
+  &.signupnext {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -98,6 +102,8 @@ html, body {
   margin: 0;
   z-index: 2;
   top: 0;
+  display: flex;
+  justify-content: center;
   left: 0;
   right: 0;
   bottom: 0;
@@ -120,11 +126,12 @@ html, body {
   }
 }
 
-
-
 @media (min-width: 480px) {
   #app > section {
-    &.login, &.profile, &.signup, &.signupnext {
+    &.login,
+    &.profile,
+    &.signup,
+    &.signupnext {
       align-items: center;
     }
 

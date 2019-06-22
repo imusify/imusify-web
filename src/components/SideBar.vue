@@ -1,55 +1,47 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="{ open: isSideBarOpen, isLoggedIn }">
     <div class="sidebar-header">
       <img src="../assets/images/logo/logo.svg" class="sidebar-header__logo" alt="imusify">
       <div class="sidebar-header__auth">
-        <button class="btn btn-primary uppercase desktop-only">Sign Up</button>
-        <button class="btn btn-default uppercase desktop-only">Sign In</button>
+        <button
+          @click.prevent="toggleSignup(true)"
+          class="btn btn-primary uppercase desktop-only"
+        >Sign Up</button>
+        <button
+          @click.prevent="toggleLogin(true)"
+          class="btn btn-default uppercase desktop-only"
+        >Sign In</button>
       </div>
     </div>
     <div class="sidebar-menu">
-      <div class="sidebar-menu__item active">
-        <router-link to="/">
-          <icon name="home"/>
-          <span>Home</span>
-        </router-link>
-      </div>
-      <div class="sidebar-menu__item">
-        <router-link to="/channels">
-          <icon name="channels"/>
-          <span>Channels</span>
-        </router-link>
-      </div>
-      <div class="sidebar-menu__item">
-        <router-link to="/browse">
-          <icon name="browse"/>
-          <span>Browse</span>
-        </router-link>
-      </div>
-      <div class="sidebar-menu__item">
-        <router-link to="/crowdfunding">
-          <icon name="crowdfunding"/>
-          <span>Crowdfunding</span>
-        </router-link>
-      </div>
-      <div class="sidebar-menu__item">
-        <router-link to="/upload">
-          <icon name="upload"/>
-          <span>Upload</span>
-        </router-link>
-      </div>
-      <div class="sidebar-menu__item">
-        <router-link to="/wallet">
-          <icon name="wallet"/>
-          <span>Wallet</span>
-        </router-link>
-      </div>
-      <div class="sidebar-menu__item">
-        <router-link to="/following">
-          <icon name="following"/>
-          <span>Following</span>
-        </router-link>
-      </div>
+      <router-link to="/">
+        <icon name="home"/>
+        <span>Home</span>
+      </router-link>
+      <router-link to="/channels">
+        <icon name="channels"/>
+        <span>Channels</span>
+      </router-link>
+      <router-link to="/browse">
+        <icon name="browse"/>
+        <span>Browse</span>
+      </router-link>
+      <router-link to="/crowdfunding">
+        <icon name="crowdfunding"/>
+        <span>Crowdfunding</span>
+      </router-link>
+      <router-link to="/upload">
+        <icon name="upload"/>
+        <span>Upload</span>
+      </router-link>
+      <router-link to="/wallet">
+        <icon name="wallet"/>
+        <span>Wallet</span>
+      </router-link>
+      <router-link to="/following">
+        <icon name="following"/>
+        <span>Following</span>
+      </router-link>
     </div>
     <div class="sidebar-footer">
       <router-link to="/about">About</router-link>
@@ -121,27 +113,37 @@
   </nav>-->
 </template>
 <script>
-import { mapGetters } from 'vuex';
-import Icon from '@/components/Icon.vue';
-import * as types from '@/store/types';
+import { mapGetters, mapMutations } from "vuex";
+import Icon from "@/components/Icon.vue";
+import * as types from "@/store/types";
 
 export default {
-  name: 'SideBar',
+  name: "SideBar",
   components: {
-    Icon,
+    Icon
   },
-  props: ['isSideBarOpen'],
+  props: ["isSideBarOpen"],
   data() {
     return {};
   },
   computed: {
     ...mapGetters({
       token: types.ACCOUNTS_TOKEN,
+      user: types.ACCOUNTS_USER,
+      token: types.ACCOUNTS_TOKEN,
+      isSignupOpen: types.TOGGLER_SIGNUP,
+      isLoginOpen: types.TOGGLER_LOGIN
     }),
     isLoggedIn() {
       return Boolean(this.token);
-    },
+    }
   },
+  methods: {
+    ...mapMutations({
+      toggleSignup: types.TOGGLER_SIGNUP,
+      toggleLogin: types.TOGGLER_LOGIN
+    })
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -178,23 +180,21 @@ export default {
   &-menu {
     color: $grey;
     flex: 2;
-    &__item {
+    a {
       padding: calculateRem(16);
       border-bottom: 1px solid $lighter-black-bg;
-      a {
-        color: $link-color;
-        font-size: calculateRem(18);
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        i {
-          margin-bottom: calculateRem(2);
-        }
+      color: $link-color;
+      font-size: calculateRem(18);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      i {
+        margin-bottom: calculateRem(2);
+      }
 
-        &.router-link-exact-active {
-          color: #fff;
-          background-color: #131314;
-        }
+      &.router-link-exact-active {
+        color: #fff;
+        background-color: #131314;
       }
     }
     &__item:first-child {

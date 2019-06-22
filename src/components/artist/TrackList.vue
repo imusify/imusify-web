@@ -32,10 +32,10 @@ export default {
 // }
 .track-list {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: auto;
   grid-gap: calculateRem(1);
-  padding: 0 calculateRem(10);
+  margin-left: calculateRem(30);
   overflow: hidden;
   &__item {
     background-size: cover;

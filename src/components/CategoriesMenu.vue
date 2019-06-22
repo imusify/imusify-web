@@ -1,72 +1,65 @@
 <template>
-  <nav class="topnav" :class="{ open: isSideBarOpen }">
-    <section class="categories" v-if="categories">
-      <a href="#"
-         class="prev"
-         @click.prevent="prev('categories')">
-        <icon name="prev" />
+  <nav class="topnav" :class="{ open: isSideBarOpen }" v-if="categories.length > 0">
+    <section class="categories">
+      <a href="#" class="prev" @click.prevent="prev('categories')">
+        <icon name="prev"/>
       </a>
       <ul id="categories">
-        <li v-for="(cat, index) in categories"
-            :key="index"
-            :class="{ active: category && cat.name == category.name }">
-          <a href="#"
-             @click.prevent="setActiveCategory(cat)">{{cat.name}}</a>
+        <li
+          v-for="(cat, index) in categories"
+          :key="index"
+          :class="{ active: category && cat.name == category.name }"
+        >
+          <a href="#" @click.prevent="setActiveCategory(cat)">{{cat.name}}</a>
         </li>
       </ul>
-      <a href="#"
-         class="next"
-         @click.prevent="next('categories')">
-        <icon name="next" />
+      <a href="#" class="next" @click.prevent="next('categories')">
+        <icon name="next"/>
       </a>
     </section>
     <section class="sub-categories" v-if="subCategories">
-      <a href="#"
-         class="prev"
-         @click.prevent="prev('sub-categories')">
-        <icon name="prev" />
+      <a href="#" class="prev" @click.prevent="prev('sub-categories')">
+        <icon name="prev"/>
       </a>
       <ul id="sub-categories">
-        <li v-for="(subCat, index) in subCategories"
-            :key="index"
-            :class="{ active: subCategory && subCat.name == subCategory.name }">
-          <a href="#"
-             @click.prevent="setActiveSubCategory(subCat)">{{subCat.name}}</a>
+        <li
+          v-for="(subCat, index) in subCategories"
+          :key="index"
+          :class="{ active: subCategory && subCat.name == subCategory.name }"
+        >
+          <a href="#" @click.prevent="setActiveSubCategory(subCat)">{{subCat.name}}</a>
         </li>
       </ul>
-      <a href="#"
-         class="next"
-         @click.prevent="next('sub-categories')">
-        <icon name="next" />
+      <a href="#" class="next" @click.prevent="next('sub-categories')">
+        <icon name="next"/>
       </a>
     </section>
     <search-bar></search-bar>
   </nav>
 </template>
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex';
-import * as types from '@/store/types';
-import Icon from '@/components/Icon.vue';
-import SearchBar from '@/components/SearchBar.vue';
+import { mapGetters, mapActions, mapMutations } from "vuex";
+import * as types from "@/store/types";
+import Icon from "@/components/Icon.vue";
+import SearchBar from "@/components/SearchBar.vue";
 
 export default {
-  name: 'categories-menu',
-  props: ['isSideBarOpen'],
+  name: "categories-menu",
+  props: ["isSideBarOpen"],
   components: {
     Icon,
-    SearchBar,
+    SearchBar
   },
   data() {
-    return {
-    };
+    return {};
   },
   computed: {
     ...mapGetters({
       categories: types.POSTS_CATEGORIES,
       subCategories: types.POSTS_CATEGORIES_SUBCATEGORIES,
       category: types.POSTS_CATEGORIES_CATEGORY,
-      subCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY,
-    }),
+      subCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY
+    })
   },
   created() {
     this.getCategories();
@@ -75,11 +68,11 @@ export default {
     ...mapMutations({
       setCategory: types.POSTS_CATEGORIES_CATEGORY,
       setSubCategory: types.POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY,
-      setSubCategories: types.POSTS_CATEGORIES_SUBCATEGORIES,
+      setSubCategories: types.POSTS_CATEGORIES_SUBCATEGORIES
     }),
 
     ...mapActions({
-      getCategories: types.POSTS_CATEGORIES,
+      getCategories: types.POSTS_CATEGORIES
     }),
 
     setActiveCategory(cat) {
@@ -92,7 +85,7 @@ export default {
     },
 
     easeInOutQuad(t) {
-      return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t);
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     },
 
     animate(callbackObj, delay) {
@@ -109,18 +102,21 @@ export default {
           animationTime = timestamp - startTime;
         }
 
-        if (typeof callbackObj.start === 'function' && startTime === timestamp) {
+        if (
+          typeof callbackObj.start === "function" &&
+          startTime === timestamp
+        ) {
           callbackObj.start();
 
           requestAnimationFrame(animation);
         } else if (animationTime < duration) {
-          if (typeof callbackObj.progress === 'function') {
+          if (typeof callbackObj.progress === "function") {
             percentage = animationTime / duration;
             callbackObj.progress(percentage);
           }
 
           requestAnimationFrame(animation);
-        } else if (typeof callbackObj.done === 'function') {
+        } else if (typeof callbackObj.done === "function") {
           callbackObj.done();
         }
       }
@@ -134,9 +130,13 @@ export default {
         const seconds = 0.2;
         const startingScrollPosition = el.scrollLeft;
 
-        sequenceObj.progress = ((percentage) => {
-          el.scroll((startingScrollPosition + (this.easeInOutQuad(percentage) * rangeInPixels)), 0);
-        });
+        sequenceObj.progress = percentage => {
+          el.scroll(
+            startingScrollPosition +
+              this.easeInOutQuad(percentage) * rangeInPixels,
+            0
+          );
+        };
 
         this.animate(sequenceObj, seconds);
       }
@@ -154,144 +154,155 @@ export default {
       const scrollAmount = el.scrollLeft + el.offsetWidth;
 
       this.sideScroll(el, scrollAmount);
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
-  .topnav {
-    font-size: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: sticky;
-    flex-shrink: 0;
-    top: 0;
-    z-index: 1;
-    background-color: #131314;
+@import "../assets/sass/main.scss";
+.topnav {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: sticky;
+  flex-shrink: 0;
+  top: 0;
+  margin-left: calculateRem(30);
+  z-index: 1;
+  background-color: #131314;
 
-    > section {
+  > section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+
+    &.categories {
+      width: 66vw;
+    }
+  }
+
+  ul a {
+    color: #737373;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    text-transform: uppercase;
+    padding: 2rem 1.7rem;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .active {
+    a {
+      color: #fff;
+      border-bottom: 2px solid #e41c69;
+    }
+  }
+
+  .categories {
+    background-color: #131314;
+  }
+
+  .sub-categories {
+    background-color: #000;
+  }
+
+  .categories,
+  .sub-categories {
+    padding-left: 2.5rem;
+
+    ul {
       display: flex;
       justify-content: flex-start;
-      align-items: center;
-      overflow: hidden;
+      align-items: flex-start;
+      overflow-x: hidden;
+      width: 100vw;
 
-      &.categories {
-        width: 66vw;
+      li {
+        display: block;
       }
     }
+  }
 
-    ul a {
-      color: #737373;
-      text-decoration: none;
-      display: block;
-      white-space: nowrap;
-      text-transform: uppercase;
-      padding: 2rem 1.7rem;
-      border-bottom: 2px solid transparent;
+  a.prev,
+  a.next {
+    z-index: 2;
+  }
 
-      &:hover {
-        color: #fff;
-      }
+  a.prev {
+    transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 480px) {
+  .topnav {
+    width: calc(100vw - 19rem);
+  }
+
+  .categories,
+  .sub-categories {
+    width: calc(100vw - 19rem);
+
+    &.categories {
+      width: 40vw !important;
     }
+  }
+}
 
-    .active {
-      a {
-        color: #fff;
-        border-bottom: 2px solid #E41C69;
-      }
+@media (min-width: 800px) {
+  .categories,
+  .sub-categories {
+    &.categories {
+      width: 60vw !important;
     }
+  }
+}
 
-    .categories {
-      background-color: #131314;
+@media (min-width: 1024px) {
+  .categories,
+  .sub-categories {
+    &.categories {
+      width: 66vw !important;
     }
+  }
+}
 
+@media (min-width: 1440px) {
+  .categories,
+  .sub-categories {
+    &.categories {
+      width: 75vw !important;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .topnav {
+    .categories,
     .sub-categories {
-      background-color: #000;
+      padding-left: 0.5rem;
     }
-
-    .categories, .sub-categories {
-      padding-left: 2.5rem;
-
-      ul {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        overflow-x: hidden;
-        width: 100vw;
-
-        li {
-          display: block;
-        }
-      }
-    }
-
-    a.prev, a.next {
-      z-index: 2;
-    }
-
-    a.prev {
-      transform: rotate(180deg);
+    ul a {
+      padding: 1rem 1.7rem;
     }
   }
-
-  @media (min-width: 480px) {
-    .topnav {
-      width: calc(100vw - 19rem);
-    }
-
-    .categories, .sub-categories {
-      width: calc(100vw - 19rem);
-
-      &.categories {
-        width: 40vw !important;
-      }
-    }
+}
+@media (max-width: 768px) {
+  .topnav,
+  .sub-categories {
+    width: calc(100vw - 15rem);
   }
+}
 
-  @media (min-width: 800px) {
-    .categories, .sub-categories {
-      &.categories {
-        width: 60vw !important;
-      }
-    }
+@media (max-width: 480px) {
+  .topnav,
+  .sub-categories {
+    width: inherit;
   }
-
-  @media (min-width: 1024px) {
-    .categories, .sub-categories {
-      &.categories {
-        width: 66vw !important;
-      }
-    }
-  }
-
-  @media (min-width: 1440px) {
-    .categories, .sub-categories {
-      &.categories {
-        width: 75vw !important;
-      }
-    }
-  }
-
-  @media (max-width: 800px) {
-    .topnav {
-      .categories, .sub-categories {
-        padding-left: 0.5rem;
-      }
-      ul a {
-        padding: 1rem 1.7rem;
-      }
-    }
-  }
-  @media (max-width: 768px) {
-    .topnav, .sub-categories {
-      width: calc(100vw - 15rem);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .topnav, .sub-categories {
-      width: inherit;
-    }
-  }
+}
 </style>

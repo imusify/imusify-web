@@ -1,14 +1,15 @@
 <template>
-  <div class="track-list__item" style="background-image: url('../../assets/images/tracks/track.png')">
+  <div
+    class="track-list__item"
+    style="background-image: url('../../assets/images/tracks/track.png')"
+  >
     <div class="track-list__price">
-      <i class="imu imu-home"></i>
-      <span class="usd"></span>
-      <span>/</span>
-      <span class="imu"></span>
-      <i class="imu imu-home"></i>
+      <span class="usd">$</span>
+      <span class="slash">/</span>
+      <span class="imu">ϑ</span>
     </div>
     <div class="track-list__play">
-      <i class="imu imu-home"></i>
+      <icon name="play"/>
     </div>
     <div class="track-list__title">She Looks So Perfect</div>
     <div class="track-list__author uppercase">Codeplay</div>
@@ -46,26 +47,29 @@
   </div>-->
 </template>
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex';
-import * as types from '@/store/types';
-import Icon from '@/components/Icon.vue';
+import { mapActions, mapGetters, mapMutations } from "vuex";
+import * as types from "@/store/types";
+import Icon from "@/components/Icon.vue";
 
 export default {
-  name: 'track-cover',
+  name: "track-cover",
   components: {
-    Icon,
+    Icon
   },
-  props: ['track'],
+  props: ["track"],
   data() {
     return {
-      thumbImage: 'thumb',
+      thumbImage: "thumb"
     };
   },
   computed: {
     isPlaying() {
       if (!this.currentTrack) return false;
 
-      return this.$store.state.isTrackPlaying && this.currentTrack.id === this.track.id;
+      return (
+        this.$store.state.isTrackPlaying &&
+        this.currentTrack.id === this.track.id
+      );
     },
 
     isLoggedIn() {
@@ -74,18 +78,18 @@ export default {
     ...mapGetters({
       user: types.ACCOUNTS_USER,
       token: types.ACCOUNTS_TOKEN,
-      currentTrack: types.POST,
-    }),
+      currentTrack: types.POST
+    })
   },
   methods: {
     ...mapActions({
       upvote: types.POST_UPVOTE,
       downvote: types.POST_DOWNVOTE,
-      setCurrentTrack: types.POST,
+      setCurrentTrack: types.POST
     }),
 
     ...mapMutations({
-      toggleLogin: types.TOGGLER_LOGIN,
+      toggleLogin: types.TOGGLER_LOGIN
     }),
 
     playTrack() {
@@ -97,12 +101,11 @@ export default {
     },
 
     upvoteTrack() {
-      this.upvote(this.track)
-        .then(() => {
-          this.track.voted_up += 1;
-        });
-    },
-  },
+      this.upvote(this.track).then(() => {
+        this.track.voted_up += 1;
+      });
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -131,6 +134,9 @@ export default {
   }
   &__price {
     flex: 2;
+    .slash {
+      color: $pink;
+    }
   }
   &__play {
     flex: 1.5;
