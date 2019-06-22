@@ -2,27 +2,27 @@
   <form id="upload-track">
     <div class="form-field">
       <label>Title</label>
-      <input type="text" v-model="track.title" placeholder="Title comes here">
+      <input type="text" v-model="attributes.title" placeholder="Title comes here">
     </div>
     <div class="form-field">
       <label>Tags</label>
       <input
         type="text"
-        v-model="track.title"
+        v-model="attributes.tags"
         placeholder="Please enter tags and separate using commas"
       >
     </div>
     <div class="form-field">
       <label>Genre</label>
-      <input type="text" v-model="track.title" placeholder="Please select genre">
+      <input type="text" v-model="attributes.genre" placeholder="Please select genre">
     </div>
     <div class="form-field">
       <label>Subgenre</label>
-      <input type="text" v-model="track.title" placeholder="Please select subgenre">
+      <input type="text" v-model="attributes.subgenre" placeholder="Please select subgenre">
     </div>
     <div class="form-field">
       <label>Description</label>
-      <textarea v-model="track.title">
+      <textarea v-model="attributes.description">
         Description comes here
       </textarea>
     </div>
@@ -31,14 +31,19 @@
 </template>
 <script>
 export default {
-  name: 'upload-form',
+  name: "upload-form",
+  props: ["attributes"],
   data() {
     return {
       track: {
-        title: '',
-      },
+        title: "",
+        tags: "",
+        genre: "",
+        subgenre: "",
+        description: ""
+      }
     };
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>
