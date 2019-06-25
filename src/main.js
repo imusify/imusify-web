@@ -8,7 +8,6 @@ import { messages } from './constants';
 Vue.config.productionTip = false;
 
 Vue.use(VueI18n);
-
 // get user's locale settings
 const language = localStorage.getItem('language') ||
   (window.navigator.userLanguage ||

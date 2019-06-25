@@ -10,6 +10,17 @@ textarea {
   }
 }
 
+select {
+  height: calculateRem(50);
+  background: $background;
+  border: 1px solid $grey !important;
+  width: 100% !important;
+  border-radius: calculateRem(5);
+  color: $white;
+  &::placeholder {
+    color: $grey;
+  }
+}
 textarea {
   resize: none;
 }

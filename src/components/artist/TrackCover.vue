@@ -11,8 +11,10 @@
     <div class="track-list__play">
       <icon name="play"/>
     </div>
-    <div class="track-list__title">She Looks So Perfect</div>
-    <div class="track-list__author uppercase">Codeplay</div>
+    <div class="track-list__title">{{track.title}}</div>
+    <div class="track-list__author uppercase">
+      <router-link :to="`/artist/${track.id}`">{{track.artist}}</router-link>
+    </div>
   </div>
   <!-- <div class="track-list__item" :style="{ backgroundImage: `url(${track.coverUrl})` }">
     <header>
@@ -47,19 +49,19 @@
   </div>-->
 </template>
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex';
-import * as types from '@/store/types';
-import Icon from '@/components/Icon.vue';
+import { mapActions, mapGetters, mapMutations } from "vuex";
+import * as types from "@/store/types";
+import Icon from "@/components/Icon.vue";
 
 export default {
-  name: 'track-cover',
+  name: "track-cover",
   components: {
-    Icon,
+    Icon
   },
-  props: ['track'],
+  props: ["track"],
   data() {
     return {
-      thumbImage: 'thumb',
+      thumbImage: "thumb"
     };
   },
   computed: {
@@ -78,18 +80,18 @@ export default {
     ...mapGetters({
       user: types.ACCOUNTS_USER,
       token: types.ACCOUNTS_TOKEN,
-      currentTrack: types.POST,
-    }),
+      currentTrack: types.POST
+    })
   },
   methods: {
     ...mapActions({
       upvote: types.POST_UPVOTE,
       downvote: types.POST_DOWNVOTE,
-      setCurrentTrack: types.POST,
+      setCurrentTrack: types.POST
     }),
 
     ...mapMutations({
-      toggleLogin: types.TOGGLER_LOGIN,
+      toggleLogin: types.TOGGLER_LOGIN
     }),
 
     playTrack() {
@@ -104,8 +106,8 @@ export default {
       this.upvote(this.track).then(() => {
         this.track.voted_up += 1;
       });
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

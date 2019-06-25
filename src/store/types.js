@@ -53,3 +53,11 @@ export const POSTS_CATEGORIES = 'posts/POSTS_CATEGORIES';
 export const POSTS_CATEGORIES_CATEGORY = 'posts/POSTS_CATEGORIES_CATEGORY';
 export const POSTS_CATEGORIES_SUBCATEGORIES = 'posts/POSTS_CATEGORIES_SUBCATEGORIES';
 export const POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY = 'posts/POSTS_CATEGORIES_SUBCATEGORIES_SUBCATEGORY'; // eslint-disable-line max-len
+
+// uploads
+export const UPLOAD_AUDIO_FILE = 'upload/AUDIO_FILE';
+export const UPLOAD_SUCCESS = 'upload/SUCCESS';
+export const GET_UPLOAD_URL = 'upload/GET_URL';
+export const GET_UPLOAD_DATA = 'upload/GET_UPLOAD_DATA';
+
+export const GET_UPLOAD_PROGRESS = 'upload/GET_PROGRESS';

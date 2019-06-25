@@ -6,11 +6,18 @@
         <button
           @click.prevent="toggleSignup(true)"
           class="btn btn-primary uppercase desktop-only"
+          v-if="!isLoggedIn"
         >Sign Up</button>
         <button
           @click.prevent="toggleLogin(true)"
           class="btn btn-default uppercase desktop-only"
+          v-if="!isLoggedIn"
         >Sign In</button>
+        <button
+          @click.prevent="logout()"
+          v-if="isLoggedIn"
+          class="btn btn-default uppercase desktop-only"
+        >Log Out</button>
       </div>
     </div>
     <div class="sidebar-menu">
@@ -113,16 +120,16 @@
   </nav>-->
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import Icon from '@/components/Icon.vue';
-import * as types from '@/store/types';
+import { mapGetters, mapMutations, mapActions } from "vuex";
+import Icon from "@/components/Icon.vue";
+import * as types from "@/store/types";
 
 export default {
-  name: 'SideBar',
+  name: "SideBar",
   components: {
-    Icon,
+    Icon
   },
-  props: ['isSideBarOpen'],
+  props: ["isSideBarOpen"],
   data() {
     return {};
   },
@@ -131,18 +138,21 @@ export default {
       token: types.ACCOUNTS_TOKEN,
       user: types.ACCOUNTS_USER,
       isSignupOpen: types.TOGGLER_SIGNUP,
-      isLoginOpen: types.TOGGLER_LOGIN,
+      isLoginOpen: types.TOGGLER_LOGIN
     }),
     isLoggedIn() {
       return Boolean(this.token);
-    },
+    }
   },
   methods: {
     ...mapMutations({
       toggleSignup: types.TOGGLER_SIGNUP,
-      toggleLogin: types.TOGGLER_LOGIN,
+      toggleLogin: types.TOGGLER_LOGIN
     }),
-  },
+    ...mapActions({
+      logout: types.ACCOUNTS_LOGOUT
+    })
+  }
 };
 </script>
 <style lang="scss" scoped>

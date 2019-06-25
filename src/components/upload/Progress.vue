@@ -3,7 +3,7 @@
     <img src="../../assets/images/icons/upload-icon.png" alt="imusify Progress Upload">
     <div class="upload-progress__text">
       <h4 class="uppercase">Upload Your Track</h4>
-      <span>Drag and drop or click here to start the upload</span>
+      <span>Drag and drop or click here to start the upload {{ getProgressUpdate }}</span>
     </div>
     <input type="file" @change="handleAudioFileUpload" ref="audioFile">
   </div>
@@ -13,10 +13,16 @@ import Icon from "@/components/Icon.vue";
 
 export default {
   name: "artworkProgress",
+  props: ["uploads"],
   data() {
     return {
       audioFile: null
     };
+  },
+  computed: {
+    getProgressUpdate: function() {
+      return this.uploads.progress;
+    }
   },
   components: {
     Icon

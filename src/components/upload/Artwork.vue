@@ -3,19 +3,20 @@
     <p>Album artwork</p>
     <div class="track-cta">
       <img
-        :src="attributes.artwork"
+        v-if="attributes.artwork.preview"
+        :src="attributes.artwork.preview"
         @click="$refs.file.click()"
         alt="imusify Song Album Artwork"
-        v-if="attributes.artwork"
       >
       <img
-        src="../../assets/images/icons/artwork-placeholder.png"
-        alt="imusify Album Artwork"
         v-else
+        src="@/assets/images/icons/artwork-placeholder.png"
         @click="$refs.file.click()"
+        alt="imusify Song Album Artwork"
       >
       <button class="btn btn-grey uppercase" @click="$refs.file.click()">
-        <icon name="upload"/>Album Artwork
+        <icon name="upload"/>
+        Album Artwork
       </button>
     </div>
     <input type="file" @change="handleFileArtwork" ref="file">
@@ -26,18 +27,22 @@ import Icon from "@/components/Icon.vue";
 
 export default {
   name: "track-artwork",
-  props: ["attributes"],
-  date() {
-    return {
-      file: null
-    };
-  },
+  props: ["attributes", "progress"],
   components: {
     Icon
   },
   methods: {
     handleFileArtwork(e) {
-      console.log(e.target.files[0]);
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.onload = e => {
+        let artwork = {
+          file,
+          preview: e.target.result
+        };
+        this.$emit("setArtwork", artwork);
+      };
+      reader.readAsDataURL(file);
     }
   }
 };

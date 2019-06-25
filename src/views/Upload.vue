@@ -7,14 +7,22 @@
     >
       <div id="textnode">Drop audio file.</div>
     </div>
-    <artworkProgress :handleAudioFile="handleAudioFile"></artworkProgress>
+    <artworkProgress :uploads="uploads" @handleAudioFile="handleAudioFile"></artworkProgress>
     <div class="body">
-      <artwork :attributes="audioAttributes"></artwork>
-      <upload-form :attributes="audioAttributes"></upload-form>
+      <artwork @setArtwork="setArtwork" :attributes="audioAttributes"></artwork>
+      <upload-form
+        :categories="categories"
+        :subCategories="subCategories"
+        :attributes="audioAttributes"
+        @getSubCategory="getSubCategory"
+        @saveTrack="saveTrack"
+      ></upload-form>
     </div>
   </section>
 </template>
 <script>
+import { mapActions, mapGetters, mapMutations } from "vuex";
+import * as types from "@/store/types";
 import Artwork from "@/components/upload/Artwork.vue";
 import ArtworkProgress from "@/components/upload/Progress.vue";
 import UploadForm from "@/components/upload/Form.vue";
@@ -30,29 +38,53 @@ export default {
   data() {
     return {
       audioFile: null,
+      subCategories: [],
       audioAttributes: {
         title: "",
         tags: "",
         genre: "",
         subgenre: "",
         description: "",
-        artwork: ""
+        artwork: {
+          file: null,
+          preview: ""
+        }
       }
     };
   },
+  created() {
+    this.getCategories();
+  },
+  computed: {
+    ...mapGetters({
+      categories: types.POSTS_CATEGORIES,
+      uploads: types.GET_UPLOAD_DATA
+    })
+  },
   methods: {
-    handleAudioFile(file) {
+    ...mapActions({
+      getCategories: types.POSTS_CATEGORIES,
+      getUploadURL: types.GET_UPLOAD_URL,
+      uploadAudioFile: types.UPLOAD_AUDIO_FILE
+    }),
+    async handleAudioFile(file) {
       // @todo ensure file to be upload is an audio mp3 file
       if (typeof file !== "undefined") {
-        jsmediatags.read(file, {
-          onSuccess: tag => {
+        await this.getUploadURL(file);
+        await this.uploadAudioFile({ url: this.uploads.url, file: file });
+        await jsmediatags.read(file, {
+          onSuccess: async tag => {
             if (typeof tag.tags !== "undefined") {
               this.audioAttributes = {
                 title: tag.tags.title,
                 tags: "",
                 genre: tag.tags.album,
                 subgenre: "",
-                description: ""
+                description: "",
+                artwork: {
+                  file: "",
+                  preview: ""
+                }
               };
             } else {
               // Notify user to fill the form
@@ -63,6 +95,34 @@ export default {
           }
         });
       }
+    },
+    getSubCategory(category) {
+      this.subCategories = this.categories.find(
+        index => index.id === category
+      ).children;
+    },
+    setArtwork(artwork) {
+      const {
+        title,
+        tags,
+        genre,
+        subgenre,
+        description
+      } = this.audioAttributes;
+      this.audioAttributes = {
+        title: title,
+        tags: tags,
+        genre: genre,
+        subgenre: subgenre,
+        description: description,
+        artwork: {
+          file: artwork.file,
+          preview: artwork.preview
+        }
+      };
+    },
+    async saveTrack() {
+      // console.log()
     }
   },
   mounted() {
