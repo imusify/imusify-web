@@ -3,9 +3,18 @@
     <img src="../../assets/images/icons/upload-icon.png" alt="imusify Progress Upload">
     <div class="upload-progress__text">
       <h4 class="uppercase">Upload Your Track</h4>
-      <span>Drag and drop or click here to start the upload {{ getProgressUpdate }}</span>
+      <span ref="dom-element">Drag and drop or click here to start the upload</span>
     </div>
+    <span v-if="progress > 0 && progress < 100" class="progress-status">{{progress}}% uploaded</span>
     <input type="file" @change="handleAudioFileUpload" ref="audioFile">
+    <div
+      v-if="progress > 0 && progress < 100"
+      :style="{width: `${progress}%`}"
+      aria-valuemin="0"
+      :aria-valuenow="progress"
+      aria-valuemax="100"
+      class="progress-meter"
+    ></div>
   </div>
 </template>
 <script>
@@ -13,24 +22,19 @@ import Icon from "@/components/Icon.vue";
 
 export default {
   name: "artworkProgress",
-  props: ["uploads"],
+  props: ["progress"],
   data() {
     return {
       audioFile: null
     };
   },
-  computed: {
-    getProgressUpdate: function() {
-      return this.uploads.progress;
-    }
-  },
   components: {
     Icon
   },
   methods: {
-    handleAudioFileUpload(e) {
+    async handleAudioFileUpload(e) {
       e.preventDefault();
-      this.$emit("handleAudioFile", e.target.files[0]);
+      await this.$emit("handleAudioFile", e.target.files[0]);
     }
   }
 };
@@ -61,6 +65,25 @@ export default {
       color: $grey;
       font-size: calculateRem(18);
     }
+  }
+
+  .progress-status {
+    font-size: calculateRem(20);
+    align-self: center;
+    justify-self: center;
+    z-index: 100;
+  }
+
+  .progress-meter {
+    background: $pink;
+    z-index: 99;
+    position: absolute;
+    height: calculateRem(120);
+    max-width: 38vw;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
   }
 }
 </style>

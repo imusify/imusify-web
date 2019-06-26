@@ -28,23 +28,24 @@ function globalErrorHandler(err) {
   return Promise.reject(err);
 }
 
-function progressUpload(path, file, cb) {
-  let progressData;
+function progressUpload(path, file, onUploadProgress) {
+  // let progressData;
   Axios.put(path, file, {
     headers: {
       'Content-Type': file.type,
     },
-    onUploadProgress: (progressEvent) => {
-      const totalLength = progressEvent.lengthComputable
-        ? progressEvent.total
-        : progressEvent.target.getResponseHeader('content-length') ||
-          progressEvent.target.getResponseHeader('x-decompressed-content-length',);
-      if (totalLength !== null) {
-        progressData = Math.round((progressEvent.loaded * 100) / totalLength);
-      }
-      cb(progressData);
-      return progressData;
-    },
+    onUploadProgress,
+    // onUploadProgress: (progressEvent) => {
+    //   const totalLength = progressEvent.lengthComputable
+    //     ? progressEvent.total
+    //     : progressEvent.target.getResponseHeader('content-length') ||
+    //       progressEvent.target.getResponseHeader('x-decompressed-content-length',);
+    //   if (totalLength !== null) {
+    //     progressData = Math.round((progressEvent.loaded * 100) / totalLength);
+    //   }
+    //   cb(progressData);
+    //   return progressData;
+    // },
   }).catch(error => globalErrorHandler(error));
 }
 

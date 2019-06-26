@@ -7,7 +7,7 @@
     >
       <div id="textnode">Drop audio file.</div>
     </div>
-    <artworkProgress :uploads="uploads" @handleAudioFile="handleAudioFile"></artworkProgress>
+    <artworkProgress :progress="progress" @handleAudioFile="handleAudioFile"></artworkProgress>
     <div class="body">
       <artwork @setArtwork="setArtwork" :attributes="audioAttributes"></artwork>
       <upload-form
@@ -21,8 +21,9 @@
   </section>
 </template>
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import * as types from "@/store/types";
+import { progressUpload } from "../store/api/create-api";
 import Artwork from "@/components/upload/Artwork.vue";
 import ArtworkProgress from "@/components/upload/Progress.vue";
 import UploadForm from "@/components/upload/Form.vue";
@@ -39,6 +40,7 @@ export default {
     return {
       audioFile: null,
       subCategories: [],
+      progress: 0,
       audioAttributes: {
         title: "",
         tags: "",
@@ -58,8 +60,9 @@ export default {
   computed: {
     ...mapGetters({
       categories: types.POSTS_CATEGORIES,
-      uploads: types.GET_UPLOAD_DATA
-    })
+      uploadedData: types.GET_UPLOAD_DATA
+    }),
+    ...mapState(["uploads"])
   },
   methods: {
     ...mapActions({
@@ -71,7 +74,19 @@ export default {
       // @todo ensure file to be upload is an audio mp3 file
       if (typeof file !== "undefined") {
         await this.getUploadURL(file);
-        await this.uploadAudioFile({ url: this.uploads.url, file: file });
+        await progressUpload(this.uploadedData.url, file, onUploadProgress => {
+          const totalLength = onUploadProgress.lengthComputable
+            ? onUploadProgress.total
+            : onUploadProgress.target.getResponseHeader("content-length") ||
+              onUploadProgress.target.getResponseHeader(
+                "x-decompressed-content-length"
+              );
+          if (totalLength !== null) {
+            this.progress = Math.round(
+              (onUploadProgress.loaded * 100) / totalLength
+            );
+          }
+        });
         await jsmediatags.read(file, {
           onSuccess: async tag => {
             if (typeof tag.tags !== "undefined") {
