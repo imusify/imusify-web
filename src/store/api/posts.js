@@ -2,7 +2,11 @@ import { api, globalErrorHandler, progressUpload } from './create-api';
 
 export default {
   post(opts) {
-    return api.post('/posts', opts).catch(globalErrorHandler);
+    return api.post(`/channels/${opts.channel}/posts/new`, opts).catch(globalErrorHandler);
+  },
+
+  saveTrack(opts) {
+    return api.post(`/channels/${opts.channel}/posts/new`, opts).catch(globalErrorHandler);
   },
 
   put(opts) {

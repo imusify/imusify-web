@@ -36,3 +36,11 @@
     border: none;
   }
 }
+
+button:disabled {
+  background-color: $grey;
+  &:hover {
+    border-color: $grey;
+    background-color: $grey;
+  }
+}

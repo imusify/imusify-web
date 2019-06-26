@@ -14,6 +14,7 @@
         :categories="categories"
         :subCategories="subCategories"
         :attributes="audioAttributes"
+        :progress="progress"
         @getSubCategory="getSubCategory"
         @saveTrack="saveTrack"
       ></upload-form>
@@ -21,7 +22,7 @@
   </section>
 </template>
 <script>
-import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import * as types from "@/store/types";
 import { progressUpload } from "../store/api/create-api";
 import Artwork from "@/components/upload/Artwork.vue";
@@ -44,7 +45,7 @@ export default {
       audioAttributes: {
         title: "",
         tags: "",
-        genre: "",
+        genre: [],
         subgenre: "",
         description: "",
         artwork: {
@@ -62,13 +63,13 @@ export default {
       categories: types.POSTS_CATEGORIES,
       uploadedData: types.GET_UPLOAD_DATA
     }),
-    ...mapState(["uploads"])
   },
   methods: {
     ...mapActions({
       getCategories: types.POSTS_CATEGORIES,
       getUploadURL: types.GET_UPLOAD_URL,
-      uploadAudioFile: types.UPLOAD_AUDIO_FILE
+      uploadAudioFile: types.UPLOAD_AUDIO_FILE,
+      createPost: types.POST_CREATE
     }),
     async handleAudioFile(file) {
       // @todo ensure file to be upload is an audio mp3 file
@@ -137,7 +138,14 @@ export default {
       };
     },
     async saveTrack() {
-      // console.log()
+      let data = {
+        title: this.audioAttributes.title,
+        description: this.audioAttributes.description,
+        categories: this.audioAttributes.genre,
+        attachment: this.uploadedData.url,
+        channel: 63 // For now
+      };
+      await this.createPost(data);
     }
   },
   mounted() {

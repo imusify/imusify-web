@@ -190,7 +190,7 @@ export default {
     color: $grey;
     flex: 2;
     a {
-      padding: calculateRem(16);
+      padding: calculateRem(25);
       border-bottom: 1px solid $lighter-black-bg;
       color: $link-color;
       font-size: calculateRem(18);

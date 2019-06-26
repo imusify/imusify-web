@@ -19,6 +19,11 @@ const actions = {
   [types.POST_CREATE]: ({ commit }, opts) =>
     posts.post(opts).then((res) => {
       commit(types.POST, res.data);
+      const data = {
+        alertType: 'success',
+        message: 'Upload successful',
+      };
+      commit(types.ALERT, data);
     }),
   [types.POST_LIST]: ({ commit }) => {
     commit(types.LOADING, true);
@@ -69,6 +74,10 @@ const actions = {
     posts.upload(opts, (result) => {
       commit(types.GET_UPLOAD_PROGRESS, result);
     }),
+  [types.SAVE_TRACK]: ({ commit }, opts) =>
+    posts.save(opts, (res) => {
+      commit(types.SAVE_TRACK_SUCCESS, res.data);
+    }),
   [types.GET_UPLOAD_URL]: ({ commit }, file) =>
     posts.getUploadURL(file).then((res) => {
       commit(types.GET_UPLOAD_DATA, res.data);
@@ -101,6 +110,9 @@ const mutations = {
   },
   [types.GET_UPLOAD_PROGRESS]: (state, data) => {
     state.uploads.progress = data;
+  },
+  [types.SAVE_TRACK_SUCCESS]: (state, data) => {
+    state.posts.concat(data);
   },
 };
 
