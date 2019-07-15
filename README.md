@@ -8,7 +8,7 @@ A free, blockchain based, incentified and decentralized platform for music relat
 # Website
 [imusify's](https://imusify.io/) website
 
-Join our [Discord Community](https://discord.gg/WexFb73) to interact with members of our dev team and other contributors.
+Join our [Slack Community](https://join.slack.com/t/imusify/shared_invite/enQtNjk1ODcyMDMxODYzLWQxNDBhNTM2OTg5YjM2ZjRmZDcwMTE0NTVkM2MyMWNhZmM4NmRiNjZkYTE5YWQ5NmI5OWIyMTdhZmY1M2IwMDc) to interact with members of our dev team and other contributors.
 
 ## Getting Started
 
