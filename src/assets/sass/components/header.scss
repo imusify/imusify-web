@@ -1,0 +1,63 @@
+// TODO remove width from header
+header {
+  z-index: 99;
+  position: fixed;
+  width: 100vw;
+}
+
+.nav {
+  background-color: $background;
+  max-height: calculateRem(50);
+  z-index: 99;
+  display: flex;
+  color: $grey;
+  padding-right: calculateRem(20);
+
+  &-auth {
+    padding: calculateRem(5) 0;
+    display: flex;
+    text-align: right;
+    .btn:last-child {
+      margin-left: calculateRem(10);
+    }
+  }
+  &-logo {
+    flex: 1;
+  }
+  i {
+    margin: calculateRem(20) calculateRem(17) 0 calculateRem(20);
+  }
+}
+
+.header {
+  background-color: $background;
+  width: calc(calculateRem(200) - 100vw);
+  max-height: calculateRem(50);
+  z-index: 99;
+  display: flex;
+  color: $grey;
+  &-menus {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    &__item {
+      padding: calculateRem(10);
+      color: $grey;
+      font-size: calculateRem(16);
+    }
+    a:active,
+    a:focus {
+      border-bottom: 4px solid $pink;
+    }
+    &__item:after {
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      content: 1;
+    }
+  }
+  &-search {
+    font-size: calculateRem(16);
+  }
+}

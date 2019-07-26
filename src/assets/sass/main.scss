@@ -1,0 +1,26 @@
+// utils
+
+@import "utils/functions";
+@import "utils/mixins";
+
+// core
+@import "core/colors";
+@import "core/variables";
+@import "core/fonts";
+@import "core/base";
+
+// pages
+@import "modules/index.scss";
+@import "modules/profile.scss";
+
+// components
+// @import "components/media_player.scss";
+// @import "components/sidebar.scss";
+// @import "components/header.scss";
+// @import "components/sub_header.scss";
+@import "components/search.scss";
+@import "components/buttons.scss";
+@import "components/forms.scss";
+@import "components/alert.scss";
+// @import "components/track.scss";
+// @import "components/artists.scss";

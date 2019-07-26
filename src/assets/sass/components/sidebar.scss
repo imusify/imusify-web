@@ -1,0 +1,87 @@
+.sidebar {
+  background: url("/images/sidebar.png");
+  grid-area: sidebar;
+  z-index: 999;
+  background-size: cover;
+  height: 100vh;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 200px;
+  &::after {
+    background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  }
+  &-header {
+    flex: 1;
+    align-self: center;
+    &__logo {
+      margin-top: calculateRem(19);
+    }
+    &__auth {
+      display: flex;
+      flex-direction: column;
+      button:last-child {
+        margin-top: calculateRem(10);
+      }
+    }
+  }
+  &-menu {
+    color: $grey;
+    flex: 2;
+    &__item {
+      padding: calculateRem(16);
+      border-bottom: 1px solid $lighter-black-bg;
+      a {
+        color: $link-color;
+        font-size: calculateRem(13);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        i {
+          margin-bottom: calculateRem(2);
+        }
+      }
+    }
+    &__item:first-child {
+      border-top: 1px solid $lighter-black-bg;
+    }
+  }
+  &-footer {
+    align-self: center;
+    a {
+      color: $grey;
+      text-align: center;
+      font-size: calculateRem(12);
+    }
+    span {
+      color: $grey;
+    }
+    p {
+      color: $grey;
+      font-size: calculateRem(10);
+    }
+  }
+}
+
+.active {
+  color: $white;
+  &.sidebar-menu__item {
+    background: $background;
+  }
+}
+
+@media (max-width: $desktop) {
+  .sidebar {
+    display: none;
+    &-header {
+      &__logo {
+        margin-top: calculateRem(10);
+      }
+      flex: 0.5;
+    }
+    &-footer {
+      margin-bottom: calculateRem(10);
+    }
+  }
+}

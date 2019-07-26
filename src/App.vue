@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <aside>
-      <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
-      <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
-    </aside>
-    <header class="toast" :class="{ active: isHeaderActive, error: isToastError() }">
-      <h1 v-if="status">{{status}}</h1>
-      <a href="#" @click.prevent="isHeaderActive = false">x</a>
-    </header>
-    <router-view :isSideBarOpen="isSideBarOpen" :class="{ isSideBarOpen: isSideBarOpen }">
-    </router-view>
-    <spinner v-if="loading"></spinner>
-    <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
-    <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
+  <div class="imusify-app">
+    <SideBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></SideBar>
+    <div class="main">
+      <Alert />
+      <!-- <NavBar v-on:toggleSideBar="toggleSideBar" :isSideBarOpen="isSideBarOpen"></NavBar>
+      <header class="toast" :class="{ active: isHeaderActive, error: isToastError() }">
+        <h1 v-if="status">{{status}}</h1>
+        <a href="#" @click.prevent="isHeaderActive = false">x</a>
+      </header>-->
+      <router-view></router-view>
+      <spinner v-if="loading"></spinner>
+      <login v-if="isLoginOpen" v-on:toggleLoginOpen="togglerLogin"></login>
+      <signup v-if="isSignupOpen" v-on:toggleSignupOpen="togglerSignup"></signup>
+    </div>
   </div>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import NavBar from '@/components/NavBar.vue';
-import SideBar from '@/components/SideBar.vue';
-import Spinner from '@/components/Spinner.vue';
-import Signup from '@/components/Signup.vue';
-import Login from '@/components/Login.vue';
-import * as types from '@/store/types';
+import { mapGetters, mapMutations } from "vuex";
+import NavBar from "@/components/NavBar.vue";
+import SideBar from "@/components/SideBar.vue";
+import Spinner from "@/components/Spinner.vue";
+import Signup from "@/components/Signup.vue";
+import Login from "@/components/Login.vue";
+import Alert from "@/components/Alert.vue";
+import * as types from "@/store/types";
 
 export default {
   components: {
@@ -31,12 +32,13 @@ export default {
     Spinner,
     Signup,
     Login,
+    Alert
   },
 
   data() {
     return {
       isSideBarOpen: false,
-      isHeaderActive: false,
+      isHeaderActive: false
     };
   },
 
@@ -46,42 +48,43 @@ export default {
       status: types.ACCOUNTS_LOGIN_STATUS,
       token: types.ACCOUNTS_TOKEN,
       isSignupOpen: types.TOGGLER_SIGNUP,
-      isLoginOpen: types.TOGGLER_LOGIN,
+      isLoginOpen: types.TOGGLER_LOGIN
     }),
 
     isLoggedIn() {
       return Boolean(this.token);
-    },
+    }
   },
 
   methods: {
     ...mapMutations({
       togglerSignup: types.TOGGLER_SIGNUP,
-      togglerLogin: types.TOGGLER_LOGIN,
+      togglerLogin: types.TOGGLER_LOGIN
     }),
     toggleSideBar() {
       this.isSideBarOpen = !this.isSideBarOpen;
     },
     isToastError() {
-      return this.status && this.status.toLowerCase().indexOf('invalid') > -1;
-    },
+      return this.status && this.status.toLowerCase().indexOf("invalid") > -1;
+    }
   },
 
   watch: {
     status(val) {
       this.isHeaderActive = Boolean(val);
-    },
+    }
   },
 
   mounted() {
     setTimeout(() => {
       this.isHeaderActive = false;
     }, 5000);
-  },
+  }
 };
 </script>
 <style lang="scss">
-@import "./src/assets/styles/base.scss";
+// @import "./src/assets/styles/base.scss";
+@import "./src/assets/sass/main.scss";
 
 /* width */
 ::-webkit-scrollbar {
@@ -167,8 +170,8 @@ export default {
     }
   }
 }
-  .isSideBarOpen {
-    top: 82px;
-    position: relative;
-  }
+.isSideBarOpen {
+  top: 82px;
+  position: relative;
+}
 </style>

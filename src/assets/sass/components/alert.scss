@@ -1,0 +1,16 @@
+.alert-message {
+  padding: calculateRem(10);
+  display: flex;
+  span {
+      flex: 1;
+      margin-left: calculateRem(20);
+  }
+
+  &.success {
+    background: $white;
+  }
+
+  &.error {
+    background: $error-alert;
+  }
+}

@@ -8,7 +8,7 @@
       </transition>
     </section>
     <artist-track-toggler :selected="selected"></artist-track-toggler>
-    <audio-player :track="track" />
+    <audio-player :track="track"/>
   </section>
 </template>
 
@@ -83,20 +83,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-#app > section {
+@import "../assets/sass/main.scss";
+
+section {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 .home {
   transform: translateY(1px); /* fix sticky 1px gap with audio player */
-
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   .lists {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-grow: 1;
-    width: 100vw;
+    margin: 0 0 0 calculateRem(40);
+    flex: 1;
   }
 }
 

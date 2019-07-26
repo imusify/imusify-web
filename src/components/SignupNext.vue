@@ -1,51 +1,60 @@
 <template>
-  <section class="signupnext">
+  <section class="signupnext modal">
     <div class="body">
       <h1 class="heading">Please complete your registration {{credentials.email}}</h1>
-      <p class="subheading">In a consequat mi. Etiam sit amet diam in diam ullamcorper
+      <p class="subheading">
+        In a consequat mi. Etiam sit amet diam in diam ullamcorper
         consequat. Maecenas pellentesque mauris augue, in scelerisque lectus imperdiet et.
         Nullam ultricies, eros quis maximus.
       </p>
       <form @submit.prevent="onSubmit()">
         <div class="form-group">
           <label class="control-label">Email Address</label>
-          <input type="text"
-                 id="username"
-                 placeholder="example@email.com"
-                 class="form-control"
-                 v-model="credentials.username">
+          <input
+            type="text"
+            id="username"
+            placeholder="example@email.com"
+            class="form-control"
+            v-model="credentials.username"
+          >
         </div>
         <div class="form-group">
           <label class="control-label">Password</label>
-          <input type="text"
-                 id="password"
-                 placeholder="Enter your password"
-                 class="form-control"
-                 v-model="credentials.password">
+          <input
+            type="text"
+            id="password"
+            placeholder="Enter your password"
+            class="form-control"
+            v-model="credentials.password"
+          >
         </div>
         <div class="form-group">
           <label class="control-label">Repeat Password</label>
-          <input type="text"
-                 id="passwordConfirm"
-                 placeholder="Retype your password"
-                 class="form-control"
-                 v-model="credentials.confirmPassword">
+          <input
+            type="text"
+            id="passwordConfirm"
+            placeholder="Retype your password"
+            class="form-control"
+            v-model="credentials.confirmPassword"
+          >
         </div>
         <div class="form-group">
           <div class="checkbox long-text">
             <label>
-              <input class="checkbox" type="checkbox"/>
+              <input class="checkbox" type="checkbox">
               <span></span>
               I acknowledge that I have read and accept the Terms of Use Agreement
-              and consent to the Privacy Policy and Video Privacy Policy.</label>
+              and consent to the Privacy Policy and Video Privacy Policy.
+            </label>
           </div>
         </div>
         <div class="form-group">
           <div class="checkbox">
             <label>
-              <input class="checkbox2" type="checkbox"/>
+              <input class="checkbox2" type="checkbox">
               <span></span>
-              Subscribe to our Newsletter</label>
+              Subscribe to our Newsletter
+            </label>
           </div>
         </div>
         <div class="cta left">

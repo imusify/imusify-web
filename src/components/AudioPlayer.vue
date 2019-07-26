@@ -2,60 +2,33 @@
   <div class="audio-player">
     <div class="track" v-if="track">
       <!--<div class="cover"-->
-           <!--:style="{ backgroundImage: `url(${track.coverUrl})` }"></div>-->
+      <!--:style="{ backgroundImage: `url(${track.coverUrl})` }"></div>-->
       <aside>
         <h3>{{track.title}}</h3>
         <h4>{{track.artist}}</h4>
       </aside>
     </div>
-    <div class="controls" v-if="track">
-      <div class="controlButtonsTime">
-        <div class="controlButtons">
-          <a href="#"
-             @click.prevent="rewind()">
-            <icon name="skip" />
-          </a>
-          <a href="#"
-             @click.prevent="play()"
-             v-if="!isTrackPlaying">
-            <icon name="play" />
-          </a>
-          <a href="#"
-             @click.prevent="pause()"
-             v-else>
-            <icon name="pause" />
-          </a>
-          <a href="#"
-             @click.prevent="forward()">
-            <icon name="skip" classes="forward" />
-          </a>
-        </div>
-        <div class="controlTime">
-          <span class="time elapsed">{{elapsed}}s</span>
-          <progress-bar :percent="progress"
-                        width="10rem" />
-          <span class="time remaining">{{duration}}s</span>
-        </div>
-      </div>
-      <div class="controlVolume">
-        <span class="volume-button"
-                    @click.prevent="toggleMute()">
-        <icon name="volume" />
-        </span>
-        <progress-bar :percent="volume"
-                      width="10rem"
-                      v-on:onClickProgress="onClickVolumeBar" />
-        <span class="level">{{volume}}%</span>
-      </div>
-    </div>
-    <div class="player">
-      <video-player class="video-player-box"
-                    ref="videoPlayer"
-                    :options="playerOptions"
-                    :playsinline="true"
-                    @timeupdate="onTimeUpdate($event)"
-                    @statechanged="playerStateChanged($event)">
-      </video-player>
+    <div class="controls">
+      <a href="#" @click.prevent="rewind()">
+        <icon name="skip"/>
+      </a>
+      <a href="#" @click.prevent="play()" v-if="!isPlaying">
+        <icon name="play"/>
+      </a>
+      <a href="#" @click.prevent="pause()" v-else>
+        <icon name="pause"/>
+      </a>
+      <a href="#" @click.prevent="forward()">
+        <icon name="skip" classes="forward"/>
+      </a>
+      <span class="time elapsed"></span>
+      <progress-bar percent="20" width/>
+      <span class="time remaining"></span>
+      <span class="volume">
+        <icon name="volume"/>
+      </span>
+      <progress-bar percent="70" width="20%"/>
+      <span class="level">70%</span>
     </div>
   </div>
 </template>
@@ -66,7 +39,6 @@ import Icon from '@/components/Icon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
 import * as types from '@/store/types';
 import '../../node_modules/video.js/dist/video-js.css';
-
 
 export default {
   name: 'audio-player',
@@ -198,26 +170,26 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import '../assets/sass/main.scss';
 .audio-player {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: calculateRem(20) calculateRem(10);
   background: #131314;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  flex-grow: 0;
   height: 6.7rem;
   font-size: 1.4rem;
-  box-shadow: 0px -20px 30px 6px rgba(0,0,0,0.74);
+  position: sticky;
+  margin-left: calculateRem(20);
+  bottom: 0;
+  box-shadow: 0px -20px 30px 6px rgba(0, 0, 0, 0.74);
 
   .track {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-grow: 1;
+    padding: 0 calculateRem(40);
 
     .cover {
       width: 4.7rem;
@@ -228,7 +200,7 @@ export default {
     }
 
     h4 {
-      opacity: .6;
+      opacity: 0.6;
       text-transform: uppercase;
     }
   }
@@ -259,8 +231,7 @@ export default {
       margin-right: 5rem;
     }
 
-
-    .volume-button {
+    .volume {
       margin-left: 4rem;
     }
 

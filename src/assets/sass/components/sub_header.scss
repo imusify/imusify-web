@@ -1,0 +1,30 @@
+.sub-header {
+  background-color: $black;
+  width: calc(calculateRem(200) - 100vw);
+  max-height: calculateRem(60);
+  display: flex;
+  z-index: 99;
+  &-menu {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    overflow: scroll;
+    &__item {
+      padding: calculateRem(14) 0;
+      color: $grey;
+      font-size: calculateRem(16);
+    }
+    a:active,
+    a:focus {
+      border-bottom: 4px solid $pink;
+    }
+  }
+}
+
+@media (max-width: $desktop) {
+  .sub-header {
+    &-menu {
+      overflow: hidden;
+    }
+  }
+}

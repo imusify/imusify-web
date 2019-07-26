@@ -1,0 +1,89 @@
+.profile-banner {
+  height: 50vh;
+  background-size: 50%;
+  width: 87.5vw;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  z-index: 99;
+
+  &-section {
+    width: 87.5vw;
+    display: flex;
+    background: $background !important;
+  }
+  &-info {
+    display: flex;
+    width: 87.5vw;
+    img {
+      border-radius: calculateRem(50);
+      height: calculateRem(100);
+      width: calculateRem(100);
+      margin-right: calculateRem(20);
+    }
+    .profile-info {
+      display: flex;
+      width: calculateRem(300);
+      flex-direction: column;
+
+      .profile-name {
+        color: $white;
+        font-size: calculateRem(30);
+        font-weight: 300;
+      }
+      span {
+        color: $grey;
+        padding-top: calculateRem(10);
+        font-weight: 500;
+        font-size: calculateRem(14);
+      }
+    }
+    .profile-additional {
+      display: flex;
+      width: 75vw;
+      padding-top: calculateRem(10);
+      color: $white;
+      font-size: calculateRem(14);
+      font-weight: 500;
+      justify-content: space-between;
+      .profile-counts {
+        display: flex;
+        flex: 2;
+      }
+      .profile-cta {
+        padding-bottom: calculateRem(10);
+        z-index: 99;
+      }
+    }
+  }
+  .profile-menu {
+    display: flex;
+    color: $white;
+    padding: calculateRem(20);
+    flex: 2;
+    &__link:not(:last-child) {
+      margin-right: calculateRem(20);
+    }
+  }
+  .profile-biography {
+    flex: 1;
+    padding: calculateRem(20);
+    color: $white;
+  }
+}
+
+.header-search {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: calculateRem(20);
+  .form-search {
+    height: calculateRem(40);
+    width: calculateRem(400);
+  }
+  input {
+    color: $white;
+    &::placeholder {
+      color: $white;
+    }
+  }
+}
