@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "animated-scroll": "0.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "js-yaml": "^3.12.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
